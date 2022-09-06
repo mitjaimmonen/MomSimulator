@@ -15,12 +15,11 @@ animations = [ {
 
 [node name="Panel" type="Panel" parent="."]
 margin_left = 1.0
-margin_right = 129.0
-margin_bottom = 320.0
+margin_right = 128.0
+margin_bottom = 128.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 61, 243 )
+position = Vector2( 61, 63 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
-frame = 1
 playing = true

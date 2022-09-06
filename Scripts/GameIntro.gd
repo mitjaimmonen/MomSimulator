@@ -1,5 +1,7 @@
 extends Node2D
 
+export var animation_name : String
+
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -8,12 +10,13 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("set input")
-	set_process_input(true)
-	pass # Replace with function body.
+	get_child(0).play(animation_name)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _input(event):
-	if (event.is_action_pressed("ui_accept")):
-		print("Device % enter", event.device)
+#func _process(delta):
+#	pass
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	visible = false

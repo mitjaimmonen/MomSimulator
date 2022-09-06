@@ -1,31 +1,31 @@
 extends Node2D
 
 var players = []
-var player_indices = []
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var player_controller_ids = []
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	print("set input")
 	set_process_input(true)
-	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
-	
 	var is_action = event.is_pressed()
-	var new_device = !player_indices.has(event.device)
+	var new_device = !player_controller_ids.has(event.device)
 	
 	if (is_action && new_device):
-		print("New player")
-		var player_instance = load("res://Scenes/PrefabScenes/PlayerInstance.tscn").instance()
-		add_child(player_instance)
-		players.append(player_instance)
-		player_indices.append(event.device)
-		
-		player_instance.controller_index = event.device
+		_create_player(event.device)
+
+
+func _create_player(var controller_id : int):
+	print("New player! Device: ", controller_id)
+	
+	var player_instance = load("res://Scenes/PrefabScenes/PlayerInstance.tscn").instance()
+	add_child(player_instance)
+	
+	players.append(player_instance)
+	player_controller_ids.append(controller_id)
+
+	player_instance.controller_index = controller_id
+	player_instance.controller_id = controller_id
+	player_instance.id = players.count()
