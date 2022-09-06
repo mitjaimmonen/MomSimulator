@@ -21,7 +21,10 @@ enum SceneState {
 	END
 }
 
+signal players_ready
+
 var game_state = GameState.SPLASH
+var scene_state = SceneState.INTRO
 
 # Declare member variables here. Examples:
 # var a = 2
