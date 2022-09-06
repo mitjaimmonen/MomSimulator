@@ -6,13 +6,9 @@ var game_node
 var outro_node
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("Starting melonta")
 	intro_node = get_node("Intro")
 	intro_node.visible = true
 
@@ -25,11 +21,12 @@ func _ready():
 	outro_node = get_node("Outro")
 	outro_node.visible = false
 	
-	GameManager.scene_state = GameManager.SceneState.INTRO
+	# GameManager.game_state = GameManager.GameState.INTRO
+	print("Starting melonta intro node")
 	intro_node._start()
 
 func _on_intro_finished():
 	intro_node.visible = false
 	guide_node.visible = true
-	GameManager.scene_state = GameManager.SceneState.GUIDE
+	# GameManager.game_state = GameManager.GameState.GUIDE
 	

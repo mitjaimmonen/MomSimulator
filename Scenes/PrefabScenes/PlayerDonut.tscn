@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Textures & Sprites/Donuts/donut_eyes_1.png" type="Texture" id=1]
+[ext_resource path="res://Textures & Sprites/Donuts/donut_eyes_2.png" type="Texture" id=2]
+[ext_resource path="res://Textures & Sprites/Donuts/donut_1.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=1]
+resource_name = "donut_anim"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6.8, 7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.2, 9.9 ),
+"transitions": PoolRealArray( 1, -2, 1 ),
+"update": 0,
+"values": [ Vector2( 63, 66 ), Vector2( 61, 62 ), Vector2( 63, 66 ) ]
+}
+
+[node name="PlayerDonut" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0.0705882 )
+margin_left = 1.0
+margin_right = 128.0
+margin_bottom = 128.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 63, 66 )
+scale = Vector2( 0.314394, 0.314394 )
+texture = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 63, 66 )
+scale = Vector2( 0.314394, 0.314394 )
+frames = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/donut_anim = SubResource( 1 )

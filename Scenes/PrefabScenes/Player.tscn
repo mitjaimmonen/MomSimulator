@@ -1,11 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Textures & Sprites/robot_blueDrive1.png" type="Texture" id=1]
-[ext_resource path="res://Textures & Sprites/robot_blueDrive2.png" type="Texture" id=2]
+[ext_resource path="res://Textures & Sprites/Robos/robot_blueDrive1.png" type="Texture" id=1]
+[ext_resource path="res://Textures & Sprites/Robos/robot_blueDrive2.png" type="Texture" id=2]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [  ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -23,3 +31,6 @@ position = Vector2( 61, 63 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
 playing = true
+
+[node name="donut" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )

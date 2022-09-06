@@ -10,6 +10,7 @@ signal intro_finished
 
 # Called when the node enters the scene tree for the first time.
 func _start():
+	print("Playing intro anim")
 	get_child(0).play(animation_name)
 
 
@@ -19,4 +20,5 @@ func _start():
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
+	print("intro finished signal")
 	emit_signal("intro_finished")

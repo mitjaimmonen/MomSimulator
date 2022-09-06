@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/robot_blueDrive1.png-4e2c38c3980f21dd055dadec888c8c05.stex"
+path="res://.import/robot_blueDrive1.png-a6fd5fa27081cd3657fd958b60252a86.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures & Sprites/robot_blueDrive1.png"
-dest_files=[ "res://.import/robot_blueDrive1.png-4e2c38c3980f21dd055dadec888c8c05.stex" ]
+source_file="res://Textures & Sprites/Robos/robot_blueDrive1.png"
+dest_files=[ "res://.import/robot_blueDrive1.png-a6fd5fa27081cd3657fd958b60252a86.stex" ]
 
 [params]
 

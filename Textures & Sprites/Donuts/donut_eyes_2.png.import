@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/robot_blueDrive2.png-e85f3c1cd6a87106f77b4a74549470c1.stex"
+path="res://.import/donut_eyes_2.png-22e1468256c0968edc027cf5b51aff5f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures & Sprites/robot_blueDrive2.png"
-dest_files=[ "res://.import/robot_blueDrive2.png-e85f3c1cd6a87106f77b4a74549470c1.stex" ]
+source_file="res://Textures & Sprites/Donuts/donut_eyes_2.png"
+dest_files=[ "res://.import/donut_eyes_2.png-22e1468256c0968edc027cf5b51aff5f.stex" ]
 
 [params]
 
