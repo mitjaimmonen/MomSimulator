@@ -7,7 +7,7 @@ var outro_node
 
 
 # Called when the node enters the scene tree for the first time.
-func _start():
+func _ready():
 	print("Starting game scene")
 	intro_node = get_node("Intro")
 	intro_node.visible = true

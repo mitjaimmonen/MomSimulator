@@ -25,13 +25,15 @@ enum Game {
 	NUOTIO,
 }
 
+signal solution_state_changed
+signal game_state_changed
+signal game_changed
 # signal players_ready
 
 var p_solution_state = SolutionState.SPLASH
 var p_game_state = GameState.INTRO
 var p_current_game = Game.NONE
 
-signal solution_state_changed
 
 func _get_solution_state() :
 	return p_solution_state

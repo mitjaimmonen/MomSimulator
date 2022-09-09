@@ -8,6 +8,7 @@ func _ready():
 
 func _on_solution_state_changed():
 	if GameManager._get_solution_state() == GameManager.SolutionState.MENU:
+		print("Playing Menu")
 		visible = true
 		set_process_input(true)
 	else:

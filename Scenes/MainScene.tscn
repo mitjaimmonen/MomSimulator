@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/LobbyController.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/SplashController.gd" type="Script" id=2]
 [ext_resource path="res://theme.tres" type="Theme" id=3]
 [ext_resource path="res://Scripts/MainMenuController.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/PlayerController.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/GameController.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/FinishController.gd" type="Script" id=8]
 [ext_resource path="res://Textures & Sprites/ass.png" type="Texture" id=9]
@@ -126,7 +125,6 @@ align = 1
 autowrap = true
 
 [node name="INTRO" type="Node2D" parent="SolutionStates"]
-visible = false
 script = ExtResource( 11 )
 
 [node name="PanelContainer2" type="PanelContainer" parent="SolutionStates/INTRO"]
@@ -148,7 +146,6 @@ margin_bottom = 775.0
 texture = ExtResource( 10 )
 
 [node name="GAME" type="Node2D" parent="SolutionStates"]
-visible = false
 script = ExtResource( 7 )
 
 [node name="GameViewport" type="ViewportContainer" parent="SolutionStates/GAME"]
@@ -159,16 +156,9 @@ __meta__ = {
 }
 
 [node name="FINISH" type="Node2D" parent="SolutionStates"]
-visible = false
 script = ExtResource( 8 )
 
-[node name="Controllers" type="Node2D" parent="."]
-__meta__ = {
-"_editor_description_": "Overlaps all game scene content"
-}
-
-[node name="PlayerController" type="Node2D" parent="Controllers"]
-script = ExtResource( 6 )
+[node name="Players" type="Node2D" parent="."]
 
 [connection signal="animation_finished" from="SolutionStates/SPLASH/AnimationPlayer" to="SolutionStates/SPLASH" method="_on_animation_finished"]
 [connection signal="start_signal" from="SolutionStates/MENU" to="SolutionStates/SPLASH" method="_on_menu_start_signal"]
