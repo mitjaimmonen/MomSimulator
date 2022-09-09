@@ -19,6 +19,6 @@ func _start():
 #	pass
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	print("intro finished signal")
 	emit_signal("intro_finished")

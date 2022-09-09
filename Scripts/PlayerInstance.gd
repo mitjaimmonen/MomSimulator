@@ -1,5 +1,8 @@
 extends Node
 
+export var visual_width : int = 128
+export var visual_height : int = 128
+
 export var controller_id : int
 export var id : int
 

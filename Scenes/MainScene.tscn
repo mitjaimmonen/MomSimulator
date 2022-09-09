@@ -70,23 +70,5 @@ script = ExtResource( 7 )
 [node name="PlayerController" type="Node2D" parent="Controllers"]
 script = ExtResource( 6 )
 
-[node name="PlayerInstance" parent="Controllers/PlayerController" instance=ExtResource( 2 )]
-position = Vector2( 31, 629 )
-
-[node name="PlayerInstance2" parent="Controllers/PlayerController" instance=ExtResource( 2 )]
-position = Vector2( 167, 627 )
-
-[node name="PlayerInstance3" parent="Controllers/PlayerController" instance=ExtResource( 2 )]
-position = Vector2( 303, 623 )
-
-[node name="PlayerInstance4" parent="Controllers/PlayerController" instance=ExtResource( 2 )]
-position = Vector2( 441, 625 )
-
-[node name="PlayerInstance5" parent="Controllers/PlayerController" instance=ExtResource( 2 )]
-position = Vector2( 584, 625 )
-
-[node name="PlayerInstance6" parent="Controllers/PlayerController" instance=ExtResource( 2 )]
-position = Vector2( 724, 627 )
-
 [node name="PlayerInstance7" parent="Controllers/PlayerController" instance=ExtResource( 2 )]
 position = Vector2( 867, 627 )
