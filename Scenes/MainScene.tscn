@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/LobbyController.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/SplashController.gd" type="Script" id=2]
 [ext_resource path="res://theme.tres" type="Theme" id=3]
+[ext_resource path="res://Animations/intro_anim.tres" type="Animation" id=4]
 [ext_resource path="res://Scripts/MainMenuController.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/GameController.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/FinishController.gd" type="Script" id=8]
@@ -132,6 +133,7 @@ margin_right = 1038.0
 margin_bottom = 782.0
 
 [node name="1" type="TextureRect" parent="SolutionStates/INTRO/PanelContainer2"]
+modulate = Color( 0, 0, 0, 1 )
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1031.0
@@ -139,11 +141,15 @@ margin_bottom = 775.0
 texture = ExtResource( 12 )
 
 [node name="2" type="TextureRect" parent="SolutionStates/INTRO/PanelContainer2"]
+visible = false
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1031.0
 margin_bottom = 775.0
 texture = ExtResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SolutionStates/INTRO"]
+anims/intro_anim = ExtResource( 4 )
 
 [node name="GAME" type="Node2D" parent="SolutionStates"]
 script = ExtResource( 7 )
@@ -162,3 +168,4 @@ script = ExtResource( 8 )
 
 [connection signal="animation_finished" from="SolutionStates/SPLASH/AnimationPlayer" to="SolutionStates/SPLASH" method="_on_animation_finished"]
 [connection signal="start_signal" from="SolutionStates/MENU" to="SolutionStates/SPLASH" method="_on_menu_start_signal"]
+[connection signal="animation_finished" from="SolutionStates/INTRO/AnimationPlayer" to="SolutionStates/INTRO" method="_on_animation_finished"]
