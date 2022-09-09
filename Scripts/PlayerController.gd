@@ -13,6 +13,9 @@ func _ready():
 
 
 func _input(event):
+	if (GameManager.solution_state != GameManager.SolutionState.LOBBY) :
+		return
+		
 	var is_action = event.is_pressed()
 	var new_device = !player_controller_ids.has(event.device)
 	
@@ -29,7 +32,7 @@ func _create_player(var controller_id : int):
 	var viewport_width : int = get_viewport_rect().size.x
 	var viewport_height : int = get_viewport_rect().size.y
 	
-	player_instance.position.x = margin_x
+	player_instance.position.x = margin_x + (players.size() * (player_instance.visual_width + margin_x))
 	player_instance.position.y = viewport_height - margin_y - player_instance.visual_height
 	
 	

@@ -3,6 +3,7 @@ extends Node2D
 enum SolutionState {
 	SPLASH,
 	MENU,
+	LOBBY,
 	GAME,
 	FINISH
 }
@@ -40,7 +41,6 @@ func _ready():
 
 
 func _process(delta):
-	print("GameManager Process")
 	match solution_state:
 		SolutionState.SPLASH: 
 			_process_splash(delta)

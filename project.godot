@@ -22,7 +22,7 @@ GameManager="*res://Scripts/GameManager.gd"
 
 window/size/height=768
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep"
 
 [gui]
 
