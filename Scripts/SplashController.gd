@@ -1,16 +1,19 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if GameManager._get_solution_state() == GameManager.SolutionState.SPLASH:
+		visible = true
+		get_node("AnimationPlayer").play("SplashAnimation")
+		print("Playing Splash")
+	else:
+		visible = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func _on_animation_finished(anim_name):
+	GameManager._set_solution_state(GameManager.SolutionState.MENU)
+
+
+func _on_menu_start_signal():
+	visible = false

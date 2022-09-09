@@ -13,7 +13,7 @@ func _ready():
 
 
 func _input(event):
-	if (GameManager.solution_state != GameManager.SolutionState.LOBBY) :
+	if (GameManager._get_solution_state() != GameManager.SolutionState.LOBBY) :
 		return
 		
 	var is_action = event.is_pressed()

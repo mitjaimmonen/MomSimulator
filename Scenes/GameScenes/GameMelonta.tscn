@@ -8,7 +8,7 @@
 [ext_resource path="res://Scripts/GameIntro.gd" type="Script" id=6]
 [ext_resource path="res://Textures & Sprites/arrow.png" type="Texture" id=7]
 [ext_resource path="res://Textures & Sprites/controller.png" type="Texture" id=8]
-[ext_resource path="res://Scripts/GameScene.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/GameMelonta.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/GameGuide.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFontData" id=3]

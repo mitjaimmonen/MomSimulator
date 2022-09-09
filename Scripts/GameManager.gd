@@ -4,13 +4,13 @@ enum SolutionState {
 	SPLASH,
 	MENU,
 	LOBBY,
+	INTRO,
 	GAME,
 	FINISH
 }
 enum GameState {
 	INTRO,
 	GUIDE,
-	START,
 	PLAY,
 	WINNER,
 	END
@@ -27,21 +27,26 @@ enum Game {
 
 # signal players_ready
 
-var solution_state = SolutionState.SPLASH
-var game_state = GameState.INTRO
-var current_game = Game.NONE
+var p_solution_state = SolutionState.SPLASH
+var p_game_state = GameState.INTRO
+var p_current_game = Game.NONE
 
+signal solution_state_changed
 
+func _get_solution_state() :
+	return p_solution_state
 
-# Called when the node enters the scene tree for the first time.
+func _set_solution_state(new_state):
+	if new_state != p_solution_state:
+		p_solution_state = new_state
+		emit_signal("solution_state_changed")
+
 func _ready():
-	print("GameManager Ready")
-	set_process(true)
-	pass # Replace with function body.
+	_set_solution_state(SolutionState.SPLASH)
 
 
 func _process(delta):
-	match solution_state:
+	match p_solution_state:
 		SolutionState.SPLASH: 
 			_process_splash(delta)
 		SolutionState.MENU: 

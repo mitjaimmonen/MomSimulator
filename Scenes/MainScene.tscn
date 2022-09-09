@@ -1,13 +1,39 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Scenes/GameScenes/GameMelonta.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/LobbyController.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/SplashController.gd" type="Script" id=2]
 [ext_resource path="res://theme.tres" type="Theme" id=3]
-[ext_resource path="res://Scripts/InputController.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/MainMenuController.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/PlayerController.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/GameController.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/FinishController.gd" type="Script" id=8]
+[ext_resource path="res://Textures & Sprites/ass.png" type="Texture" id=9]
+[ext_resource path="res://Textures & Sprites/Main/intro_1.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/IntroController.gd" type="Script" id=11]
+[ext_resource path="res://Textures & Sprites/Main/intro_2.png" type="Texture" id=12]
+
+[sub_resource type="Animation" id=4]
+resource_name = "SplashAnimation"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("PanelContainer/logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+font_data = SubResource( 5 )
 
 [sub_resource type="DynamicFontData" id=3]
 font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
@@ -16,21 +42,56 @@ font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
 size = 63
 font_data = SubResource( 3 )
 
-[node name="Node2D" type="Node"]
+[node name="Root" type="Node"]
 
 [node name="SolutionStates" type="Node2D" parent="."]
 
 [node name="SPLASH" type="Node2D" parent="SolutionStates"]
 script = ExtResource( 2 )
 
+[node name="PanelContainer" type="PanelContainer" parent="SolutionStates/SPLASH"]
+margin_right = 1024.0
+margin_bottom = 768.0
+
+[node name="logo" type="TextureRect" parent="SolutionStates/SPLASH/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1031.0
+margin_bottom = 775.0
+texture = ExtResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SolutionStates/SPLASH"]
+anims/SplashAnimation = SubResource( 4 )
+
 [node name="MENU" type="Node2D" parent="SolutionStates"]
 script = ExtResource( 5 )
 
+[node name="Control" type="Control" parent="SolutionStates/MENU"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 768.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SolutionStates/MENU/Control"]
+margin_left = 312.0
+margin_top = 639.0
+margin_right = 712.0
+margin_bottom = 717.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="SolutionStates/MENU/Control/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = SubResource( 6 )
+text = "Aloita Peli"
+
 [node name="LOBBY" type="Node2D" parent="SolutionStates"]
-script = ExtResource( 4 )
+script = ExtResource( 1 )
 
 [node name="UI" type="Control" parent="SolutionStates/LOBBY"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -64,7 +125,30 @@ text = "Tervetuloa
 align = 1
 autowrap = true
 
+[node name="INTRO" type="Node2D" parent="SolutionStates"]
+visible = false
+script = ExtResource( 11 )
+
+[node name="PanelContainer2" type="PanelContainer" parent="SolutionStates/INTRO"]
+margin_right = 1038.0
+margin_bottom = 782.0
+
+[node name="1" type="TextureRect" parent="SolutionStates/INTRO/PanelContainer2"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1031.0
+margin_bottom = 775.0
+texture = ExtResource( 12 )
+
+[node name="2" type="TextureRect" parent="SolutionStates/INTRO/PanelContainer2"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1031.0
+margin_bottom = 775.0
+texture = ExtResource( 10 )
+
 [node name="GAME" type="Node2D" parent="SolutionStates"]
+visible = false
 script = ExtResource( 7 )
 
 [node name="GameViewport" type="ViewportContainer" parent="SolutionStates/GAME"]
@@ -74,9 +158,8 @@ __meta__ = {
 "_editor_description_": "Contains all Game Scenes one at a time"
 }
 
-[node name="Melonta" parent="SolutionStates/GAME/GameViewport" instance=ExtResource( 1 )]
-
 [node name="FINISH" type="Node2D" parent="SolutionStates"]
+visible = false
 script = ExtResource( 8 )
 
 [node name="Controllers" type="Node2D" parent="."]
@@ -86,3 +169,6 @@ __meta__ = {
 
 [node name="PlayerController" type="Node2D" parent="Controllers"]
 script = ExtResource( 6 )
+
+[connection signal="animation_finished" from="SolutionStates/SPLASH/AnimationPlayer" to="SolutionStates/SPLASH" method="_on_animation_finished"]
+[connection signal="start_signal" from="SolutionStates/MENU" to="SolutionStates/SPLASH" method="_on_menu_start_signal"]

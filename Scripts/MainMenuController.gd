@@ -1,16 +1,22 @@
 extends Node2D
 
+signal start_signal
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	visible = false
+	GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
 
+func _on_solution_state_changed():
+	if GameManager._get_solution_state() == GameManager.SolutionState.MENU:
+		visible = true
+		set_process_input(true)
+	else:
+		visible = false
+		set_process_input(false)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _input(event):
+	if event.is_pressed():
+		set_process_input(false)
+		emit_signal("start_signal")
+		GameManager._set_solution_state(GameManager.SolutionState.LOBBY)
+		visible = false

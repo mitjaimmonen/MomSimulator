@@ -7,8 +7,8 @@ var outro_node
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	print("Starting melonta")
+func _start():
+	print("Starting game scene")
 	intro_node = get_node("Intro")
 	intro_node.visible = true
 
@@ -22,10 +22,11 @@ func _ready():
 	outro_node.visible = false
 	
 	# GameManager.game_state = GameManager.GameState.INTRO
-	print("Starting melonta intro node")
+	print("Starting game scene intro node")
 	intro_node._start()
 
 func _on_intro_finished():
+	print("Scene intro finished")
 	intro_node.visible = false
 	guide_node.visible = true
 	# GameManager.game_state = GameManager.GameState.GUIDE
