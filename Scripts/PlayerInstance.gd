@@ -22,11 +22,11 @@ func _input(event):
 	if !event.is_pressed():
 		return
 		
-	if GameManager.solution_state == GameManager.SolutionState.LOBBY:
+	if GameManager._get_solution_state() == GameManager.SolutionState.LOBBY:
 		if !ready:
 			ready = true
 	
-	if GameManager.solution_state == GameManager.SolutionState.GAME:
+	if GameManager._get_solution_state() == GameManager.SolutionState.GAME:
 		_game_input(event)
 		
 
