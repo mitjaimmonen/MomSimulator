@@ -12,17 +12,15 @@ enum GameState {
 	INTRO,
 	GUIDE,
 	PLAY,
-	WINNER,
-	END
+	OUTRO
 }
 enum Game {
-	NONE,
 	MELONTA,
 	TIETOKONE,
-	RETKILUISTELU,
 	SANOMALEHTI,
-	KEPPI,
 	NUOTIO,
+	KEPPI,
+	MITJA_TALOSSA
 }
 
 signal solution_state_changed
@@ -32,16 +30,30 @@ signal game_changed
 
 var p_solution_state = SolutionState.SPLASH
 var p_game_state = GameState.INTRO
-var p_current_game = Game.NONE
+var p_current_game = Game.MELONTA
 
 
 func _get_solution_state() :
 	return p_solution_state
+func _get_game_state() :
+	return p_game_state
+func _get_game() :
+	return p_current_game
 
 func _set_solution_state(new_state):
 	if new_state != p_solution_state:
 		p_solution_state = new_state
 		emit_signal("solution_state_changed")
+		
+func _set_game_state(new_state):
+	if new_state != p_game_state:
+		p_game_state = new_state
+		emit_signal("game_state_changed")
+		
+func _set_game(new_game):
+	if new_game != p_current_game:
+		p_current_game = new_game
+		emit_signal("game_changed")
 
 func _ready():
 	_set_solution_state(SolutionState.SPLASH)

@@ -1,15 +1,15 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Scripts/LobbyController.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/SplashController.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/SolutionControllers/LobbyController.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/SolutionControllers/SplashController.gd" type="Script" id=2]
 [ext_resource path="res://theme.tres" type="Theme" id=3]
 [ext_resource path="res://Animations/intro_anim.tres" type="Animation" id=4]
-[ext_resource path="res://Scripts/MainMenuController.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/GameController.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/FinishController.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/SolutionControllers/MainMenuController.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/SolutionControllers/GameController.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/SolutionControllers/FinishController.gd" type="Script" id=8]
 [ext_resource path="res://Textures & Sprites/ass.png" type="Texture" id=9]
 [ext_resource path="res://Textures & Sprites/Main/intro_1.png" type="Texture" id=10]
-[ext_resource path="res://Scripts/IntroController.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/SolutionControllers/IntroController.gd" type="Script" id=11]
 [ext_resource path="res://Textures & Sprites/Main/intro_2.png" type="Texture" id=12]
 
 [sub_resource type="Animation" id=4]
@@ -159,6 +159,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_editor_description_": "Contains all Game Scenes one at a time"
+}
+
+[node name="GAME_FINISH" type="Node2D" parent="SolutionStates"]
+__meta__ = {
+"_editor_description_": "Display current game's winner"
 }
 
 [node name="FINISH" type="Node2D" parent="SolutionStates"]

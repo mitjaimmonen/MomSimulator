@@ -24,10 +24,19 @@ func _ready():
 	# GameManager.game_state = GameManager.GameState.INTRO
 	print("Starting game scene intro node")
 	intro_node._start()
+	GameManager._set_game_state(GameManager.GameState.INTRO)
 
 func _on_intro_finished():
 	print("Scene intro finished")
 	intro_node.visible = false
 	guide_node.visible = true
-	# GameManager.game_state = GameManager.GameState.GUIDE
+	GameManager._set_game_state(GameManager.GameState.GUIDE)
+	set_process_input(true)
+
+func _input(event):
+	if GameManager._get_game_state() == GameManager.GameState.GUIDE:
+		# read each controller data, store it somehow
+		# call a function in player once they have pressed the required buttons
+		# to be ready for the game
+		pass
 	

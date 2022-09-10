@@ -1,9 +1,35 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scripts/PlayerInstance.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/PlayerControllers/PlayerInstance.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/PrefabScenes/PlayerDonut.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/PlayerControllers/Game/PlayerTietokone.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/PlayerControllers/Game/PlayerKeppi.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/PlayerControllers/Game/PlayerSanomalehti.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/PlayerControllers/Game/PlayerNuotio.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/PlayerControllers/Game/PlayerMitjaTalossa.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/PlayerControllers/Game/PlayerMelonta.gd" type="Script" id=8]
 
 [node name="PlayerInstance" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="PlayerVisual" parent="." instance=ExtResource( 2 )]
+
+[node name="PlayerGameControllers" type="Node2D" parent="."]
+
+[node name="PlayerMelonta" type="Node2D" parent="PlayerGameControllers"]
+script = ExtResource( 8 )
+
+[node name="PlayerTietokone" type="Node2D" parent="PlayerGameControllers"]
+script = ExtResource( 3 )
+
+[node name="PlayerSanomalehti" type="Node2D" parent="PlayerGameControllers"]
+script = ExtResource( 5 )
+
+[node name="PlayerNuotio" type="Node2D" parent="PlayerGameControllers"]
+script = ExtResource( 6 )
+
+[node name="PlayerKeppi" type="Node2D" parent="PlayerGameControllers"]
+script = ExtResource( 4 )
+
+[node name="PlayerMitjaTalossa" type="Node2D" parent="PlayerGameControllers"]
+script = ExtResource( 7 )
