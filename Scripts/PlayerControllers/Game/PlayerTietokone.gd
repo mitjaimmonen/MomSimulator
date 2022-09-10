@@ -1,4 +1,4 @@
-extends "res://Scripts/PlayerControllers/Game/PlayerGameBase.gd"
+extends PlayerGameBase
 
 func _ready():
 	game = GameManager.Game.TIETOKONE
