@@ -3,17 +3,22 @@ extends PlayerGameBase
 func _ready():
 	game = GameManager.Game.MELONTA
 
-func _process(delta):
-	match GameManager._get_game_state():
+# Process is only active when game is correct
+func _process(_delta):
+	match GameManager.get_game_state():
 		GameManager.GameState.GUIDE:
 			_process_guide()
 		GameManager.GameState.PLAY:
 			_process_gameplay()
 	pass
 
-func _input(event):
+
+# Input is only active when game is correct
+func _input(_event):
 	pass
 	
+	
+
 func _process_guide():
 	# check if player is ready
 	pass

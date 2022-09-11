@@ -3,11 +3,12 @@ extends Node2D
 signal start_signal
 
 func _ready():
+	set_process_input(false)
 	visible = false
-	GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
+	var _er = GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
 
 func _on_solution_state_changed():
-	if GameManager._get_solution_state() == GameManager.SolutionState.MENU:
+	if GameManager.get_solution_state() == GameManager.SolutionState.MENU:
 		print("Playing Menu")
 		visible = true
 		set_process_input(true)
@@ -19,5 +20,5 @@ func _input(event):
 	if event.is_pressed():
 		set_process_input(false)
 		emit_signal("start_signal")
-		GameManager._set_solution_state(GameManager.SolutionState.LOBBY)
+		GameManager.set_solution_state(GameManager.SolutionState.LOBBY)
 		visible = false

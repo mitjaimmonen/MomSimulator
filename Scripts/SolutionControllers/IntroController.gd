@@ -5,11 +5,11 @@ onready var animation_player = get_node("AnimationPlayer")
 func _ready():
 	set_process(false)
 	visible = false
-	GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
+	var _er = GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
 
 
 func _on_solution_state_changed():
-	if GameManager._get_solution_state() == GameManager.SolutionState.INTRO:
+	if GameManager.get_solution_state() == GameManager.SolutionState.INTRO:
 		print("Playing Intro")
 		visible = true
 		animation_player.play("intro_anim")
@@ -18,5 +18,5 @@ func _on_solution_state_changed():
 		
 
 
-func _on_animation_finished(anim_name):
-	GameManager._set_solution_state(GameManager.SolutionState.GAME)
+func _on_animation_finished(_anim_name):
+	GameManager.set_solution_state(GameManager.SolutionState.GAME)

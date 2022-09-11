@@ -1,6 +1,7 @@
 extends Node2D
 
-signal outro_finished
+signal play_finished
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,9 +11,9 @@ func start():
 
 
 func _on_game_state_changed():
-	if GameManager.get_game_state() == GameManager.GameState.OUTRO:
+	if GameManager.get_game_state() == GameManager.GameState.PLAY:
 		visible = true
 
 
-func outro_finish():
-	emit_signal("outro_finished")
+func play_finished():
+	emit_signal("play_finished")

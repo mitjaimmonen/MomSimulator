@@ -17,6 +17,6 @@ func _ready():
 func _get_name():
 	return player_name
 
-func _on_animation_finished(anim_name):
+func _on_animation_finished(_anim_name):
 	animation_player.play(default_anim)
 

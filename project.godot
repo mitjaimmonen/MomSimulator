@@ -10,12 +10,24 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "GameBase",
+"language": "GDScript",
+"path": "res://Scripts/GameControllers/Games/GameBase.gd"
+}, {
+"base": "Node2D",
 "class": "PlayerGameBase",
 "language": "GDScript",
 "path": "res://Scripts/PlayerControllers/Game/PlayerGameBase.gd"
+}, {
+"base": "Node",
+"class": "PlayerInstance",
+"language": "GDScript",
+"path": "res://Scripts/PlayerControllers/PlayerInstance.gd"
 } ]
 _global_script_class_icons={
-"PlayerGameBase": ""
+"GameBase": "",
+"PlayerGameBase": "",
+"PlayerInstance": ""
 }
 
 [application]

@@ -3,22 +3,25 @@ extends Node2D
 export var animation_name : String
 signal intro_finished
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var running : bool = false
 
 
 # Called when the node enters the scene tree for the first time.
-func _start():
-	print("Playing intro anim")
-	get_child(0).play(animation_name)
+func start():
+	visible = false
+	var _er = GameManager.connect("game_state_changed", self, "_on_game_state_changed")
+	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_game_state_changed():
+	if !running and GameManager.get_game_state() == GameManager.GameState.INTRO:
+		print("Game Intro starting animation")
+		running = true
+		visible = true
+		get_child(0).play(animation_name)
 
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
-	print("intro finished signal")
-	emit_signal("intro_finished")
+	if running:
+		running = false
+		visible = false
+		emit_signal("intro_finished")

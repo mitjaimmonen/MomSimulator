@@ -10,13 +10,14 @@ var player_controller_ids = []
 
 
 func _ready():
+	set_process_input(false)
 	var root = get_tree().root
 	scene_root = root.get_child(root.get_child_count() - 1)
-	GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
+	var _solution_state_changed_er = GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
 
 
 func _on_solution_state_changed():
-	if (GameManager._get_solution_state() == GameManager.SolutionState.LOBBY) :
+	if (GameManager.get_solution_state() == GameManager.SolutionState.LOBBY) :
 		set_process_input(true)
 	else :
 		set_process_input(false)
@@ -36,8 +37,8 @@ func _create_player(var controller_id : int):
 	var player_instance = load("res://Scenes/PrefabScenes/PlayerInstance.tscn").instance()
 	scene_root.get_node("Players").add_child(player_instance)
 	
-	var viewport_width : int = get_viewport_rect().size.x
-	var viewport_height : int = get_viewport_rect().size.y
+	#var viewport_width : int = get_viewport_rect().size.x
+	var viewport_height = int(get_viewport_rect().size.y)
 	
 	player_instance.position.x = margin_x + (players.size() * (player_instance.player_visual.width + margin_x))
 	player_instance.position.y = viewport_height - margin_y - player_instance.player_visual.height
@@ -51,10 +52,10 @@ func _create_player(var controller_id : int):
 	
 	emit_signal("player_joined")
 
-func _get_player(device_id):
+func get_player(device_id) -> PlayerInstance:
 	return players[player_controller_ids.find(device_id)]
 
-func _players_ready():
+func players_ready() -> bool:
 	if players.size() == 0:
 		return false
 	for p in players:

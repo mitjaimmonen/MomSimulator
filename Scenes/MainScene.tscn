@@ -154,7 +154,7 @@ anims/intro_anim = ExtResource( 4 )
 [node name="GAME" type="Node2D" parent="SolutionStates"]
 script = ExtResource( 7 )
 
-[node name="GameViewport" type="ViewportContainer" parent="SolutionStates/GAME"]
+[node name="GameViewport" type="ViewportContainer" parent="SolutionStates/GAME" groups=["GameContainer"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -170,6 +170,9 @@ __meta__ = {
 script = ExtResource( 8 )
 
 [node name="Players" type="Node2D" parent="."]
+__meta__ = {
+"_editor_description_": "Player Instances will be here"
+}
 
 [connection signal="animation_finished" from="SolutionStates/SPLASH/AnimationPlayer" to="SolutionStates/SPLASH" method="_on_animation_finished"]
 [connection signal="start_signal" from="SolutionStates/MENU" to="SolutionStates/SPLASH" method="_on_menu_start_signal"]

@@ -3,15 +3,15 @@ extends PlayerGameBase
 func _ready():
 	game = GameManager.Game.MITJA_TALOSSA
 
-func _process(delta):
-	match GameManager._get_game_state():
+func _process(_delta):
+	match GameManager.get_game_state():
 		GameManager.GameState.GUIDE:
 			_process_guide()
 		GameManager.GameState.PLAY:
 			_process_gameplay()
 	pass
 
-func _input(event):
+func _input(_event):
 	pass
 	
 func _process_guide():
