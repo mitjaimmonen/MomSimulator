@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/PlayerControllers/PlayerInstance.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/PrefabScenes/PlayerDonut.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scripts/PlayerControllers/Game/PlayerNuotio.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/PlayerControllers/Game/PlayerMitjaTalossa.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/PlayerControllers/Game/PlayerMelonta.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/PlayerControllers/State/PlayerLobby.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
@@ -58,6 +59,7 @@ script = ExtResource( 7 )
 [node name="PlayerStateControllers" type="Node2D" parent="."]
 
 [node name="PlayerLobby" type="Node2D" parent="PlayerStateControllers"]
+script = ExtResource( 9 )
 
 [node name="PlayerGame" type="Node2D" parent="PlayerStateControllers"]
 

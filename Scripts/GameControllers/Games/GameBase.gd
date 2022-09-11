@@ -45,11 +45,10 @@ func _ready():
 	outro_node.start()
 	
 	GameManager.set_game_state(GameManager.GameState.INTRO)
-	print("GameBase set game state to Intro")
+	PlayerController.set_players_ready(false)
 
 
 func _on_intro_finished():
-	PlayerController.set_players_ready(false)
 	GameManager.set_game_state(GameManager.GameState.GUIDE)
 	
 func _on_guide_finished():

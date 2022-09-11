@@ -24,6 +24,8 @@ func _process(delta):
 	if !players_ready and PlayerController.players_ready():
 		players_ready = true
 		players_ready_time = 0
+	if players_ready and !PlayerController.players_ready():
+		players_ready = false
 	
 	if players_ready: 
 		if players_ready_time > 5:

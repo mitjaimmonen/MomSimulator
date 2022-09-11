@@ -32,37 +32,6 @@ func _ready():
 	ready_label.visible = false
 	spawn_time = OS.get_unix_time()
 	
-	set_process_input(false)
-	set_process(true)
-
-
-func _process(_delta):
-	if OS.get_unix_time() - spawn_time > 0.1:
-		set_process(false)
-		set_process_input(true)
-
-
-func _input(event):
-	if event.device != controller_id:
-		return
-	if !event.is_pressed():
-		return
-		
-	if GameManager.get_solution_state() == GameManager.SolutionState.LOBBY:
-		set_ready(true)
-	
-	if GameManager.get_solution_state() == GameManager.SolutionState.GAME:
-		_game_input(event)
-		
-
-func _game_input(_event):
-	if GameManager.get_game_state() == GameManager.GameState.GUIDE :
-		# Check for ready here by checking game specific inputs
-		pass
-	if GameManager.get_game_state() == GameManager.GameState.PLAY :
-		# gameplay inputs, specific to the game, how?
-		pass
-
 
 func _on_joy_connection_changed(device_id, is_connected):
 	if (device_id == controller_id):

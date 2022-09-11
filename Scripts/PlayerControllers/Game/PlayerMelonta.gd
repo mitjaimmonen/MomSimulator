@@ -28,6 +28,8 @@ func _process_guide(_delta):
 			
 		if ready_left_pressed and ready_right_pressed:
 			player_instance.set_ready(true)
+			ready_left_pressed = false
+			ready_right_pressed = false
 
 
 

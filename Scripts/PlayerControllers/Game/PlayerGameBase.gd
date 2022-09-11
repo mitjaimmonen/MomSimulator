@@ -43,38 +43,55 @@ func _set_game_process():
 func _process(delta):
 	match GameManager.get_game_state():
 		GameManager.GameState.GUIDE:
+			base_process_guide(delta)
 			_process_guide(delta)
 		GameManager.GameState.PLAY:
+			base_process_gameplay(delta)
 			_process_gameplay(delta)
 
 
 func _input(event):
 	match GameManager.get_game_state():
 		GameManager.GameState.GUIDE:
+			base_process_guide_input(event)
 			_process_guide_input(event)
 		GameManager.GameState.PLAY:
+			base_process_gameplay_input(event)
 			_process_gameplay_input(event)
 
 
-func _process_guide(delta : float):
-	if cancelling_ready:
+func base_process_guide(delta : float):
+	if player_instance.is_ready() && cancelling_ready:
 		if Input.is_action_pressed("start"):
 			cancel_ready_time += delta
 			if cancel_ready_time > 1:
+				print("cancelled player ready")
 				player_instance.set_ready(false)
+				cancelling_ready = false
 		else:
 			cancelling_ready = false
 
 
-func _process_guide_input(_event : InputEvent):
+func base_process_guide_input(_event : InputEvent):
 	if _event.is_action_pressed("start"):
 			cancelling_ready = true
 			cancel_ready_time = 0
 
 
-func _process_gameplay(_delta : float):
+func base_process_gameplay(_delta):
+	# gameplay logic that all games use
+	pass
+func base_process_gameplay_input(_event):
+	# input logic that all games use
 	pass
 
 
+# overrides
+func _process_guide(_delta : float):
+	pass
+func _process_gameplay(_delta : float):
+	pass
+func _process_guide_input(_event : InputEvent):
+	pass
 func _process_gameplay_input(_event : InputEvent):
 	pass

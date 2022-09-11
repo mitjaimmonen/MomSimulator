@@ -35,7 +35,6 @@ func _start_next_game():
 	var current_game = GameManager.Game.values()[game_index]
 	print("GameController setting game state to none and game to ", GameManager.Game.keys()[current_game])
 	GameManager.set_game(current_game)
-	PlayerController.set_players_ready(false)
 	game_index += 1
 
 
