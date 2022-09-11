@@ -161,11 +161,6 @@ __meta__ = {
 "_editor_description_": "Contains all Game Scenes one at a time"
 }
 
-[node name="GAME_FINISH" type="Node2D" parent="SolutionStates"]
-__meta__ = {
-"_editor_description_": "Display current game's winner"
-}
-
 [node name="FINISH" type="Node2D" parent="SolutionStates"]
 script = ExtResource( 8 )
 

@@ -28,15 +28,21 @@ func _start_next_game():
 	
 	visible = true
 	game_active = true
+	
 	var game = load(_get_game_res()).instance()
 	viewport.add_child(game)
-	_set_game()
+	
+	var current_game = GameManager.Game.values()[game_index]
+	print("GameController setting game state to none and game to ", GameManager.Game.keys()[current_game])
+	GameManager.set_game(current_game)
+	PlayerController.set_players_ready(false)
 	game_index += 1
 
 
 func _stop_game():
 	game_active = false
 	visible = false
+	GameManager.set_game_state(GameManager.GameState.NONE)
 	for n in viewport.get_children():
 		viewport.remove_child(n)
 		n.queue_free()
@@ -50,7 +56,3 @@ func _get_game_res():
 	
 	return ""
 
-func _set_game():
-	var current_game = GameManager.Game.values()[game_index]
-	GameManager.set_game_state(GameManager.GameState.NONE)
-	GameManager.set_game(current_game)

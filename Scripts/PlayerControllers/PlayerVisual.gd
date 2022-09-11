@@ -14,7 +14,7 @@ onready var animation_player = get_node("AnimationPlayer")
 func _ready():
 	animation_player.play(spawn_anim)
 
-func _get_name():
+func get_name():
 	return player_name
 
 func _on_animation_finished(_anim_name):

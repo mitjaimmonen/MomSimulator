@@ -49,18 +49,21 @@ func get_game() :
 func set_solution_state(new_state):
 	if new_state != _solution_state:
 		_solution_state = new_state
+		print("Solution State: ", SolutionState.keys()[new_state])
 		emit_signal("solution_state_changed")
 
 		
 func set_game_state(new_state):
 	if new_state != _game_state:
 		_game_state = new_state
+		print("Game State: ", GameState.keys()[new_state])
 		emit_signal("game_state_changed")
 
 		
 func set_game(new_game):
 	if new_game != _current_game:
 		_current_game = new_game
+		print("Game: ", Game.keys()[new_game])
 		emit_signal("game_changed")
 
 

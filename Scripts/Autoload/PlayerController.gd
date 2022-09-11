@@ -1,6 +1,6 @@
 extends Node2D
 
-signal player_joined
+signal player_joined(player)
 
 export var margin_x : int = 20
 export var margin_y : int = 20
@@ -25,9 +25,10 @@ func _on_solution_state_changed():
 
 func _input(event):
 	var is_action = event.is_pressed()
+	var is_gamepad = event is InputEventJoypadButton or event is InputEventJoypadMotion
 	var new_device = !player_controller_ids.has(event.device)
 	
-	if (is_action && new_device):
+	if (is_action && new_device && is_gamepad):
 		_create_player(event.device)
 
 
@@ -50,7 +51,7 @@ func _create_player(var controller_id : int):
 	player_instance.controller_id = controller_id
 	player_instance.id = players.count(Node2D)
 	
-	emit_signal("player_joined")
+	emit_signal("player_joined", player_instance)
 
 func get_player(device_id) -> PlayerInstance:
 	return players[player_controller_ids.find(device_id)]
@@ -62,3 +63,8 @@ func players_ready() -> bool:
 		if !p.ready:
 			return false
 	return true
+
+
+func set_players_ready(value):
+	for p in players:
+		p.set_ready(value)

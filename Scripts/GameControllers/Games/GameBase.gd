@@ -9,8 +9,6 @@ export(NodePath) var outro_node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("GameBase ready")
-	
 	if intro_node == null:
 		intro_node = get_node("Intro")
 		if intro_node == null:
@@ -47,12 +45,15 @@ func _ready():
 	outro_node.start()
 	
 	GameManager.set_game_state(GameManager.GameState.INTRO)
+	print("GameBase set game state to Intro")
 
 
 func _on_intro_finished():
+	PlayerController.set_players_ready(false)
 	GameManager.set_game_state(GameManager.GameState.GUIDE)
 	
 func _on_guide_finished():
+	PlayerController.set_players_ready(false)
 	GameManager.set_game_state(GameManager.GameState.PLAY)
 	
 func _on_play_finished():

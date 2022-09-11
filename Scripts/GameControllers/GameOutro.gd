@@ -12,6 +12,8 @@ func start():
 func _on_game_state_changed():
 	if GameManager.get_game_state() == GameManager.GameState.OUTRO:
 		visible = true
+	else:
+		visible = false
 
 
 func outro_finish():

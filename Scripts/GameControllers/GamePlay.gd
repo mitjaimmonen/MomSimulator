@@ -13,6 +13,8 @@ func start():
 func _on_game_state_changed():
 	if GameManager.get_game_state() == GameManager.GameState.PLAY:
 		visible = true
+	else:
+		visible = false
 
 
 func play_finished():

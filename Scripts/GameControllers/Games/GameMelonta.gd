@@ -9,12 +9,11 @@ func _ready():
 func _process(_delta):
 	match GameManager.get_game_state():
 		GameManager.GameState.GUIDE:
-			# Process guide stuff, players readying
-			guide_node.all_players_ready()
 			pass
 		GameManager.GameState.PLAY:
 			# Process actual gameplay
 			pass
 
 func _on_game_state_changed():
+	print("GameMelonta game state changed: ", GameManager.get_game_state())
 	pass

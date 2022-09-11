@@ -45,11 +45,11 @@ animation_name = "melonta_anim"
 anims/melonta_anim = ExtResource( 3 )
 
 [node name="image1" type="Sprite" parent="Intro"]
+visible = false
 texture = ExtResource( 5 )
 centered = false
 
 [node name="image0" type="Sprite" parent="Intro"]
-visible = false
 texture = ExtResource( 4 )
 centered = false
 
@@ -59,7 +59,8 @@ margin_top = 110.0
 margin_right = 497.0
 margin_bottom = 222.0
 custom_fonts/font = SubResource( 4 )
-text = "Onneksi on eväät mukana!"
+text = "Huh! Ei jaksa meloa..."
+percent_visible = 0.0
 
 [node name="Ohjeistus" type="Node2D" parent="."]
 visible = false

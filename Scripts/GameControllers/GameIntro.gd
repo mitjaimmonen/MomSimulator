@@ -14,10 +14,13 @@ func start():
 
 func _on_game_state_changed():
 	if !running and GameManager.get_game_state() == GameManager.GameState.INTRO:
-		print("Game Intro starting animation")
 		running = true
 		visible = true
 		get_child(0).play(animation_name)
+		print("Game Intro starting animation")
+	elif GameManager.get_game_state() != GameManager.GameState.INTRO:
+		visible = false
+		running = false
 
 
 func _on_AnimationPlayer_animation_finished(_anim_name):

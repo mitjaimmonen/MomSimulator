@@ -17,7 +17,8 @@ func _on_solution_state_changed():
 		set_process_input(false)
 
 func _input(event):
-	if event.is_pressed():
+	var is_gamepad = event is InputEventJoypadButton or event is InputEventJoypadMotion
+	if event.is_pressed() && is_gamepad:
 		set_process_input(false)
 		emit_signal("start_signal")
 		GameManager.set_solution_state(GameManager.SolutionState.LOBBY)

@@ -1,28 +1,33 @@
 extends PlayerGameBase
 
+var ready_left_pressed = false
+var ready_right_pressed = false
+var debug : bool = false
+
 func _ready():
 	game = GameManager.Game.MELONTA
 
-# Process is only active when game is correct
-func _process(_delta):
-	match GameManager.get_game_state():
-		GameManager.GameState.GUIDE:
-			_process_guide()
-		GameManager.GameState.PLAY:
-			_process_gameplay()
-	pass
+
+func _process_guide(_delta):
+	if !debug:
+		debug = true
+		print("PlayerMelonta processing")
+		
+	if !player_instance.is_ready():
+		if Input.is_action_pressed("left_bumper"):
+			ready_left_pressed = true
+			
+		if Input.get_action_strength("left_trigger") > 0.5:
+			ready_left_pressed = true
+			
+		if Input.is_action_pressed("right_bumper"):
+			ready_right_pressed = true
+			
+		if Input.get_action_strength("right_trigger") > 0.5:
+			ready_right_pressed = true
+			
+		if ready_left_pressed and ready_right_pressed:
+			player_instance.set_ready(true)
 
 
-# Input is only active when game is correct
-func _input(_event):
-	pass
-	
-	
 
-func _process_guide():
-	# check if player is ready
-	pass
-
-func _process_gameplay():
-	# check for game conditions and mechanics, points etc
-	pass
