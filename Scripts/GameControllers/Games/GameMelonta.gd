@@ -1,19 +1,25 @@
 extends GameBase
 
-# Called when the node enters the scene tree for the first time.
+# Accessible vars through inheritance:
+# intro_node
+# guide_node
+# game_node
+# outro_node
+
+
 func _ready():
+	var _er = game_node.connect("game_started", self, "_on_game_started")
+	var _er1 = game_node.connect("game_finished", self, "_on_game_finished")
+
+
+func _on_game_started():
 	set_process(true)
-	var _er = GameManager.connect("game_state_changed", self, "_on_game_state_changed")
 
-# Process only runs when game exists (when game is active)
+
+func _on_game_finished():
+	set_process(false)
+
+
 func _process(_delta):
-	match GameManager.get_game_state():
-		GameManager.GameState.GUIDE:
-			pass
-		GameManager.GameState.PLAY:
-			# Process actual gameplay
-			pass
-
-func _on_game_state_changed():
-	print("GameMelonta game state changed: ", GameManager.get_game_state())
 	pass
+
