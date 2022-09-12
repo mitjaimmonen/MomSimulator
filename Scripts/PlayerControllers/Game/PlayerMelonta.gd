@@ -18,6 +18,7 @@ var combo_start_time : float = 0
 var is_combo : bool = false
 var combo_mul : int = 1
 var current_combo_points : int = 0
+var current_points : int = 0
 
 
 func _ready():
@@ -78,6 +79,8 @@ func _process_gameplay(_delta):
 		
 	if is_combo && time - last_accepted_input_time > 1:
 		stop_combo()
+	
+	player_instance.set_game_stats(1,current_points, combo_mul)
 
 
 func _process_gameplay_input(event):
@@ -92,6 +95,7 @@ func _process_gameplay_input(event):
 	
 	if left_event && !left_is_pressed:
 		left_is_pressed = true
+		left_was_pressed = true
 		if right_was_pressed:
 			if !is_combo:
 				start_combo()
@@ -100,9 +104,12 @@ func _process_gameplay_input(event):
 			last_accepted_input_time = time
 		else: # Right was not pressed last time
 			stop_combo()
+	else:
+		left_is_pressed = false
 	
 	if right_event && !right_is_pressed:
 		right_is_pressed = true
+		right_was_pressed = true
 		if left_was_pressed:
 			if !is_combo:
 				start_combo()
@@ -111,12 +118,17 @@ func _process_gameplay_input(event):
 			last_accepted_input_time = time
 		else: # Left was not pressed last time
 			stop_combo()
+	else:
+		right_is_pressed = false
 	
 
 func stop_combo():
 	if is_combo:
 		is_combo = false
-		player_instance.current_points += combo_mul * current_combo_points
+		combo_mul = 1
+		current_combo_points = 0
+		current_points += combo_mul * current_combo_points
+		player_instance.set_current_points(current_points)
 
 
 func start_combo():

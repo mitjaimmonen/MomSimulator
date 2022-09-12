@@ -36,9 +36,10 @@ func _ready():
 	
 	intro_node.connect("intro_finished", self, "_on_intro_finished")
 	guide_node.connect("guide_finished", self, "_on_guide_finished")
-	game_node.connect("play_started", self, "_on_play_started")
 	game_node.connect("play_finished", self, "_on_play_finished")
 	outro_node.connect("outro_finished", self, "_on_outro_finished")
+	
+	game_node.connect("play_started", self, "_on_play_started")
 	
 	intro_node.start()
 	guide_node.start()
@@ -54,30 +55,24 @@ func _on_intro_finished():
 
 
 func _on_guide_finished():
-	PlayerController.set_players_ready(false)
 	GameManager.set_game_state(GameManager.GameState.PLAY)
-
-
-func _on_play_started():
-	_play_started()
-	base_play_started()
+	PlayerController.set_players_ready(false)
+	PlayerController.enable_player_stats(true)
 
 
 func _on_play_finished():
+	GameManager.set_game_state(GameManager.GameState.OUTRO)
 	_play_finished()
-	base_play_finished()
 
 
 func _on_outro_finished():
+	PlayerController.enable_player_stats(false)
 	GameManager.set_game_state(GameManager.GameState.FINISH)
 
 
-func base_play_started():
-	pass
-
-func base_play_finished():
-	GameManager.set_game_state(GameManager.GameState.OUTRO)
-
+# Additional overrideable event func
+func _on_play_started():
+	_play_started()
 
 # Overrides
 

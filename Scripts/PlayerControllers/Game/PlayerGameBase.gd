@@ -18,20 +18,6 @@ func _ready():
 	
 	var _game_changed_er = GameManager.connect("game_changed", self, "_on_game_changed")
 	var _solution_state_changed_er = GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
-	var _game_state_changed_er = GameManager.connect("game_state_changed", self, "_on_game_state_changed")
-
-
-
-func _on_game_state_changed():
-	var is_game : bool = GameManager.get_solution_state() == GameManager.SolutionState.GAME
-	var correct_game : bool = GameManager.get_game() == game
-	var play_state : bool = GameManager.get_game_state() == GameManager.GameState.PLAY
-	var finish_state : bool = GameManager.get_game_state() == GameManager.GameState.FINISH
-	
-	if is_game and correct_game and (play_state or finish_state):
-		player_instance.enable_game_stats(true)
-	else:
-		player_instance.enable_game_stats(false)
 
 
 func _on_game_changed():

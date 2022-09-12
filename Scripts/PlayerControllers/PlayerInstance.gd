@@ -1,6 +1,8 @@
 extends Node
 class_name PlayerInstance
 
+signal current_points_changed
+
 onready var player_visual = get_node("PlayerVisual")
 onready var ready_label = get_node("Control/ReadyLabel")
 onready var ranking_label = get_node("Control/RankingLabel")
@@ -23,6 +25,11 @@ func set_ready(var value : bool):
 		ready = value
 
 
+func set_current_points(var value : int):
+	if current_points != value:
+		current_points = value
+		emit_signal("current_points_changed") # TODO read & update stats
+
 func is_ready() -> bool:
 	return ready
 
@@ -42,10 +49,7 @@ func set_game_stats(ranking:int, score:float, combo:int):
 		ranking_label.text = ""
 		
 	points_label.text = score as String
-	if combo > 1:
-		combo_label.text = combo as String + "x"
-	else:
-		combo_label.text = ""
+	combo_label.text = combo as String + "x"
 
 
 func enable_game_stats(state: bool):

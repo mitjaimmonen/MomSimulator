@@ -68,3 +68,8 @@ func players_ready() -> bool:
 func set_players_ready(value):
 	for p in players:
 		p.set_ready(value)
+
+
+func enable_player_stats(value : bool):
+	for p in players:
+		p.enable_game_stats(value)
