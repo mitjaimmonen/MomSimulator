@@ -6,7 +6,7 @@ extends GameBase
 # game_node
 # outro_node
 
-var game_length : float = 5
+var game_length : float = 10
 var start_time : float = 0
 
 

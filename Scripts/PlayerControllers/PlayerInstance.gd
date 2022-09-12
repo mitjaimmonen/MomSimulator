@@ -38,7 +38,7 @@ func get_name():
 	return player_visual.get_name()
 
 
-func set_game_stats(ranking:int, score:float, combo:int):
+func set_game_stats(ranking:int, score:float, combo_score:int, combo_mul:int):
 	if ranking == 1:
 		ranking_label.text = "EKA"
 	elif ranking == 2:
@@ -49,13 +49,16 @@ func set_game_stats(ranking:int, score:float, combo:int):
 		ranking_label.text = ""
 		
 	points_label.text = score as String
-	combo_label.text = combo as String + "x"
+	combo_label.text = combo_score as String + " " + combo_mul as String + "x"
 
 
 func enable_game_stats(state: bool):
 	ranking_label.visible = state
 	points_label.visible = state
 	combo_label.visible = state
+	points_label.text = ""
+	combo_label.text = ""
+	ranking_label.text = ""
 
 
 func _ready():
