@@ -39,6 +39,7 @@ func _start_next_game():
 
 
 func _stop_game():
+	print("GameController: Stopping current game")
 	game_active = false
 	visible = false
 	GameManager.set_game_state(GameManager.GameState.NONE)

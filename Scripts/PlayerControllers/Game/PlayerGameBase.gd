@@ -1,6 +1,7 @@
 extends Node2D
 class_name PlayerGameBase
 
+var game_container : ViewportContainer
 var player_instance : PlayerInstance
 var game
 
@@ -17,12 +18,26 @@ func _ready():
 	
 	var _game_changed_er = GameManager.connect("game_changed", self, "_on_game_changed")
 	var _solution_state_changed_er = GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
+	var _game_state_changed_er = GameManager.connect("game_state_changed", self, "_on_game_state_changed")
+
+
+
+func _on_game_state_changed():
+	var is_game : bool = GameManager.get_solution_state() == GameManager.SolutionState.GAME
+	var correct_game : bool = GameManager.get_game() == game
+	var play_state : bool = GameManager.get_game_state() == GameManager.GameState.PLAY
+	var finish_state : bool = GameManager.get_game_state() == GameManager.GameState.FINISH
+	
+	if is_game and correct_game and (play_state or finish_state):
+		player_instance.enable_game_stats(true)
+	else:
+		player_instance.enable_game_stats(false)
 
 
 func _on_game_changed():
 	_set_game_process()
-	
-	
+
+
 func _on_solution_state_changed():
 	_set_game_process()
 
@@ -31,13 +46,24 @@ func _set_game_process():
 	var is_game : bool = GameManager.get_solution_state() == GameManager.SolutionState.GAME
 	var correct_game : bool = GameManager.get_game() == game
 	
-	if is_game && correct_game:
+	if is_game and correct_game:
 		print("Player processing started for game: ", game)
+		game_container = get_tree().get_nodes_in_group("GameContainer")[0] as ViewportContainer
+		var _game_er = game_container.get_child(0).get_node("Peli").connect("play_started", self, "_on_play_started")
+		var _game_er2 = game_container.get_child(0).get_node("Peli").connect("play_finished", self, "_on_play_finished")
 		set_process(true)
 		set_process_input(true)
 	else:
 		set_process(false)
 		set_process_input(false)
+
+
+func _on_play_started():
+	_play_started()
+
+
+func _on_play_finished():
+	_play_finished()
 
 
 func _process(delta):
@@ -94,4 +120,8 @@ func _process_gameplay(_delta : float):
 func _process_guide_input(_event : InputEvent):
 	pass
 func _process_gameplay_input(_event : InputEvent):
+	pass
+func _play_started():
+	pass
+func _play_finished():
 	pass

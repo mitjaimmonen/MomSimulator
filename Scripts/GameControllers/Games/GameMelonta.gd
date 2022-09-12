@@ -6,20 +6,27 @@ extends GameBase
 # game_node
 # outro_node
 
+var game_length : float = 5
+var start_time : float = 0
+
 
 func _ready():
-	var _er = game_node.connect("play_started", self, "_on_game_started")
-	var _er1 = game_node.connect("play_finished", self, "_on_game_finished")
+	set_process(false)
+	pass
 
 
-func _on_game_started():
+func _play_started():
+	start_time = OS.get_unix_time()
 	set_process(true)
 
 
-func _on_game_finished():
+func _play_finished():
 	set_process(false)
 
 
 func _process(_delta):
-	pass
+	if OS.get_unix_time() - start_time > game_length:
+		game_node.play_finished()
+	
+	
 
