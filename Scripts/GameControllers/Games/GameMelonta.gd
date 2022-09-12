@@ -8,8 +8,8 @@ extends GameBase
 
 
 func _ready():
-	var _er = game_node.connect("game_started", self, "_on_game_started")
-	var _er1 = game_node.connect("game_finished", self, "_on_game_finished")
+	var _er = game_node.connect("play_started", self, "_on_game_started")
+	var _er1 = game_node.connect("play_finished", self, "_on_game_finished")
 
 
 func _on_game_started():
