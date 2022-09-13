@@ -7,16 +7,20 @@ export var margin_y : int = 20
 var scene_root
 var players = []
 var player_controller_ids = []
+var initialized : bool = false
 
 
 func _ready():
 	set_process_input(false)
-	var root = get_tree().root
-	scene_root = root.get_child(root.get_child_count() - 1)
 	var _solution_state_changed_er = GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
 
 
 func _on_solution_state_changed():
+	if !initialized:
+		var root = get_tree().root
+		scene_root = root.get_child(root.get_child_count() - 1)
+		initialized = true
+	
 	if (GameManager.get_solution_state() == GameManager.SolutionState.LOBBY) :
 		set_process_input(true)
 	else :
@@ -73,3 +77,12 @@ func set_players_ready(value):
 func enable_player_stats(value : bool):
 	for p in players:
 		p.enable_game_stats(value)
+
+
+func reset():
+	for p in players:
+		p.queue_free()
+	players.clear()
+	player_controller_ids.clear()
+	set_process_input(false)
+	initialized = false

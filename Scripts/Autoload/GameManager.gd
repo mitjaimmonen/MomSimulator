@@ -25,6 +25,7 @@ enum Game {
 	MITJA_TALOSSA,
 }
 
+signal reset
 signal solution_state_changed
 signal game_state_changed
 signal game_changed
@@ -67,5 +68,6 @@ func set_game(new_game):
 		emit_signal("game_changed")
 
 
-func _ready():
-	set_solution_state(SolutionState.SPLASH)
+func reset_game():
+	emit_signal("reset")
+

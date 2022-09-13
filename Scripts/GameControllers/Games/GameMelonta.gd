@@ -5,16 +5,30 @@ extends GameBase
 # guide_node
 # game_node
 # outro_node
-onready var kayak_sprite : AnimatedSprite = get_node("Peli/GameVisuals/Kayak") as AnimatedSprite
-onready var controller_guide_anim : AnimationPlayer = get_node("Ohjeistus/ControllerVisual/AnimationPlayer") as AnimationPlayer
 
+#guide
+onready var controller_guide_anim : AnimationPlayer = get_node("Ohjeistus/ControllerVisual/AnimationPlayer") as AnimationPlayer
 var is_guide : bool = false
+
+#gameplay
+onready var kayak_sprite : AnimatedSprite = get_node("Peli/GameVisuals/Kayak") as AnimatedSprite
 var game_length : float = 10
-var start_time : float = 0
+var is_play : bool = false
+
+#outro
+onready var finish_label : Label = get_node("Outro/UI/Finish Label")
+onready var winner_label : Label = get_node("Outro/UI/Finish Label")
+onready var winner_score_label : Label = get_node("Outro/UI/Finish Label")
+var is_outro : bool = false
+var winner_shown : bool = false
+
+
+
+var state_start_time_ms : float = 0
 
 
 func _ready():
-	set_process(false)
+	set_process(true)
 	kayak_sprite.playing = false
 	var _er = GameManager.connect("game_state_changed", self, "_on_game_state_changed")
 	pass
@@ -28,6 +42,15 @@ func _on_game_state_changed():
 	elif is_guide:
 		is_guide = false
 		controller_guide_anim.disconnect("animation_finished", self, "_on_animation_finished")
+	
+	if GameManager.get_game_state() == GameManager.GameState.OUTRO:
+		is_outro = true
+		state_start_time_ms = Time.get_ticks_msec()
+		finish_label.visible = true
+		winner_label.visible = false
+		winner_score_label.visible = false
+	elif is_outro:
+		is_outro = false
 
 
 func _on_animation_finished(_anim_name):
@@ -35,22 +58,31 @@ func _on_animation_finished(_anim_name):
 
 
 func _play_started():
-	start_time = OS.get_unix_time()
+	state_start_time_ms = Time.get_ticks_msec()
 	kayak_sprite.playing = true
-	set_process(true)
+	is_play = true
 
 
 func _play_finished():
-	set_process(false)
+	is_play = false
 
 
 func _process(_delta):
-	var time = OS.get_unix_time() - start_time
+	var state_time = (Time.get_ticks_msec() - state_start_time_ms) / 1000
 	
-	kayak_sprite.speed_scale = 0.5 + (time / 2.0)
-	
-	if time > game_length:
-		game_node.play_finished()
-	
+	if is_play:
+		kayak_sprite.speed_scale = 0.5 + (state_time / 2.0)
+		if state_time > game_length:
+			game_node.play_finished()
+			
+	if is_outro:
+		if !winner_shown && state_time > 2:
+			# TODO get winner name & points
+			winner_shown = true
+			finish_label.visible = true
+			winner_label.visible = false
+			winner_score_label.visible = false
+		elif state_time > 5:
+			outro_node.outro_finish()
 	
 

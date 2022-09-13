@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/SolutionControllers/LobbyController.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/SolutionControllers/SplashController.gd" type="Script" id=2]
@@ -42,6 +42,10 @@ font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
 size = 63
 font_data = SubResource( 3 )
 
+[sub_resource type="DynamicFont" id=8]
+size = 63
+font_data = SubResource( 3 )
+
 [sub_resource type="Environment" id=7]
 background_mode = 4
 glow_enabled = true
@@ -56,6 +60,7 @@ adjustment_brightness = 1.38
 [node name="SolutionStates" type="Node2D" parent="."]
 
 [node name="SPLASH" type="Node2D" parent="SolutionStates"]
+visible = false
 script = ExtResource( 2 )
 
 [node name="PanelContainer" type="PanelContainer" parent="SolutionStates/SPLASH"]
@@ -175,6 +180,26 @@ __meta__ = {
 
 [node name="FINISH" type="Node2D" parent="SolutionStates"]
 script = ExtResource( 8 )
+
+[node name="UI" type="Control" parent="SolutionStates/FINISH"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_editor_description_": "Overlaps Viewport (game scenes)"
+}
+
+[node name="Finish Label" type="Label" parent="SolutionStates/FINISH/UI"]
+margin_left = 40.0
+margin_top = 261.0
+margin_right = 984.0
+margin_bottom = 535.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 8 )
+text = "Peli loppui :)"
+align = 1
+autowrap = true
 
 [node name="Players" type="Node2D" parent="."]
 __meta__ = {

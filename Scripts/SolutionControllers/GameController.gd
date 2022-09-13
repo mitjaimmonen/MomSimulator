@@ -19,8 +19,10 @@ func _on_solution_state_changed():
 
 func _on_game_state_changed():
 	if GameManager.get_game_state() == GameManager.GameState.FINISH:
-		_start_next_game()
-
+		if _has_next_game():
+			_start_next_game()
+		else:
+			GameManager.set_solution_state(GameManager.SolutionState.FINISH)
 
 func _start_next_game():
 	if game_active:
@@ -48,7 +50,7 @@ func _stop_game():
 		n.queue_free()
 
 
-func _get_game_res():
+func _get_game_res() -> String:
 	var current_game = GameManager.Game.values()[game_index]
 	match current_game:
 		GameManager.Game.MELONTA:
@@ -56,3 +58,10 @@ func _get_game_res():
 	
 	return ""
 
+func _has_next_game() -> bool:
+	if GameManager.Game.size() >= game_index:
+		return false
+	elif _get_game_res() == "":
+		return false
+	else:
+		return true
