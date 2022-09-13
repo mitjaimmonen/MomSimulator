@@ -74,20 +74,25 @@ func _input(event):
 
 func base_process_guide(delta : float):
 	if player_instance.is_ready() && cancelling_ready:
-		if Input.is_action_pressed("start"):
-			cancel_ready_time += delta
-			if cancel_ready_time > 1:
-				print("cancelled player ready")
-				player_instance.set_ready(false)
-				cancelling_ready = false
-		else:
+		cancel_ready_time += delta
+		if cancel_ready_time > 1:
+			print("cancelled player ready")
+			player_instance.set_ready(false)
 			cancelling_ready = false
 
 
-func base_process_guide_input(_event : InputEvent):
-	if _event.is_action_pressed("start"):
-			cancelling_ready = true
-			cancel_ready_time = 0
+func base_process_guide_input(event : InputEvent):
+	if event.device != player_instance.controller_id:
+		return
+	
+	if !cancelling_ready:
+		if player_instance.is_ready() && event.is_action_pressed("start"):
+				cancelling_ready = true
+				cancel_ready_time = 0
+	else:
+		if event.is_action_released("start"):
+				cancelling_ready = false
+				cancel_ready_time = 0
 
 
 func base_process_gameplay(_delta):

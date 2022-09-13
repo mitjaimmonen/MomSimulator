@@ -41,12 +41,22 @@ func _process(delta):
 			cancelling_ready = false
 
 func _input(event):
+	if event.device != player_instance.controller_id:
+		return
+
 	if !player_instance.is_ready():
 		var correct_id = event.device == player_instance.controller_id
 		var is_pressed = event.is_pressed()
 		if correct_id && is_pressed:
 			print("PlayerLobby setting player ready true")
 			player_instance.set_ready(true)
-	elif event.is_action_pressed("start"):
-			cancelling_ready = true
-			cancel_ready_time = 0
+		
+	if !cancelling_ready:
+		if player_instance.is_ready() && event.is_action_pressed("start"):
+				cancelling_ready = true
+				cancel_ready_time = 0
+	else:
+		if event.is_action_released("start"):
+				cancelling_ready = false
+				cancel_ready_time = 0
+	

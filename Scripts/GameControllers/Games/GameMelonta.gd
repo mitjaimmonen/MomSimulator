@@ -6,13 +6,31 @@ extends GameBase
 # game_node
 # outro_node
 
+onready var controller_guide_anim : AnimationPlayer = get_node("Ohjeistus/ControllerVisual/AnimationPlayer") as AnimationPlayer
+
+var is_guide : bool = false
 var game_length : float = 10
 var start_time : float = 0
 
 
 func _ready():
 	set_process(false)
+	var _er = GameManager.connect("game_state_changed", self, "_on_game_state_changed")
 	pass
+
+
+func _on_game_state_changed():
+	if GameManager.get_game_state() == GameManager.GameState.GUIDE:
+		is_guide = true
+		var _anim_er = controller_guide_anim.connect("animation_finished", self, "_on_animation_finished")
+		controller_guide_anim.play("controller_anim_rb_lb")
+	elif is_guide:
+		is_guide = false
+		controller_guide_anim.disconnect("animation_finished", self, "_on_animation_finished")
+
+
+func _on_animation_finished(_anim_name):
+	controller_guide_anim.play("controller_anim_rb_lb")	
 
 
 func _play_started():

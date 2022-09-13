@@ -49,7 +49,7 @@ func set_game_stats(ranking:int, score:float, combo_score:int, combo_mul:int):
 		ranking_label.text = ""
 		
 	points_label.text = score as String
-	combo_label.text = combo_score as String + " " + combo_mul as String + "x"
+	combo_label.text = combo_score as String + " x" + combo_mul as String
 
 
 func enable_game_stats(state: bool):
