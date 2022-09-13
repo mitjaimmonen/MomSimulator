@@ -5,7 +5,7 @@ extends GameBase
 # guide_node
 # game_node
 # outro_node
-
+onready var kayak_sprite : AnimatedSprite = get_node("Peli/GameVisuals/Kayak") as AnimatedSprite
 onready var controller_guide_anim : AnimationPlayer = get_node("Ohjeistus/ControllerVisual/AnimationPlayer") as AnimationPlayer
 
 var is_guide : bool = false
@@ -15,6 +15,7 @@ var start_time : float = 0
 
 func _ready():
 	set_process(false)
+	kayak_sprite.playing = false
 	var _er = GameManager.connect("game_state_changed", self, "_on_game_state_changed")
 	pass
 
@@ -35,6 +36,7 @@ func _on_animation_finished(_anim_name):
 
 func _play_started():
 	start_time = OS.get_unix_time()
+	kayak_sprite.playing = true
 	set_process(true)
 
 
@@ -43,7 +45,11 @@ func _play_finished():
 
 
 func _process(_delta):
-	if OS.get_unix_time() - start_time > game_length:
+	var time = OS.get_unix_time() - start_time
+	
+	kayak_sprite.speed_scale = 0.5 + (time / 2.0)
+	
+	if time > game_length:
 		game_node.play_finished()
 	
 	

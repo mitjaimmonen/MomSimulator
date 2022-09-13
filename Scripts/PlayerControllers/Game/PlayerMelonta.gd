@@ -21,6 +21,7 @@ var current_combo_points : int = 0
 var current_points : int = 0
 
 
+
 func _ready():
 	game = GameManager.Game.MELONTA
 	

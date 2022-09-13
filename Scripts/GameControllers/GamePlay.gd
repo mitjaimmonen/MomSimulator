@@ -3,8 +3,10 @@ extends Node2D
 signal play_started
 signal play_finished
 
+onready var dim_panel : Panel = get_node("UI/Dim Panel")
 onready var guide_label : Label = get_node("UI/Guide Label")
 onready var timer_label : Label = get_node("UI/Timer Label")
+
 var game_time : float
 
 # Called when the node enters the scene tree for the first time.
@@ -18,6 +20,7 @@ func _on_game_state_changed():
 		visible = true
 		guide_label.visible = true
 		timer_label.visible = true
+		dim_panel.visible = true
 		game_time = -3
 		set_process(true)
 	else:
@@ -33,6 +36,7 @@ func _process(delta):
 	else:
 		timer_label.visible = false
 		guide_label.visible = false
+		dim_panel.visible = false
 		set_process(false)
 		emit_signal("play_started")
 		# Note that the rest of the game logic will be in the game scene root script,
