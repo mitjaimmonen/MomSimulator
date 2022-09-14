@@ -17,7 +17,7 @@ func _on_solution_state_changed():
 		visible = false
 
 
-func _process(delta):
+func _process(_delta):
 	var time = (Time.get_ticks_msec() - state_start_time_ms) / 1000.0
 	
 	if time > 5:

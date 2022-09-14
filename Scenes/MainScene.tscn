@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/SolutionControllers/LobbyController.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/SolutionControllers/SplashController.gd" type="Script" id=2]
 [ext_resource path="res://theme.tres" type="Theme" id=3]
 [ext_resource path="res://Animations/intro_anim.tres" type="Animation" id=4]
 [ext_resource path="res://Scripts/SolutionControllers/MainMenuController.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/GameControllers/PauseMenu.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/SolutionControllers/GameController.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/SolutionControllers/FinishController.gd" type="Script" id=8]
 [ext_resource path="res://Textures & Sprites/ass.png" type="Texture" id=9]
@@ -46,6 +47,13 @@ font_data = SubResource( 3 )
 size = 63
 font_data = SubResource( 3 )
 
+[sub_resource type="DynamicFontData" id=9]
+font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+size = 40
+font_data = SubResource( 9 )
+
 [sub_resource type="Environment" id=7]
 background_mode = 4
 glow_enabled = true
@@ -63,7 +71,9 @@ adjustment_brightness = 1.38
 visible = false
 script = ExtResource( 2 )
 
-[node name="PanelContainer" type="PanelContainer" parent="SolutionStates/SPLASH"]
+[node name="PanelContainer" type="Control" parent="SolutionStates/SPLASH"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_right = 1024.0
 margin_bottom = 768.0
 
@@ -87,21 +97,16 @@ anchor_bottom = 1.0
 margin_right = 1024.0
 margin_bottom = 768.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SolutionStates/MENU/Control"]
+[node name="Aloita Label" type="Label" parent="SolutionStates/MENU/Control"]
 margin_left = 312.0
 margin_top = 639.0
 margin_right = 712.0
-margin_bottom = 717.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button" type="Button" parent="SolutionStates/MENU/Control/VBoxContainer"]
-margin_right = 400.0
-margin_bottom = 67.0
+margin_bottom = 706.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 custom_fonts/font = SubResource( 6 )
 text = "Aloita Peli"
+align = 1
 
 [node name="LOBBY" type="Node2D" parent="SolutionStates"]
 visible = false
@@ -169,6 +174,7 @@ texture = ExtResource( 10 )
 anims/intro_anim = ExtResource( 4 )
 
 [node name="GAME" type="Node2D" parent="SolutionStates"]
+visible = false
 script = ExtResource( 7 )
 
 [node name="GameViewport" type="ViewportContainer" parent="SolutionStates/GAME" groups=["GameContainer"]]
@@ -179,6 +185,7 @@ __meta__ = {
 }
 
 [node name="FINISH" type="Node2D" parent="SolutionStates"]
+visible = false
 script = ExtResource( 8 )
 
 [node name="UI" type="Control" parent="SolutionStates/FINISH"]
@@ -205,6 +212,38 @@ autowrap = true
 __meta__ = {
 "_editor_description_": "Player Instances will be here"
 }
+
+[node name="PauseMenu (not in use)" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 6 )
+
+[node name="Control" type="Control" parent="PauseMenu (not in use)"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Button" type="Button" parent="PauseMenu (not in use)/Control"]
+margin_left = 300.0
+margin_top = 208.0
+margin_right = 724.0
+margin_bottom = 280.0
+custom_fonts/font = SubResource( 10 )
+text = "Jatka"
+
+[node name="Button2" type="Button" parent="PauseMenu (not in use)/Control"]
+margin_left = 300.0
+margin_top = 300.0
+margin_right = 724.0
+margin_bottom = 372.0
+custom_fonts/font = SubResource( 10 )
+text = "Uusi Peli"
+
+[node name="Button3" type="Button" parent="PauseMenu (not in use)/Control"]
+margin_left = 300.0
+margin_top = 392.0
+margin_right = 724.0
+margin_bottom = 464.0
+custom_fonts/font = SubResource( 10 )
+text = "Poistu pelistä"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 7 )

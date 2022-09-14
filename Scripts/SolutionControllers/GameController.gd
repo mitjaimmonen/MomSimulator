@@ -55,11 +55,13 @@ func _get_game_res() -> String:
 	match current_game:
 		GameManager.Game.MELONTA:
 			return "res://Scenes/GameScenes/GameMelonta.tscn"
+		GameManager.Game.TIETOKONE:
+			return "res://Scenes/GameScenes/GameTietokone.tscn"
 	
 	return ""
 
 func _has_next_game() -> bool:
-	if GameManager.Game.size() >= game_index:
+	if GameManager.Game.size() < game_index:
 		return false
 	elif _get_game_res() == "":
 		return false
