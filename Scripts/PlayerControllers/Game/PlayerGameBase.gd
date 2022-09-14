@@ -5,6 +5,7 @@ var game_container : ViewportContainer
 var player_instance : PlayerInstance
 var game
 
+var play_connected : bool = false
 var cancelling_ready : bool = false
 var cancel_ready_time : float = 0
 
@@ -35,6 +36,12 @@ func _set_game_process():
 	if is_game and correct_game:
 		print("Player processing started for game: ", game)
 		game_container = get_tree().get_nodes_in_group("GameContainer")[0] as ViewportContainer
+		
+		if play_connected:
+			game_container.get_child(0).get_node("Peli").disconnect("play_started", self, "_on_play_started")
+			game_container.get_child(0).get_node("Peli").disconnect("play_finished", self, "_on_play_finished")
+		
+		play_connected = true
 		var _game_er = game_container.get_child(0).get_node("Peli").connect("play_started", self, "_on_play_started")
 		var _game_er2 = game_container.get_child(0).get_node("Peli").connect("play_finished", self, "_on_play_finished")
 		set_process(true)
