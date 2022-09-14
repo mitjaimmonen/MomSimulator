@@ -1,6 +1,11 @@
 extends Node
 class_name PlayerInstance
 
+enum ControllerLayout {
+	full,
+	limited,
+}
+
 signal current_points_changed
 
 onready var player_visual = get_node("PlayerVisual")
@@ -9,10 +14,11 @@ onready var ranking_label = get_node("Control/RankingLabel")
 onready var points_label = get_node("Control/PointsLabel")
 onready var combo_label = get_node("Control/ComboLabel")
 
-export var controller_id : int
-export var id : int
-export var current_points : int
-export var total_points : int
+var controller_layout = ControllerLayout.full
+var controller_id : int
+var id : int
+var current_points : int
+var total_points : int
 
 var spawn_time : float
 var ready : bool = false
