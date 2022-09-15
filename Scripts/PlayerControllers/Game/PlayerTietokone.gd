@@ -35,15 +35,21 @@ func _ready():
 
 func _play_started():
 	print("PlayerTietokone: play started")
+	_populate_action_dictionary()
+	current_points = 0
 	is_playing = true
-
+	player_instance.set_current_points(current_points)
+	player_instance.update_game_stats()
 
 func _play_finished():
 	print("PlayerTietokone: play finished")
 	is_playing = false
-	
-	# TODO
-#	player_instance.set_game_stats(1,current_points, current_combo_points, combo_mul)
+	player_instance.set_current_points(_calculate_current_points())
+	player_instance.update_game_stats()
+
+func _populate_action_dictionary():
+	for action in ActionNames.keys():
+		in_game_buttons_pressed[action] = 0
 
 
 func _process_guide(_delta):
@@ -69,9 +75,8 @@ func _process_gameplay(_delta):
 		return
 		
 	time_ms = Time.get_ticks_msec()
-	# TODO
-#	player_instance.set_game_stats(1,current_points, current_combo_points, combo_mul)
-
+	player_instance.set_current_points(_calculate_current_points())
+	player_instance.update_game_stats()
 
 func _process_gameplay_input(event):
 	if !is_playing:
@@ -79,5 +84,20 @@ func _process_gameplay_input(event):
 		
 	if event.device != player_instance.controller_id:
 		return
-		
+	
+	for action in ActionNames.keys():
+		if event.is_action_pressed(action):
+			in_game_buttons_pressed[action] += 1
+
+
+func _calculate_current_points() -> int:
+	var output : int = 1
+	for points in in_game_buttons_pressed.values():
+		if points > 0:
+			output *= points
+	return output
+
+
+
+
 

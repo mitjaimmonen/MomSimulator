@@ -32,8 +32,11 @@ func _play_started():
 	is_playing = true
 	is_combo = false
 	combo_mul = 1
+	current_points = 0
 	current_combo_points = 0
 	last_accepted_input_time = 0
+	player_instance.set_current_points(current_points)
+	player_instance.update_game_stats()
 
 
 func _play_finished():
@@ -42,7 +45,8 @@ func _play_finished():
 	if is_combo:
 		stop_combo()
 		
-	player_instance.set_game_stats(1,current_points, current_combo_points, combo_mul)
+	player_instance.set_current_points(current_points)
+	player_instance.update_game_stats()
 
 
 func _process_guide(_delta):
@@ -84,7 +88,8 @@ func _process_gameplay(_delta):
 		print("Stop combo because of time")
 		stop_combo()
 	
-	player_instance.set_game_stats(1,current_points, current_combo_points, combo_mul)
+	player_instance.set_current_points(current_points + (combo_mul * current_combo_points))
+	player_instance.update_game_stats()
 
 
 func _process_gameplay_input(event):
@@ -111,6 +116,7 @@ func _process_gameplay_input(event):
 		else: # Right was not pressed last time
 			print("Stop combo because of Right was not pressed previously")
 			stop_combo()
+			
 
 	if left_event_release:
 		left_is_pressed = false
@@ -127,6 +133,7 @@ func _process_gameplay_input(event):
 		else: # Left was not pressed last time
 			print("Stop combo because of Left was not pressed previously")
 			stop_combo()
+			
 	
 	if right_event_release:
 		right_is_pressed = false
@@ -135,8 +142,6 @@ func _process_gameplay_input(event):
 func stop_combo():
 	if is_combo:
 		current_points += combo_mul * current_combo_points
-		player_instance.set_current_points(current_points)
-		
 		is_combo = false
 		combo_mul = 1
 		current_combo_points = 0

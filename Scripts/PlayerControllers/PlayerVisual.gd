@@ -11,7 +11,7 @@ onready var animation_player = get_node("AnimationPlayer")
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func play_spawn_anim():
 	animation_player.play(spawn_anim)
 
 func get_name():

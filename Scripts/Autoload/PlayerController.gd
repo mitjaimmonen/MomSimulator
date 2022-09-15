@@ -39,21 +39,16 @@ func _input(event):
 func _create_player(var controller_id : int):
 	print("New player! Device: ", controller_id)
 	
-	var player_instance = load("res://Scenes/PrefabScenes/PlayerInstance.tscn").instance()
+	var player_instance : PlayerInstance = load("res://Scenes/PrefabScenes/PlayerInstance.tscn").instance()
 	scene_root.get_node("Players").add_child(player_instance)
-	
-	#var viewport_width : int = get_viewport_rect().size.x
-	var viewport_height = int(get_viewport_rect().size.y)
-	
-	player_instance.position.x = margin_x + (players.size() * (player_instance.player_visual.width + margin_x))
-	player_instance.position.y = viewport_height - margin_y - player_instance.player_visual.height
-	
 	
 	players.append(player_instance)
 	player_controller_ids.append(controller_id)
 
 	player_instance.controller_id = controller_id
-	player_instance.id = players.count(Node2D)
+	player_instance.id = players.size() - 1
+	
+	player_instance.init()
 	
 	emit_signal("player_joined", player_instance)
 
@@ -77,6 +72,17 @@ func set_players_ready(value):
 func enable_player_stats(value : bool):
 	for p in players:
 		p.enable_game_stats(value)
+
+
+func get_rank(id: int) -> int:
+	var rank : int = 1
+	for player in players:
+		if players[id] == player:
+			continue
+		if player.current_points > players[id].current_points:
+			rank += 1
+	
+	return rank
 
 
 func reset():
