@@ -17,8 +17,8 @@ enum GameState {
 	FINISH,
 }
 enum Game {
-	TIETOKONE,
 	MELONTA,
+	TIETOKONE,
 	SANOMALEHTI,
 	NUOTIO,
 	KEPPI,

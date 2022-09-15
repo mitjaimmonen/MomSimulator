@@ -1,6 +1,5 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=50 format=2]
 
-[ext_resource path="res://Scenes/PrefabScenes/PlayerDonut.tscn" type="PackedScene" id=1]
 [ext_resource path="res://theme.tres" type="Theme" id=2]
 [ext_resource path="res://Animations/melonta_anim.tres" type="Animation" id=3]
 [ext_resource path="res://Textures & Sprites/Melonta/melonta_intro_image_0.png" type="Texture" id=4]
@@ -121,7 +120,6 @@ animation_name = "melonta_anim"
 anims/melonta_anim = ExtResource( 3 )
 
 [node name="image1" type="Sprite" parent="Intro"]
-visible = false
 texture = ExtResource( 5 )
 centered = false
 
@@ -139,7 +137,6 @@ text = "Huh! Ei jaksa meloa..."
 percent_visible = 0.0
 
 [node name="Ohjeistus" type="Node2D" parent="."]
-visible = false
 script = ExtResource( 10 )
 __meta__ = {
 "_editor_description_": "Ohjeet kuinka peliä pelataan"
@@ -235,7 +232,6 @@ frame = 2
 anims/controller_anim_rb_lb = ExtResource( 26 )
 
 [node name="Peli" type="Node2D" parent="."]
-visible = false
 script = ExtResource( 12 )
 
 [node name="GameVisuals" type="Node2D" parent="Peli"]
@@ -288,7 +284,6 @@ __meta__ = {
 }
 
 [node name="Outro" type="Node2D" parent="."]
-visible = false
 script = ExtResource( 11 )
 
 [node name="GameVisuals2" type="Node2D" parent="Outro"]
@@ -329,6 +324,7 @@ align = 1
 autowrap = true
 
 [node name="Winner Label" type="Label" parent="Outro/UI"]
+visible = false
 anchor_right = 1.0
 margin_top = 96.0
 margin_bottom = 253.0
@@ -342,6 +338,7 @@ align = 1
 autowrap = true
 
 [node name="Winner Score Label" type="Label" parent="Outro/UI"]
+visible = false
 anchor_right = 1.0
 margin_top = 472.0
 margin_bottom = 629.0
@@ -353,9 +350,3 @@ text = "9999
 Pistettä"
 align = 1
 autowrap = true
-
-[node name="Debug" type="Node2D" parent="Outro"]
-
-[node name="PlayerVisual" parent="Outro/Debug" instance=ExtResource( 1 )]
-position = Vector2( 375, 246 )
-scale = Vector2( 2, 2 )
