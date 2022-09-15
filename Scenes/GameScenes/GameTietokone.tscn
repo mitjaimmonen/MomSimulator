@@ -1,8 +1,7 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Scenes/PrefabScenes/PlayerDonut.tscn" type="PackedScene" id=1]
 [ext_resource path="res://theme.tres" type="Theme" id=2]
-[ext_resource path="res://Animations/melonta_anim.tres" type="Animation" id=3]
 [ext_resource path="res://Textures & Sprites/Tietokone/tietokone-1.png" type="Texture" id=4]
 [ext_resource path="res://Textures & Sprites/Tietokone/tietokone-2.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/GameControllers/GameIntro.gd" type="Script" id=6]
@@ -182,7 +181,6 @@ __meta__ = {
 animation_name = "tietokone_anim"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Intro"]
-anims/melonta_anim = ExtResource( 3 )
 anims/tietokone_anim = ExtResource( 9 )
 
 [node name="image1" type="Sprite" parent="Intro"]
@@ -196,11 +194,11 @@ margin_right = 840.0
 margin_bottom = 379.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 17 )
-text = "\"Sähköposti... moodle... 
+text = "Sähköposti... moodle... 
 wöördi... google drive...
 xamk... salasanat...
 ruotsinkieli... opinnäytetyö...
-varmuuskopiot...\""
+varmuuskopiot..."
 percent_visible = 0.0
 
 [node name="Label2" type="Label" parent="Intro"]
@@ -425,5 +423,3 @@ autowrap = true
 [node name="PlayerVisual" parent="Outro/Debug" instance=ExtResource( 1 )]
 position = Vector2( 375, 246 )
 scale = Vector2( 2, 2 )
-
-[connection signal="animation_finished" from="Intro/AnimationPlayer" to="Intro" method="_on_AnimationPlayer_animation_finished"]

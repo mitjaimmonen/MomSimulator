@@ -10,20 +10,21 @@ var running : bool = false
 func start():
 	visible = false
 	var _er = GameManager.connect("game_state_changed", self, "_on_game_state_changed")
+	var _anim_er = get_node("AnimationPlayer").connect("animation_finished", self, "_on_animation_finished")
 	
 
 func _on_game_state_changed():
 	if !running and GameManager.get_game_state() == GameManager.GameState.INTRO:
 		running = true
 		visible = true
-		get_child(0).play(animation_name)
+		get_node("AnimationPlayer").play(animation_name)
 		print("Game Intro starting animation")
 	elif GameManager.get_game_state() != GameManager.GameState.INTRO:
 		visible = false
 		running = false
 
 
-func _on_AnimationPlayer_animation_finished(_anim_name):
+func _on_animation_finished(_anim_name):
 	if running:
 		running = false
 		visible = false

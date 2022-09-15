@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Scenes/PrefabScenes/PlayerDonut.tscn" type="PackedScene" id=1]
 [ext_resource path="res://theme.tres" type="Theme" id=2]
@@ -37,7 +37,6 @@
 [ext_resource path="res://Textures & Sprites/Melonta/melonta-bg.png" type="Texture" id=35]
 [ext_resource path="res://Textures & Sprites/Melonta/melonta_1.png" type="Texture" id=36]
 [ext_resource path="res://Textures & Sprites/Melonta/melonta_3.png" type="Texture" id=37]
-[ext_resource path="res://Animations/tietokone_anim.tres" type="Animation" id=38]
 
 [sub_resource type="DynamicFontData" id=3]
 font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
@@ -120,7 +119,6 @@ animation_name = "melonta_anim"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Intro"]
 anims/melonta_anim = ExtResource( 3 )
-anims/tietokone_anim = ExtResource( 38 )
 
 [node name="image1" type="Sprite" parent="Intro"]
 visible = false
@@ -361,5 +359,3 @@ autowrap = true
 [node name="PlayerVisual" parent="Outro/Debug" instance=ExtResource( 1 )]
 position = Vector2( 375, 246 )
 scale = Vector2( 2, 2 )
-
-[connection signal="animation_finished" from="Intro/AnimationPlayer" to="Intro" method="_on_AnimationPlayer_animation_finished"]
