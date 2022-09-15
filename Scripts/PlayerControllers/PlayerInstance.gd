@@ -68,6 +68,7 @@ func _process(_delta):
 			scale = Vector2(1,1)
 			spawning = false
 
+
 func set_ready(var value : bool):
 	if ready != value:
 		print("player ready ", value)
@@ -78,6 +79,12 @@ func set_ready(var value : bool):
 func set_current_points(var value : int):
 	if current_points != value:
 		current_points = value
+
+
+func count_total_points():
+	total_points += current_points
+	print("Adding current points to total. player: ", id, "current points: ", current_points, "total now: ", total_points)
+
 
 func is_ready() -> bool:
 	return ready

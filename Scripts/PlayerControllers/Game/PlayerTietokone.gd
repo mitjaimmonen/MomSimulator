@@ -45,6 +45,7 @@ func _play_finished():
 	print("PlayerTietokone: play finished")
 	is_playing = false
 	player_instance.set_current_points(_calculate_current_points())
+	player_instance.count_total_points()
 	player_instance.update_game_stats()
 
 func _populate_action_dictionary():

@@ -46,6 +46,7 @@ func _play_finished():
 		stop_combo()
 		
 	player_instance.set_current_points(current_points)
+	player_instance.count_total_points()
 	player_instance.update_game_stats()
 
 

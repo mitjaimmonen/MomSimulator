@@ -52,8 +52,10 @@ func _create_player(var controller_id : int):
 	
 	emit_signal("player_joined", player_instance)
 
+
 func get_player(device_id) -> PlayerInstance:
 	return players[player_controller_ids.find(device_id)]
+
 
 func players_ready() -> bool:
 	if players.size() == 0:
