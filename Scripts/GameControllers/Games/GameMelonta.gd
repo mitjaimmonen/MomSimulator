@@ -12,7 +12,7 @@ var is_guide : bool = false
 
 #gameplay
 onready var kayak_sprite : AnimatedSprite = get_node("Peli/GameVisuals/Kayak") as AnimatedSprite
-var game_length : float = 5
+var game_length : float = 10
 var is_play : bool = false
 
 #outro
