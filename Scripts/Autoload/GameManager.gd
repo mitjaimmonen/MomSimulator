@@ -1,5 +1,8 @@
 extends Node2D
 
+var debug_skip_solution_intro : bool = false
+var debug_skip_game_intro : bool = false
+
 enum SolutionState {
 	SPLASH,
 	MENU,
@@ -17,10 +20,10 @@ enum GameState {
 	FINISH,
 }
 enum Game {
-	MELONTA,
 	TIETOKONE,
-	SANOMALEHTI,
 	NUOTIO,
+	MELONTA,
+	SANOMALEHTI,
 	KEPPI,
 	MITJA_TALOSSA,
 }

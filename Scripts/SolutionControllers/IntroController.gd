@@ -10,6 +10,11 @@ func _ready():
 
 func _on_solution_state_changed():
 	if GameManager.get_solution_state() == GameManager.SolutionState.INTRO:
+		if GameManager.debug_skip_solution_intro:
+			print("IntroController: skipping intro")
+			_on_animation_finished("")
+			return
+		
 		print("Playing Intro")
 		visible = true
 		animation_player.play("intro_anim")

@@ -2,12 +2,11 @@ extends PlayerGameBase
 
 # guide / ready
 var ready_buttons_pressed = []
-var in_game_buttons_pressed = {}
 
 # gameplay
+var in_game_buttons_pressed = {}
 var is_playing : bool = false
 var time_ms : int = 0
-var current_points : int = 0
 
 enum ActionNames {
 	left_bumper,
@@ -36,9 +35,8 @@ func _ready():
 func _play_started():
 	print("PlayerTietokone: play started")
 	_populate_action_dictionary()
-	current_points = 0
 	is_playing = true
-	player_instance.set_current_points(current_points)
+	player_instance.set_current_points(0)
 	player_instance.update_game_stats()
 
 func _play_finished():
@@ -92,11 +90,14 @@ func _process_gameplay_input(event):
 
 
 func _calculate_current_points() -> int:
-	var output : int = 1
+	var multiplier = 0
+	var base_score = 0
 	for points in in_game_buttons_pressed.values():
 		if points > 0:
-			output *= points
-	return output
+			multiplier += 1
+			base_score += points
+		
+	return base_score * multiplier
 
 
 

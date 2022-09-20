@@ -1,14 +1,12 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=47 format=2]
 
-[ext_resource path="res://Scenes/PrefabScenes/PlayerDonut.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Animations/nuotio_anim.tres" type="Animation" id=1]
 [ext_resource path="res://theme.tres" type="Theme" id=2]
-[ext_resource path="res://Animations/GameScenescontroller_anim_all.tres" type="Animation" id=3]
-[ext_resource path="res://Textures & Sprites/Tietokone/tietokone-1.png" type="Texture" id=4]
-[ext_resource path="res://Textures & Sprites/Tietokone/tietokone-2.png" type="Texture" id=5]
+[ext_resource path="res://Textures & Sprites/Nuotio/mom-sim-fire-0.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/GameControllers/GameIntro.gd" type="Script" id=6]
 [ext_resource path="res://Textures & Sprites/controller_sprites/controller_2.png" type="Texture" id=7]
 [ext_resource path="res://Textures & Sprites/controller_sprites/controller_1.png" type="Texture" id=8]
-[ext_resource path="res://Animations/tietokone_anim.tres" type="Animation" id=9]
+[ext_resource path="res://Animations/controller_anim_stick.tres" type="Animation" id=9]
 [ext_resource path="res://Scripts/GameControllers/GameGuide.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/GameControllers/GameOutro.gd" type="Script" id=11]
 [ext_resource path="res://Scripts/GameControllers/GamePlay.gd" type="Script" id=12]
@@ -25,7 +23,7 @@
 [ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_10.png" type="Texture" id=23]
 [ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_11.png" type="Texture" id=24]
 [ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_12.png" type="Texture" id=25]
-[ext_resource path="res://Animations/controller_anim_rb_lb.tres" type="Animation" id=26]
+[ext_resource path="res://Scripts/GameControllers/Games/GameNuotio.gd" type="Script" id=26]
 [ext_resource path="res://Textures & Sprites/controller_sprites/joycon_1.png" type="Texture" id=27]
 [ext_resource path="res://Textures & Sprites/controller_sprites/joycon_2.png" type="Texture" id=28]
 [ext_resource path="res://Textures & Sprites/controller_sprites/joycon_buttons_3.png" type="Texture" id=29]
@@ -34,9 +32,6 @@
 [ext_resource path="res://Textures & Sprites/controller_sprites/joycon_buttons_4.png" type="Texture" id=32]
 [ext_resource path="res://Textures & Sprites/controller_sprites/joycon_buttons_1.png" type="Texture" id=33]
 [ext_resource path="res://Textures & Sprites/controller_sprites/joycon_buttons_6.png" type="Texture" id=38]
-[ext_resource path="res://Textures & Sprites/Tietokone/tietokone-4.png" type="Texture" id=39]
-[ext_resource path="res://Textures & Sprites/Tietokone/tietokone-3.png" type="Texture" id=40]
-[ext_resource path="res://Scripts/GameControllers/Games/GameTietokone.gd" type="Script" id=41]
 
 [sub_resource type="DynamicFontData" id=16]
 font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
@@ -46,16 +41,6 @@ size = 50
 outline_size = 2
 outline_color = Color( 0.27451, 0.27451, 0.27451, 1 )
 font_data = SubResource( 16 )
-
-[sub_resource type="DynamicFontData" id=3]
-font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
-
-[sub_resource type="DynamicFont" id=18]
-size = 111
-outline_size = 2
-outline_color = Color( 0.239216, 0.239216, 0.239216, 1 )
-use_filter = true
-font_data = SubResource( 3 )
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
@@ -100,11 +85,38 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=15]
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ControllerButtonsSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 51, 182 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("JoyconButtonSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 444, 181 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=19]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 40 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "tietokone",
+"name": "default",
 "speed": 5.0
 } ]
 
@@ -119,21 +131,21 @@ font_data = SubResource( 6 )
 size = 129
 font_data = SubResource( 1 )
 
-[node name="Tietokone" type="Node2D"]
-script = ExtResource( 41 )
+[node name="Nuotio" type="Node2D"]
+script = ExtResource( 26 )
 
 [node name="Intro" type="Node2D" parent="."]
 script = ExtResource( 6 )
 __meta__ = {
 "_editor_description_": "Animaatio / alustus"
 }
-animation_name = "tietokone_anim"
+animation_name = "nuotio_anim"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Intro"]
-anims/tietokone_anim = ExtResource( 9 )
+anims/nuotio_anim = ExtResource( 1 )
 
 [node name="image1" type="Sprite" parent="Intro"]
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 centered = false
 
 [node name="Label" type="Label" parent="Intro"]
@@ -141,25 +153,8 @@ margin_left = 48.0
 margin_top = 42.0
 margin_right = 840.0
 margin_bottom = 379.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 17 )
-text = "Sähköposti... moodle... 
-wöördi... google drive...
-xamk... salasanat...
-ruotsinkieli... opinnäytetyö...
-varmuuskopiot..."
-percent_visible = 0.0
-
-[node name="Label2" type="Label" parent="Intro"]
-margin_left = -58.0
-margin_top = 358.0
-margin_right = 1442.0
-margin_bottom = 907.0
-rect_rotation = -7.92387
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 18 )
-text = "ääääÄÄÄÄÄÄÄÄÄÄÄäääääääÄÄÄÄÄäääääääääääääääääääääääääääääääääääää"
-autowrap = true
+text = "Äh..."
 percent_visible = 0.0
 
 [node name="Ohjeistus" type="Node2D" parent="."]
@@ -172,7 +167,7 @@ __meta__ = {
 [node name="GameVisuals2" type="Node2D" parent="Ohjeistus"]
 
 [node name="Background" type="Sprite" parent="Ohjeistus/GameVisuals2"]
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 centered = false
 
 [node name="UI2" type="Control" parent="Ohjeistus"]
@@ -198,7 +193,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 7
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 2 )
-text = "Tietokone"
+text = "Nuotio"
 align = 1
 autowrap = true
 
@@ -212,7 +207,8 @@ size_flags_vertical = 7
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 5 )
 text = "Kun peli alkaa,
-Paina kaikkia nappeja ja paljon! Mitä enemmän nappuloita löydät ohjaimesta, sitä parempi!!!"
+Pyöritä tattia ympäri ämpäri.
+kokeile nyt, että osaat tosipaikan tullen!"
 align = 1
 autowrap = true
 
@@ -227,12 +223,11 @@ animation = "controller"
 frame = 1
 
 [node name="ControllerButtonsSprite" type="AnimatedSprite" parent="Ohjeistus/ControllerVisual"]
-self_modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 49.4999, 189.375 )
+position = Vector2( 51, 182 )
 scale = Vector2( 0.368164, 0.368164 )
 frames = SubResource( 8 )
 animation = "controller_buttons"
-frame = 1
+frame = 10
 
 [node name="JoyconSprite" type="AnimatedSprite" parent="Ohjeistus/ControllerVisual"]
 position = Vector2( 443.5, 189.375 )
@@ -242,16 +237,15 @@ animation = "joycon"
 frame = 1
 
 [node name="JoyconButtonSprite" type="AnimatedSprite" parent="Ohjeistus/ControllerVisual"]
-self_modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 443.5, 189.375 )
+position = Vector2( 444, 181 )
 scale = Vector2( 0.368164, 0.368164 )
 frames = SubResource( 11 )
 animation = "joycon_buttons"
-frame = 5
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ohjeistus/ControllerVisual"]
-anims/controller_anim_all = ExtResource( 3 )
-anims/controller_anim_rb_lb = ExtResource( 26 )
+anims/RESET = SubResource( 18 )
+anims/controller_anim_stick = ExtResource( 9 )
 
 [node name="Peli" type="Node2D" parent="."]
 visible = false
@@ -259,9 +253,8 @@ script = ExtResource( 12 )
 
 [node name="GameVisuals" type="Node2D" parent="Peli"]
 
-[node name="Tietokone" type="AnimatedSprite" parent="Peli/GameVisuals"]
-frames = SubResource( 15 )
-animation = "tietokone"
+[node name="Nuotio" type="AnimatedSprite" parent="Peli/GameVisuals"]
+frames = SubResource( 19 )
 centered = false
 
 [node name="UI" type="Control" parent="Peli"]
@@ -286,7 +279,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 7
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 2 )
-text = "Kaikki napit käyttöön!"
+text = "Tatit pyörimään siitä!!"
 align = 1
 valign = 1
 autowrap = true
@@ -309,9 +302,8 @@ script = ExtResource( 11 )
 
 [node name="GameVisuals3" type="Node2D" parent="Outro"]
 
-[node name="Tietokone" type="AnimatedSprite" parent="Outro/GameVisuals3"]
-frames = SubResource( 15 )
-animation = "tietokone"
+[node name="Nuotio" type="AnimatedSprite" parent="Outro/GameVisuals3"]
+frames = SubResource( 19 )
 centered = false
 
 [node name="UI" type="Control" parent="Outro"]
@@ -329,6 +321,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Finish Label" type="Label" parent="Outro/UI"]
+visible = false
 anchor_right = 1.0
 margin_top = 140.0
 margin_bottom = 455.0
@@ -336,8 +329,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 7
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 13 )
-text = "Sähköposti
-lähetetty"
+text = "Metsä
+poltettu"
 align = 1
 autowrap = true
 
@@ -349,8 +342,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 7
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 2 )
-text = "Tuhdein tietsikka snäkki:
-Donitsi!"
+text = "Nuotiohetken naposteltava:
+Donitsi (kuten aina)"
 align = 1
 autowrap = true
 
@@ -368,7 +361,3 @@ align = 1
 autowrap = true
 
 [node name="Debug" type="Node2D" parent="Outro"]
-
-[node name="PlayerVisual" parent="Outro/Debug" instance=ExtResource( 1 )]
-position = Vector2( 375, 246 )
-scale = Vector2( 2, 2 )

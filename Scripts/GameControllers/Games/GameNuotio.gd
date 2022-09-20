@@ -11,7 +11,7 @@ onready var controller_guide_anim : AnimationPlayer = get_node("Ohjeistus/Contro
 var is_guide : bool = false
 
 #gameplay
-onready var kayak_sprite : AnimatedSprite = get_node("Peli/GameVisuals/Kayak") as AnimatedSprite
+onready var nuotio_sprite : AnimatedSprite = get_node("Peli/GameVisuals/Nuotio") as AnimatedSprite
 var gameplay_start_time_ms : int = 0
 var game_length : float = 10
 var is_play : bool = false
@@ -28,7 +28,7 @@ var winner_shown : bool = false
 
 func _ready():
 	set_process(true)
-	kayak_sprite.playing = false
+	nuotio_sprite.playing = false
 	var _er = GameManager.connect("game_state_changed", self, "_on_game_state_changed")
 	pass
 
@@ -37,7 +37,7 @@ func _on_game_state_changed():
 	if GameManager.get_game_state() == GameManager.GameState.GUIDE:
 		is_guide = true
 		var _anim_er = controller_guide_anim.connect("animation_finished", self, "_on_animation_finished")
-		controller_guide_anim.play("controller_anim_rb_lb")
+		controller_guide_anim.play("controller_anim_stick")
 	elif is_guide:
 		is_guide = false
 		controller_guide_anim.disconnect("animation_finished", self, "_on_animation_finished")
@@ -54,12 +54,12 @@ func _on_game_state_changed():
 
 
 func _on_animation_finished(_anim_name):
-	controller_guide_anim.play("controller_anim_rb_lb")	
+	controller_guide_anim.play("controller_anim_stick")	
 
 
 func _play_started():
 	gameplay_start_time_ms = Time.get_ticks_msec()
-	kayak_sprite.playing = true
+	nuotio_sprite.playing = true
 	is_play = true
 
 
@@ -73,7 +73,7 @@ func _process(_delta):
 		var elapsed_time_ms = Time.get_ticks_msec() - gameplay_start_time_ms
 		var elapsed_time = float(elapsed_time_ms) / 1000
 		
-		kayak_sprite.speed_scale = 0.5 + (elapsed_time / 2.0)
+		nuotio_sprite.speed_scale = 0.5 + (elapsed_time / 2.0)
 		if elapsed_time > game_length:
 			game_node.play_finished()
 			

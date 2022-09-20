@@ -32,7 +32,7 @@ func _process(delta):
 	game_time += delta
 	
 	if game_time < 0:
-		timer_label.text = int(abs(game_time)) as String
+		timer_label.text = int(abs(game_time) + 1) as String
 	else:
 		timer_label.visible = false
 		guide_label.visible = false

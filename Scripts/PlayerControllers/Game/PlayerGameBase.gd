@@ -7,6 +7,7 @@ var game
 
 var cancelling_ready : bool = false
 var cancel_ready_time : float = 0
+var processing : bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -33,6 +34,10 @@ func _set_game_process():
 	var correct_game : bool = GameManager.get_game() == game
 	
 	if is_game and correct_game:
+		if processing:
+			return
+			
+		processing = true
 		print("Player processing started for game: ", game)
 		game_container = get_tree().get_nodes_in_group("GameContainer")[0] as ViewportContainer
 		var _game_er = game_container.get_child(0).get_node("Peli").connect("play_started", self, "_on_play_started")
@@ -40,17 +45,16 @@ func _set_game_process():
 		set_process(true)
 		set_process_input(true)
 	else:
+		processing = false
 		set_process(false)
 		set_process_input(false)
 
 
 func _on_play_started():
-	game_container.get_child(0).get_node("Peli").disconnect("play_started", self, "_on_play_started")
 	_play_started()
 
 
 func _on_play_finished():
-	game_container.get_child(0).get_node("Peli").disconnect("play_finished", self, "_on_play_finished")
 	_play_finished()
 
 

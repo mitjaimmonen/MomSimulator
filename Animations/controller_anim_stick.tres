@@ -1,0 +1,29 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "controller_anim_stick"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("ControllerButtonsSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 51, 182 ), Vector2( 59, 188 ), Vector2( 55, 193 ), Vector2( 49, 197 ), Vector2( 45, 194 ), Vector2( 42, 189 ), Vector2( 44, 181 ), Vector2( 48, 178 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("JoyconButtonSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 444, 181 ), Vector2( 452, 187 ), Vector2( 451, 192 ), Vector2( 445, 195 ), Vector2( 440, 193 ), Vector2( 436, 189 ), Vector2( 437, 181 ), Vector2( 444, 178 ) ]
+}

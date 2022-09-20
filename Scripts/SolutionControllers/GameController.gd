@@ -1,5 +1,6 @@
 extends Node2D
 
+var initialized : bool = false
 var game_index : int = 0
 var game_active : bool = false
 onready var viewport = get_node("GameViewport")
@@ -12,7 +13,8 @@ func _ready():
 
 
 func _on_solution_state_changed():
-	if GameManager.get_solution_state() == GameManager.SolutionState.GAME:
+	if !initialized and GameManager.get_solution_state() == GameManager.SolutionState.GAME:
+		initialized = true
 		game_index = 0
 		_start_next_game()
 
@@ -44,10 +46,10 @@ func _stop_game():
 	print("GameController: Stopping current game")
 	game_active = false
 	visible = false
-	GameManager.set_game_state(GameManager.GameState.NONE)
 	for n in viewport.get_children():
 		viewport.remove_child(n)
 		n.queue_free()
+	GameManager.set_game_state(GameManager.GameState.NONE)
 
 
 func _get_game_res() -> String:
@@ -57,6 +59,8 @@ func _get_game_res() -> String:
 			return "res://Scenes/GameScenes/GameMelonta.tscn"
 		GameManager.Game.TIETOKONE:
 			return "res://Scenes/GameScenes/GameTietokone.tscn"
+		GameManager.Game.NUOTIO:
+			return "res://Scenes/GameScenes/GameNuotio.tscn"
 	
 	return ""
 
