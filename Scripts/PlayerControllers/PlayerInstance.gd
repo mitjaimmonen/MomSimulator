@@ -6,10 +6,10 @@ enum ControllerLayout {
 	limited,
 }
 
-onready var player_visual = get_node("PlayerVisual")
-onready var ready_label = get_node("Control/ReadyLabel")
-onready var ranking_label = get_node("Control/RankingLabel")
-onready var points_label = get_node("Control/PointsLabel")
+var player_visual
+var ready_label
+var ranking_label
+var points_label
 
 var spawn_position : Vector2
 var intended_position : Vector2
@@ -25,6 +25,12 @@ var ready : bool = false
 
 
 func init():
+	player_visual = get_node("PlayerVisual")
+	ready_label = get_node("Control/ReadyLabel")
+	ranking_label = get_node("Control/RankingLabel")
+	points_label = get_node("Control/PointsLabel")
+	
+	
 	var _input_er = Input.connect("joy_connection_changed", self, "_on_joy_connection_changed")
 	points_label.visible = false
 	ready_label.visible = false

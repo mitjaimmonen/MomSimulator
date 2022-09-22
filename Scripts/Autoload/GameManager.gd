@@ -38,6 +38,10 @@ var _game_state = GameState.NONE
 var _current_game = Game.MELONTA
 
 
+func _ready():
+	randomize()
+
+
 func get_solution_state() :
 	return _solution_state
 

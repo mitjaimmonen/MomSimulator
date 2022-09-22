@@ -1,7 +1,7 @@
 extends Node2D
 
-onready var width : int = get_node("Panel").rect_size.x
-onready var height : int = get_node("Panel").rect_size.y
+var width : int = 128
+var height : int = 128
 
 export var player_name : String
 export var default_anim : String
@@ -12,11 +12,13 @@ onready var animation_player = get_node("AnimationPlayer")
 
 # Called when the node enters the scene tree for the first time.
 func play_spawn_anim():
-	animation_player.play(spawn_anim)
+	if animation_player.has_animation(spawn_anim):
+		animation_player.play(spawn_anim)
 
 func get_name():
 	return player_name
 
 func _on_animation_finished(_anim_name):
-	animation_player.play(default_anim)
+	if animation_player.has_animation(default_anim):
+		animation_player.play(default_anim)
 

@@ -2,6 +2,9 @@ extends Node2D
 
 signal player_joined(player)
 
+var unused_player_visuals = []
+var used_player_visuals = {}
+
 export var margin_x : int = 20
 export var margin_y : int = 20
 var scene_root
@@ -12,7 +15,21 @@ var initialized : bool = false
 
 func _ready():
 	set_process_input(false)
+	_populate_player_visuals()
 	var _solution_state_changed_er = GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
+
+
+func _populate_player_visuals():
+	unused_player_visuals.clear()
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerCakepiece.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerChocolate.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerCookie.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerCotton.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerDonut.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerIcecream.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerLollipop.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerMarshmallow.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerMuffin.tscn"))
 
 
 func _on_solution_state_changed():
@@ -47,6 +64,13 @@ func _create_player(var controller_id : int):
 
 	player_instance.controller_id = controller_id
 	player_instance.id = players.size() - 1
+	
+	var visual_index = int(rand_range(0, unused_player_visuals.size()))
+	var visual : Node2D = unused_player_visuals[visual_index].instance()
+	player_instance.add_child(visual)
+	player_instance.move_child(visual, 0)
+	used_player_visuals[player_instance.id] = unused_player_visuals[visual_index]
+	unused_player_visuals.remove(visual_index);
 	
 	player_instance.init()
 	
