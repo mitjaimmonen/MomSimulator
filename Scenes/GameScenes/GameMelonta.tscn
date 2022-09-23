@@ -312,6 +312,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Finish Label" type="Label" parent="Outro/UI"]
+visible = false
 anchor_right = 1.0
 margin_top = 140.0
 margin_bottom = 455.0
@@ -323,22 +324,31 @@ text = "Melonnat melottu!"
 align = 1
 autowrap = true
 
-[node name="Winner Label" type="Label" parent="Outro/UI"]
-visible = false
+[node name="Win Label" type="Label" parent="Outro/UI"]
 anchor_right = 1.0
 margin_top = 96.0
-margin_bottom = 253.0
+margin_bottom = 179.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 2 )
-text = "Melonnan makupala:
-Donitsi!"
+text = "Melonnan makupala:"
+align = 1
+autowrap = true
+
+[node name="Player Name Label" type="Label" parent="Outro/UI"]
+anchor_right = 1.0
+margin_top = 172.0
+margin_bottom = 257.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "Donitsi!"
 align = 1
 autowrap = true
 
 [node name="Winner Score Label" type="Label" parent="Outro/UI"]
-visible = false
 anchor_right = 1.0
 margin_top = 472.0
 margin_bottom = 629.0

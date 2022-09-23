@@ -16,14 +16,6 @@ var gameplay_start_time_ms : int = 0
 var game_length : float = 10
 var is_play : bool = false
 
-#outro
-onready var finish_label : Label = get_node("Outro/UI/Finish Label")
-onready var winner_label : Label = get_node("Outro/UI/Winner Label")
-onready var winner_score_label : Label = get_node("Outro/UI/Winner Score Label")
-var outro_start_time_ms : int = 0
-var is_outro : bool = false
-var winner_shown : bool = false
-
 
 
 func _ready():
@@ -41,16 +33,6 @@ func _on_game_state_changed():
 	elif is_guide:
 		is_guide = false
 		controller_guide_anim.disconnect("animation_finished", self, "_on_animation_finished")
-	
-	if GameManager.get_game_state() == GameManager.GameState.OUTRO:
-		is_outro = true
-		outro_start_time_ms = Time.get_ticks_msec()
-		winner_shown = false
-		finish_label.visible = true
-		winner_label.visible = false
-		winner_score_label.visible = false
-	elif is_outro:
-		is_outro = false
 
 
 func _on_animation_finished(_anim_name):
@@ -77,17 +59,5 @@ func _process(_delta):
 		if elapsed_time > game_length:
 			game_node.play_finished()
 			
-	if is_outro:
-		var elapsed_time_ms = Time.get_ticks_msec() - outro_start_time_ms
-		var elapsed_time = float(elapsed_time_ms) / 1000
-
-		if !winner_shown && elapsed_time > 5:
-			# TODO get winner name & points
-			winner_shown = true
-			finish_label.visible = false
-			winner_label.visible = true
-			winner_score_label.visible = true
-		elif elapsed_time > 10:
-			outro_node.outro_finish()
 	
 
