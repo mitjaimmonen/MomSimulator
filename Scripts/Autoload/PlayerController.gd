@@ -110,6 +110,13 @@ func get_rank(id: int) -> int:
 	
 	return rank
 
+func get_winner() -> PlayerInstance:
+	var winner_id = -1
+	for p in players as PlayerInstance:
+		if winner_id == -1 or p.current_points > players[winner_id].current_points:
+			winner_id = p.id
+	
+	return players[winner_id]
 
 func reset():
 	for p in players:

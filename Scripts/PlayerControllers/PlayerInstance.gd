@@ -11,7 +11,7 @@ var ready_label
 var ranking_label
 var points_label
 
-var spawn_position : Vector2
+var center_position : Vector2
 var intended_position : Vector2
 var controller_layout = ControllerLayout.full
 var controller_id : int
@@ -22,6 +22,10 @@ var total_points : int
 var spawning : bool
 var spawn_time_ms : float
 var ready : bool = false
+
+var congratulating : bool = false
+var congrats_lerp : bool = false
+var congrats_time_ms : int = 0
 
 
 func init():
@@ -48,13 +52,13 @@ func _start_spawn():
 	
 	var viewport_width = int(get_viewport_rect().size.x)
 	var viewport_height = int(get_viewport_rect().size.y)
-	spawn_position.x = (viewport_width / 2.0) - ((player_visual.width / 2.0) * scale.x)
-	spawn_position.y = (viewport_height / 2.0) - ((player_visual.height / 2.0) * scale.x)
+	center_position.x = (viewport_width / 2.0) - ((player_visual.width / 2.0) * scale.x)
+	center_position.y = (viewport_height / 2.0) - ((player_visual.height / 2.0) * scale.x)
 	
 	intended_position.x = id * player_visual.width
 	intended_position.y = viewport_height - player_visual.height
 	
-	position = spawn_position
+	position = center_position
 
 
 func _process(_delta):
@@ -66,13 +70,43 @@ func _process(_delta):
 			var t : float = (time - 1.0) / 0.5
 			var lerp_t : float = t*t * (3.0 - 2.0*t)
 			
-			position = lerp(spawn_position, intended_position, lerp_t)
+			position = lerp(center_position, intended_position, lerp_t)
 			scale = lerp(Vector2(2,2), Vector2(1,1), lerp_t)
 			pass
 		else:
 			position = intended_position
 			scale = Vector2(1,1)
 			spawning = false
+			
+	if congrats_lerp:
+		var time : float = (Time.get_ticks_msec() - congrats_time_ms) / 1000.0
+		if time < 0.5:
+			var t = time / 0.5
+			var lerp_t : float = t*t * (3.0 - 2.0*t)
+			
+			if congratulating:
+				position = lerp(intended_position, center_position, lerp_t)
+				scale = lerp(Vector2(1,1), Vector2(2,2), lerp_t)
+			else:
+				position = lerp(center_position, intended_position, lerp_t)
+				scale = lerp(Vector2(2,2), Vector2(1,1), lerp_t)
+		else:
+			congrats_lerp = false
+			if congratulating:
+				position = center_position
+				scale = Vector2(2,2)
+			else:
+				position = intended_position
+				scale = Vector2(1,1)
+			
+	else:
+		var time : float = (Time.get_ticks_msec() - congrats_time_ms) / 1000.0
+		if time < 0.5:
+			var t : float = time / 0.5
+			var lerp_t : float = t*t * (3.0 - 2.0*t)
+			
+			position = lerp(center_position, intended_position, lerp_t)
+			scale = lerp(Vector2(2,2), Vector2(1,1), lerp_t)
 
 
 func set_ready(var value : bool):
@@ -103,9 +137,21 @@ func get_name():
 func update_game_stats():
 	var ranking : int = PlayerController.get_rank(id)
 	if ranking == 1:
-		ranking_label.text = "EKA"
-	else:
-		ranking_label.text = ranking as String + "."
+		ranking_label.text = "Eka"
+	elif ranking == 2:
+		ranking_label.text = "Toka"
+	elif ranking == 3:
+		ranking_label.text = "Kolkki"
+	elif ranking == 4:
+		ranking_label.text = "Nelkku"
+	elif ranking == 5:
+		ranking_label.text = "Viis"
+	elif ranking == 6:
+		ranking_label.text = "Kuus"
+	elif ranking == 7:
+		ranking_label.text = "Seiska"
+	elif ranking == 8:
+		ranking_label.text = "Kasi"
 	
 	points_label.text = current_points as String
 
@@ -117,11 +163,23 @@ func enable_game_stats(state: bool):
 	ranking_label.text = ""
 
 
-
 func _on_joy_connection_changed(device_id, is_connected):
 	if (device_id == controller_id):
 		if (is_connected):
 			print("phew all good again ", device_id)
 		else:
 			print ("shit you disconnected! ", device_id)
+
+
+func start_congratulations():
+	congratulating = true
+	congrats_lerp = true
+	congrats_time_ms = Time.get_ticks_msec()
+
+
+func end_congratulations():
+	congratulating = false
+	congrats_lerp = true
+	congrats_time_ms = Time.get_ticks_msec()
+
 
