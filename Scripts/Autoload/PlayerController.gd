@@ -54,7 +54,7 @@ func _input(event):
 
 
 func _create_player(var controller_id : int):
-	print("New player! Device: ", controller_id)
+	print("New player! Device: ", controller_id, ", ", Input.get_joy_name(controller_id))
 	
 	var player_instance : PlayerInstance = load("res://Scenes/PrefabScenes/PlayerInstance.tscn").instance()
 	scene_root.get_node("Players").add_child(player_instance)
@@ -112,7 +112,7 @@ func get_rank(id: int) -> int:
 
 func get_winner() -> PlayerInstance:
 	var winner_id = -1
-	for p in players as PlayerInstance:
+	for p in players:
 		if winner_id == -1 or p.current_points > players[winner_id].current_points:
 			winner_id = p.id
 	

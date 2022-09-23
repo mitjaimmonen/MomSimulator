@@ -1,11 +1,6 @@
 extends Node2D
 class_name PlayerInstance
 
-enum ControllerLayout {
-	full,
-	limited,
-}
-
 var player_visual
 var ready_label
 var ranking_label
@@ -13,7 +8,6 @@ var points_label
 
 var center_position : Vector2
 var intended_position : Vector2
-var controller_layout = ControllerLayout.full
 var controller_id : int
 var id : int
 var current_points : int
@@ -98,15 +92,6 @@ func _process(_delta):
 			else:
 				position = intended_position
 				scale = Vector2(1,1)
-			
-	else:
-		var time : float = (Time.get_ticks_msec() - congrats_time_ms) / 1000.0
-		if time < 0.5:
-			var t : float = time / 0.5
-			var lerp_t : float = t*t * (3.0 - 2.0*t)
-			
-			position = lerp(center_position, intended_position, lerp_t)
-			scale = lerp(Vector2(2,2), Vector2(1,1), lerp_t)
 
 
 func set_ready(var value : bool):
@@ -141,17 +126,9 @@ func update_game_stats():
 	elif ranking == 2:
 		ranking_label.text = "Toka"
 	elif ranking == 3:
-		ranking_label.text = "Kolkki"
-	elif ranking == 4:
-		ranking_label.text = "Nelkku"
-	elif ranking == 5:
-		ranking_label.text = "Viis"
-	elif ranking == 6:
-		ranking_label.text = "Kuus"
-	elif ranking == 7:
-		ranking_label.text = "Seiska"
-	elif ranking == 8:
-		ranking_label.text = "Kasi"
+		ranking_label.text = "Koka"
+	else:
+		ranking_label.text = "#" + ranking as String
 	
 	points_label.text = current_points as String
 
@@ -172,12 +149,15 @@ func _on_joy_connection_changed(device_id, is_connected):
 
 
 func start_congratulations():
+	print("starting conngratulations")
+	enable_game_stats(false)
 	congratulating = true
 	congrats_lerp = true
 	congrats_time_ms = Time.get_ticks_msec()
 
 
 func end_congratulations():
+	print("ending conngratulations")
 	congratulating = false
 	congrats_lerp = true
 	congrats_time_ms = Time.get_ticks_msec()

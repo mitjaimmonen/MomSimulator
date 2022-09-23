@@ -74,15 +74,4 @@ func _process(_delta):
 		tietokone_sprite.speed_scale = 0.5 + (state_time / 2.0)
 		if state_time > game_length:
 			game_node.play_finished()
-			
-	if is_outro:
-		if !winner_shown && state_time > 2:
-			# TODO get winner name & points
-			winner_shown = true
-			finish_label.visible = true
-			winner_label.visible = false
-			winner_score_label.visible = false
-		elif state_time > 5:
-			outro_node.outro_finish()
-	
 

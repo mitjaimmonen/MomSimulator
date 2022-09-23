@@ -324,7 +324,7 @@ text = "Melonnat melottu!"
 align = 1
 autowrap = true
 
-[node name="Win Label" type="Label" parent="Outro/UI"]
+[node name="Winner Label" type="Label" parent="Outro/UI"]
 anchor_right = 1.0
 margin_top = 96.0
 margin_bottom = 179.0
@@ -350,7 +350,7 @@ autowrap = true
 
 [node name="Winner Score Label" type="Label" parent="Outro/UI"]
 anchor_right = 1.0
-margin_top = 472.0
+margin_top = 500.0
 margin_bottom = 629.0
 size_flags_horizontal = 3
 size_flags_vertical = 7

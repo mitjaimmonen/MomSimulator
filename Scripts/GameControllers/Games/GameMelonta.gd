@@ -58,6 +58,4 @@ func _process(_delta):
 		kayak_sprite.speed_scale = 0.5 + (elapsed_time / 2.0)
 		if elapsed_time > game_length:
 			game_node.play_finished()
-			
-	
 

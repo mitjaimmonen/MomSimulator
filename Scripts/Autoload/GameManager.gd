@@ -1,6 +1,6 @@
 extends Node2D
 
-var debug_skip_solution_intro : bool = false
+var debug_skip_solution_intro : bool = true
 var debug_skip_game_intro : bool = false
 
 enum SolutionState {
@@ -20,8 +20,8 @@ enum GameState {
 	FINISH,
 }
 enum Game {
-	TIETOKONE,
 	NUOTIO,
+	TIETOKONE,
 	MELONTA,
 	SANOMALEHTI,
 	KEPPI,

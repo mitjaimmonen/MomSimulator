@@ -3,7 +3,7 @@ extends Node2D
 signal outro_finished
 
 onready var finish_label : Label = get_node("UI/Finish Label")
-onready var win_label : Label = get_node("UI/Win Label")
+onready var winner_label : Label = get_node("UI/Winner Label")
 onready var player_label : Label = get_node("UI/Player Name Label")
 onready var winner_score_label : Label = get_node("UI/Winner Score Label")
 
@@ -24,7 +24,7 @@ func _on_game_state_changed():
 		_populate_labels()
 		visible = true
 		finish_label.visible = true
-		win_label.visible = false
+		winner_label.visible = false
 		player_label.visible = false
 		winner_score_label.visible = false
 		winner_shown = false
@@ -40,23 +40,24 @@ func _populate_labels():
 
 
 
-func _process(delta):
+func _process(_delta):
 	var elapsed_time_ms = Time.get_ticks_msec() - outro_start_time_ms
 	var elapsed_time = float(elapsed_time_ms) / 1000
 
 	if !winner_shown && elapsed_time > 5:
 		# TODO: tell player to go to the center
 		var winner : PlayerInstance = PlayerController.get_winner()
-		player_label.text = winner.get_name()
+		player_label.text = winner.get_name() + "!"
 		winner_score_label.text = winner.current_points as String
 		winner.start_congratulations()
 		
 		winner_shown = true
 		finish_label.visible = false
-		win_label.visible = true
+		winner_label.visible = true
 		player_label.visible = true
 		winner_score_label.visible = true
 	elif elapsed_time > 10:
+		print("Finish outro & stop congrats")
 		# TODO: tell player to go back
 		var winner : PlayerInstance = PlayerController.get_winner()
 		winner.end_congratulations()

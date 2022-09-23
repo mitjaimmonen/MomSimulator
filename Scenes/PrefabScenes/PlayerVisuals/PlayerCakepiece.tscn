@@ -5,9 +5,7 @@
 
 [node name="PlayerVisual" type="Node2D"]
 script = ExtResource( 4 )
-player_name = "Donitsi"
-default_anim = "donut_anim"
-spawn_anim = "donut_spawn_anim"
+player_name = "Kakku"
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.25, 0.25 )

@@ -27,6 +27,15 @@ enum ActionNames {
 	right_stick,
 }
 
+# Switch single joycon does not have these
+enum ActionNamesLimitMask {
+	up,
+	down,
+	left,
+	right,
+	right_stick,
+}
+
 
 func _ready():
 	game = GameManager.Game.TIETOKONE
@@ -90,14 +99,25 @@ func _process_gameplay_input(event):
 
 
 func _calculate_current_points() -> int:
-	var multiplier = 0
+	var limited_layout = true
+	var multiplier : float = 0
 	var base_score = 0
-	for points in in_game_buttons_pressed.values():
-		if points > 0:
-			multiplier += 1
-			base_score += points
+	for key in in_game_buttons_pressed.keys():
+		if in_game_buttons_pressed[key] > 0:
+			multiplier += 10
+			base_score += in_game_buttons_pressed[key]
+			if ActionNamesLimitMask.has(key):
+				limited_layout = false
+	
+	if limited_layout:
+		var score = base_score * (multiplier / (ActionNames.size() - ActionNamesLimitMask.size()))
+		return score
+	else:
+		var score = base_score * (multiplier / ActionNames.size())
+		return score
 		
-	return base_score * multiplier
+		
+		
 
 
 

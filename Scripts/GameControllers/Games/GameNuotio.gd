@@ -76,18 +76,4 @@ func _process(_delta):
 		nuotio_sprite.speed_scale = 0.5 + (elapsed_time / 2.0)
 		if elapsed_time > game_length:
 			game_node.play_finished()
-			
-	if is_outro:
-		var elapsed_time_ms = Time.get_ticks_msec() - outro_start_time_ms
-		var elapsed_time = float(elapsed_time_ms) / 1000
-
-		if !winner_shown && elapsed_time > 5:
-			# TODO get winner name & points
-			winner_shown = true
-			finish_label.visible = false
-			winner_label.visible = true
-			winner_score_label.visible = true
-		elif elapsed_time > 10:
-			outro_node.outro_finish()
-	
 
