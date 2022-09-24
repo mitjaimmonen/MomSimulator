@@ -20,6 +20,7 @@ var ready : bool = false
 var congratulating : bool = false
 var congrats_lerp : bool = false
 var congrats_time_ms : int = 0
+var congrats_vibe : int = 0
 
 
 func init():
@@ -72,8 +73,12 @@ func _process(_delta):
 			scale = Vector2(1,1)
 			spawning = false
 			
+	if congratulating:
+		_congrats_vibe()
+		
 	if congrats_lerp:
 		var time : float = (Time.get_ticks_msec() - congrats_time_ms) / 1000.0
+			
 		if time < 0.5:
 			var t = time / 0.5
 			var lerp_t : float = t*t * (3.0 - 2.0*t)
@@ -93,6 +98,32 @@ func _process(_delta):
 				position = intended_position
 				scale = Vector2(1,1)
 
+
+func _congrats_vibe():
+	if congratulating:
+		var time : float = (Time.get_ticks_msec() - congrats_time_ms) / 1000.0
+		
+		if congrats_vibe == 0:
+			Input.start_joy_vibration(controller_id, 1, 0, 0.1)
+			congrats_vibe += 1
+		elif congrats_vibe == 1 && time > 0.3:
+			Input.start_joy_vibration(controller_id, 0.7, 0, 0.1)
+			congrats_vibe += 1
+		elif congrats_vibe == 2 && time > 0.5:
+			Input.start_joy_vibration(controller_id, 0.7, 0, 0.1)
+			congrats_vibe += 1
+		elif congrats_vibe == 3 && time > 0.7:
+			Input.start_joy_vibration(controller_id, 0.8, 0, 0.1)
+			congrats_vibe += 1
+		elif congrats_vibe == 4 && time > 1.0:
+			Input.start_joy_vibration(controller_id, 0.7, 0, 0.1)
+			congrats_vibe += 1
+		elif congrats_vibe == 5 && time > 1.6:
+			Input.start_joy_vibration(controller_id, 0.8, 0, 0.1)
+			congrats_vibe += 1
+		elif congrats_vibe == 6 && time > 1.9:
+			Input.start_joy_vibration(controller_id, 1, 0, 0.1)
+			congrats_vibe += 1
 
 func set_ready(var value : bool):
 	if ready != value:
