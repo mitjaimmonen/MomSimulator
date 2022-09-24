@@ -1,4 +1,4 @@
-[gd_scene load_steps=214 format=2]
+[gd_scene load_steps=324 format=2]
 
 [ext_resource path="res://Scripts/SolutionControllers/LobbyController.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/SolutionControllers/SplashController.gd" type="Script" id=2]
@@ -200,6 +200,116 @@
 [ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0074.png" type="Texture" id=198]
 [ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0075.png" type="Texture" id=199]
 [ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0076.png" type="Texture" id=200]
+[ext_resource path="res://Scripts/Autoload/AudioController.gd" type="Script" id=201]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0211.png" type="Texture" id=202]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0205.png" type="Texture" id=203]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0206.png" type="Texture" id=204]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0212.png" type="Texture" id=205]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0203.png" type="Texture" id=206]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0196.png" type="Texture" id=207]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0191.png" type="Texture" id=208]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0192.png" type="Texture" id=209]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0201.png" type="Texture" id=210]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0193.png" type="Texture" id=211]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0194.png" type="Texture" id=212]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0195.png" type="Texture" id=213]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0197.png" type="Texture" id=214]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0199.png" type="Texture" id=215]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0200.png" type="Texture" id=216]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0202.png" type="Texture" id=217]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0204.png" type="Texture" id=218]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0207.png" type="Texture" id=219]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0208.png" type="Texture" id=220]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0209.png" type="Texture" id=221]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0198.png" type="Texture" id=222]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0210.png" type="Texture" id=223]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0215.png" type="Texture" id=224]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0217.png" type="Texture" id=225]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0216.png" type="Texture" id=226]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0214.png" type="Texture" id=227]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0218.png" type="Texture" id=228]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0213.png" type="Texture" id=229]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0220.png" type="Texture" id=230]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0222.png" type="Texture" id=231]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0224.png" type="Texture" id=232]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0219.png" type="Texture" id=233]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0223.png" type="Texture" id=234]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0221.png" type="Texture" id=235]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0225.png" type="Texture" id=236]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0297.png" type="Texture" id=237]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0298.png" type="Texture" id=238]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0296.png" type="Texture" id=239]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0284.png" type="Texture" id=240]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0285.png" type="Texture" id=241]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0286.png" type="Texture" id=242]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0247.png" type="Texture" id=243]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0246.png" type="Texture" id=244]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0287.png" type="Texture" id=245]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0288.png" type="Texture" id=246]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0260.png" type="Texture" id=247]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0271.png" type="Texture" id=248]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0252.png" type="Texture" id=249]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0289.png" type="Texture" id=250]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0265.png" type="Texture" id=251]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0281.png" type="Texture" id=252]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0234.png" type="Texture" id=253]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0241.png" type="Texture" id=254]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0227.png" type="Texture" id=255]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0266.png" type="Texture" id=256]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0232.png" type="Texture" id=257]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0240.png" type="Texture" id=258]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0244.png" type="Texture" id=259]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0253.png" type="Texture" id=260]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0254.png" type="Texture" id=261]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0269.png" type="Texture" id=262]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0239.png" type="Texture" id=263]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0248.png" type="Texture" id=264]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0273.png" type="Texture" id=265]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0274.png" type="Texture" id=266]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0261.png" type="Texture" id=267]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0226.png" type="Texture" id=268]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0250.png" type="Texture" id=269]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0236.png" type="Texture" id=270]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0231.png" type="Texture" id=271]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0237.png" type="Texture" id=272]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0249.png" type="Texture" id=273]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0255.png" type="Texture" id=274]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0270.png" type="Texture" id=275]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0229.png" type="Texture" id=276]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0276.png" type="Texture" id=277]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0279.png" type="Texture" id=278]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0277.png" type="Texture" id=279]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0262.png" type="Texture" id=280]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0280.png" type="Texture" id=281]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0258.png" type="Texture" id=282]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0235.png" type="Texture" id=283]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0257.png" type="Texture" id=284]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0282.png" type="Texture" id=285]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0256.png" type="Texture" id=286]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0263.png" type="Texture" id=287]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0264.png" type="Texture" id=288]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0272.png" type="Texture" id=289]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0233.png" type="Texture" id=290]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0283.png" type="Texture" id=291]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0259.png" type="Texture" id=292]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0243.png" type="Texture" id=293]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0228.png" type="Texture" id=294]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0245.png" type="Texture" id=295]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0267.png" type="Texture" id=296]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0268.png" type="Texture" id=297]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0238.png" type="Texture" id=298]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0242.png" type="Texture" id=299]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0230.png" type="Texture" id=300]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0275.png" type="Texture" id=301]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0278.png" type="Texture" id=302]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0251.png" type="Texture" id=303]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0294.png" type="Texture" id=304]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0295.png" type="Texture" id=305]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0290.png" type="Texture" id=306]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0292.png" type="Texture" id=307]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0293.png" type="Texture" id=308]
+[ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0291.png" type="Texture" id=309]
+[ext_resource path="res://video/intro.ogv" type="VideoStream" id=310]
 
 [sub_resource type="Animation" id=4]
 resource_name = "SplashAnimation"
@@ -248,7 +358,7 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
-"frames": [ ExtResource( 12 ), ExtResource( 20 ), ExtResource( 27 ), ExtResource( 13 ), ExtResource( 24 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 85 ), ExtResource( 69 ), ExtResource( 66 ), ExtResource( 80 ), ExtResource( 70 ), ExtResource( 95 ), ExtResource( 93 ), ExtResource( 81 ), ExtResource( 71 ), ExtResource( 68 ), ExtResource( 77 ), ExtResource( 84 ), ExtResource( 78 ), ExtResource( 86 ), ExtResource( 94 ), ExtResource( 72 ), ExtResource( 90 ), ExtResource( 75 ), ExtResource( 87 ), ExtResource( 79 ), ExtResource( 76 ), ExtResource( 62 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 96 ), ExtResource( 63 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 64 ), ExtResource( 73 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 65 ), ExtResource( 67 ), ExtResource( 74 ), ExtResource( 107 ), ExtResource( 110 ), ExtResource( 104 ), ExtResource( 101 ), ExtResource( 103 ), ExtResource( 98 ), ExtResource( 109 ), ExtResource( 106 ), ExtResource( 108 ), ExtResource( 102 ), ExtResource( 100 ), ExtResource( 111 ), ExtResource( 105 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 97 ), ExtResource( 99 ), ExtResource( 194 ), ExtResource( 197 ), ExtResource( 195 ), ExtResource( 196 ), ExtResource( 198 ), ExtResource( 199 ), ExtResource( 200 ), ExtResource( 193 ), ExtResource( 184 ), ExtResource( 185 ), ExtResource( 186 ), ExtResource( 188 ), ExtResource( 187 ), ExtResource( 189 ), ExtResource( 190 ), ExtResource( 191 ), ExtResource( 192 ), ExtResource( 54 ), ExtResource( 52 ), ExtResource( 56 ), ExtResource( 58 ), ExtResource( 48 ), ExtResource( 55 ), ExtResource( 59 ), ExtResource( 50 ), ExtResource( 57 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 53 ), ExtResource( 120 ), ExtResource( 124 ), ExtResource( 163 ), ExtResource( 116 ), ExtResource( 121 ), ExtResource( 125 ), ExtResource( 118 ), ExtResource( 133 ), ExtResource( 141 ), ExtResource( 154 ), ExtResource( 130 ), ExtResource( 170 ), ExtResource( 126 ), ExtResource( 136 ), ExtResource( 127 ), ExtResource( 114 ), ExtResource( 173 ), ExtResource( 149 ), ExtResource( 128 ), ExtResource( 142 ), ExtResource( 152 ), ExtResource( 146 ), ExtResource( 158 ), ExtResource( 171 ), ExtResource( 145 ), ExtResource( 119 ), ExtResource( 117 ), ExtResource( 159 ), ExtResource( 148 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 157 ), ExtResource( 129 ), ExtResource( 131 ), ExtResource( 138 ), ExtResource( 143 ), ExtResource( 144 ), ExtResource( 172 ), ExtResource( 132 ), ExtResource( 164 ), ExtResource( 150 ), ExtResource( 134 ), ExtResource( 135 ), ExtResource( 147 ), ExtResource( 165 ), ExtResource( 115 ), ExtResource( 137 ), ExtResource( 151 ), ExtResource( 160 ), ExtResource( 153 ), ExtResource( 155 ), ExtResource( 174 ), ExtResource( 156 ), ExtResource( 175 ), ExtResource( 139 ), ExtResource( 140 ), ExtResource( 161 ), ExtResource( 162 ), ExtResource( 166 ), ExtResource( 168 ), ExtResource( 167 ), ExtResource( 169 ), ExtResource( 176 ), ExtResource( 177 ), ExtResource( 179 ), ExtResource( 178 ), ExtResource( 180 ), ExtResource( 183 ), ExtResource( 181 ), ExtResource( 182 ), ExtResource( 37 ), ExtResource( 30 ), ExtResource( 36 ), ExtResource( 39 ), ExtResource( 33 ), ExtResource( 44 ), ExtResource( 35 ), ExtResource( 31 ), ExtResource( 40 ), ExtResource( 43 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 42 ), ExtResource( 34 ), ExtResource( 38 ), ExtResource( 32 ), ExtResource( 41 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 20 ), ExtResource( 27 ), ExtResource( 13 ), ExtResource( 24 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 85 ), ExtResource( 69 ), ExtResource( 66 ), ExtResource( 80 ), ExtResource( 70 ), ExtResource( 95 ), ExtResource( 93 ), ExtResource( 81 ), ExtResource( 71 ), ExtResource( 68 ), ExtResource( 77 ), ExtResource( 84 ), ExtResource( 78 ), ExtResource( 86 ), ExtResource( 94 ), ExtResource( 72 ), ExtResource( 90 ), ExtResource( 75 ), ExtResource( 87 ), ExtResource( 79 ), ExtResource( 76 ), ExtResource( 62 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 96 ), ExtResource( 63 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 64 ), ExtResource( 73 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 65 ), ExtResource( 67 ), ExtResource( 74 ), ExtResource( 107 ), ExtResource( 110 ), ExtResource( 104 ), ExtResource( 101 ), ExtResource( 103 ), ExtResource( 98 ), ExtResource( 109 ), ExtResource( 106 ), ExtResource( 108 ), ExtResource( 102 ), ExtResource( 100 ), ExtResource( 111 ), ExtResource( 105 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 97 ), ExtResource( 99 ), ExtResource( 194 ), ExtResource( 197 ), ExtResource( 195 ), ExtResource( 196 ), ExtResource( 198 ), ExtResource( 199 ), ExtResource( 200 ), ExtResource( 193 ), ExtResource( 184 ), ExtResource( 185 ), ExtResource( 186 ), ExtResource( 188 ), ExtResource( 187 ), ExtResource( 189 ), ExtResource( 190 ), ExtResource( 191 ), ExtResource( 192 ), ExtResource( 54 ), ExtResource( 52 ), ExtResource( 56 ), ExtResource( 58 ), ExtResource( 48 ), ExtResource( 55 ), ExtResource( 59 ), ExtResource( 50 ), ExtResource( 57 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 53 ), ExtResource( 120 ), ExtResource( 124 ), ExtResource( 163 ), ExtResource( 116 ), ExtResource( 121 ), ExtResource( 125 ), ExtResource( 118 ), ExtResource( 133 ), ExtResource( 141 ), ExtResource( 154 ), ExtResource( 130 ), ExtResource( 170 ), ExtResource( 126 ), ExtResource( 136 ), ExtResource( 127 ), ExtResource( 114 ), ExtResource( 173 ), ExtResource( 149 ), ExtResource( 128 ), ExtResource( 142 ), ExtResource( 152 ), ExtResource( 146 ), ExtResource( 158 ), ExtResource( 171 ), ExtResource( 145 ), ExtResource( 119 ), ExtResource( 117 ), ExtResource( 159 ), ExtResource( 148 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 157 ), ExtResource( 129 ), ExtResource( 131 ), ExtResource( 138 ), ExtResource( 143 ), ExtResource( 144 ), ExtResource( 172 ), ExtResource( 132 ), ExtResource( 164 ), ExtResource( 150 ), ExtResource( 134 ), ExtResource( 135 ), ExtResource( 147 ), ExtResource( 165 ), ExtResource( 115 ), ExtResource( 137 ), ExtResource( 151 ), ExtResource( 160 ), ExtResource( 153 ), ExtResource( 155 ), ExtResource( 174 ), ExtResource( 156 ), ExtResource( 175 ), ExtResource( 139 ), ExtResource( 140 ), ExtResource( 161 ), ExtResource( 162 ), ExtResource( 166 ), ExtResource( 168 ), ExtResource( 167 ), ExtResource( 169 ), ExtResource( 176 ), ExtResource( 177 ), ExtResource( 179 ), ExtResource( 178 ), ExtResource( 180 ), ExtResource( 183 ), ExtResource( 181 ), ExtResource( 182 ), ExtResource( 37 ), ExtResource( 30 ), ExtResource( 36 ), ExtResource( 39 ), ExtResource( 33 ), ExtResource( 44 ), ExtResource( 35 ), ExtResource( 31 ), ExtResource( 40 ), ExtResource( 43 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 42 ), ExtResource( 34 ), ExtResource( 38 ), ExtResource( 32 ), ExtResource( 41 ), ExtResource( 208 ), ExtResource( 209 ), ExtResource( 211 ), ExtResource( 212 ), ExtResource( 213 ), ExtResource( 207 ), ExtResource( 214 ), ExtResource( 222 ), ExtResource( 215 ), ExtResource( 216 ), ExtResource( 210 ), ExtResource( 217 ), ExtResource( 206 ), ExtResource( 218 ), ExtResource( 203 ), ExtResource( 204 ), ExtResource( 219 ), ExtResource( 220 ), ExtResource( 221 ), ExtResource( 223 ), ExtResource( 202 ), ExtResource( 205 ), ExtResource( 229 ), ExtResource( 227 ), ExtResource( 224 ), ExtResource( 226 ), ExtResource( 225 ), ExtResource( 228 ), ExtResource( 233 ), ExtResource( 230 ), ExtResource( 235 ), ExtResource( 231 ), ExtResource( 234 ), ExtResource( 232 ), ExtResource( 236 ), ExtResource( 268 ), ExtResource( 255 ), ExtResource( 294 ), ExtResource( 276 ), ExtResource( 300 ), ExtResource( 271 ), ExtResource( 257 ), ExtResource( 290 ), ExtResource( 253 ), ExtResource( 283 ), ExtResource( 270 ), ExtResource( 272 ), ExtResource( 298 ), ExtResource( 263 ), ExtResource( 258 ), ExtResource( 254 ), ExtResource( 299 ), ExtResource( 293 ), ExtResource( 259 ), ExtResource( 295 ), ExtResource( 244 ), ExtResource( 243 ), ExtResource( 264 ), ExtResource( 273 ), ExtResource( 269 ), ExtResource( 303 ), ExtResource( 249 ), ExtResource( 260 ), ExtResource( 261 ), ExtResource( 274 ), ExtResource( 286 ), ExtResource( 284 ), ExtResource( 282 ), ExtResource( 292 ), ExtResource( 247 ), ExtResource( 267 ), ExtResource( 280 ), ExtResource( 287 ), ExtResource( 288 ), ExtResource( 251 ), ExtResource( 256 ), ExtResource( 296 ), ExtResource( 297 ), ExtResource( 262 ), ExtResource( 275 ), ExtResource( 248 ), ExtResource( 289 ), ExtResource( 265 ), ExtResource( 266 ), ExtResource( 301 ), ExtResource( 277 ), ExtResource( 279 ), ExtResource( 302 ), ExtResource( 278 ), ExtResource( 281 ), ExtResource( 252 ), ExtResource( 285 ), ExtResource( 291 ), ExtResource( 240 ), ExtResource( 241 ), ExtResource( 242 ), ExtResource( 245 ), ExtResource( 246 ), ExtResource( 250 ), ExtResource( 306 ), ExtResource( 309 ), ExtResource( 307 ), ExtResource( 308 ), ExtResource( 304 ), ExtResource( 305 ), ExtResource( 239 ), ExtResource( 237 ), ExtResource( 238 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -372,16 +482,22 @@ anims/intro_anim = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SolutionStates/INTRO"]
 frames = SubResource( 11 )
+frame = 14
 centered = false
 
 [node name="AnimLabel" type="Label" parent="SolutionStates/INTRO"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 82.0
 margin_top = 61.0
-margin_right = 692.0
-margin_bottom = 250.0
+margin_right = 691.944
+margin_bottom = 249.997
 custom_fonts/font = SubResource( 14 )
 autowrap = true
+
+[node name="VideoPlayer" type="VideoPlayer" parent="SolutionStates/INTRO"]
+margin_right = 1024.0
+margin_bottom = 768.0
+stream = ExtResource( 310 )
 
 [node name="GAME" type="Node2D" parent="SolutionStates"]
 script = ExtResource( 7 )
@@ -456,6 +572,13 @@ text = "Poistu pelistä"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 7 )
+
+[node name="Audio" type="Node" parent="."]
+script = ExtResource( 201 )
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="Audio"]
 
 [connection signal="animation_finished" from="SolutionStates/SPLASH/AnimationPlayer" to="SolutionStates/SPLASH" method="_on_animation_finished"]
 [connection signal="start_signal" from="SolutionStates/MENU" to="SolutionStates/SPLASH" method="_on_menu_start_signal"]

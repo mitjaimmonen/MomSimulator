@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/intro-high-energy.ogg-57b23d33ed6c37926599064958cf91f8.oggstr"
+
+[deps]
+
+source_file="res://Audio/intro-high-energy.ogg"
+dest_files=[ "res://.import/intro-high-energy.ogg-57b23d33ed6c37926599064958cf91f8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

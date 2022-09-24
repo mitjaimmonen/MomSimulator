@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Cartoon Slip.mp3-e65bed4ed8a00f4b6733eb55d8924dec.mp3str"
+
+[deps]
+
+source_file="res://Audio/effects/Cartoon Slip.mp3"
+dest_files=[ "res://.import/Cartoon Slip.mp3-e65bed4ed8a00f4b6733eb55d8924dec.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Kids Shouting.mp3-626e8ee84e47d1ab2a34f0612d56dc39.mp3str"
+
+[deps]
+
+source_file="res://Audio/effects/Kids Shouting.mp3"
+dest_files=[ "res://.import/Kids Shouting.mp3-626e8ee84e47d1ab2a34f0612d56dc39.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

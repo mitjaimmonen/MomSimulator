@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/game-intro-jazz.mp3-d8a61b7fd8c08674124ef98eda11cf89.mp3str"
+
+[deps]
+
+source_file="res://Audio/game-intro-jazz.mp3"
+dest_files=[ "res://.import/game-intro-jazz.mp3-d8a61b7fd8c08674124ef98eda11cf89.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var animation_player = get_node("AnimationPlayer") 
+onready var intro_music : AudioStream = load("res://Audio/intro-combined.ogg")
 
 func _ready():
 	set_process(false)
@@ -21,6 +22,13 @@ func _on_solution_state_changed():
 	else:
 		visible = false
 		
+
+func play_intro_audio():
+	AudioController.start_music(intro_music, 0)
+
+
+func stop_intro_audio():
+	AudioController.stop_music(0.5)
 
 
 func _on_animation_finished(_anim_name):

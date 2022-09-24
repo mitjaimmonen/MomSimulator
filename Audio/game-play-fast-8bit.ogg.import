@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/game-play-fast-8bit.ogg-ce018a65daf3e253cc4d32a99d841e9d.oggstr"
+
+[deps]
+
+source_file="res://Audio/game-play-fast-8bit.ogg"
+dest_files=[ "res://.import/game-play-fast-8bit.ogg-ce018a65daf3e253cc4d32a99d841e9d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
