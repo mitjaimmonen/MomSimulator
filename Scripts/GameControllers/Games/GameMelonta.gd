@@ -15,7 +15,7 @@ onready var kayak_sprite : AnimatedSprite = get_node("Peli/GameVisuals/Kayak") a
 var gameplay_start_time_ms : int = 0
 var game_length : float = 10
 var is_play : bool = false
-
+onready var gameplay_music : AudioStream = load("res://Audio/game-play-fast-8bit.ogg")
 
 
 func _ready():
@@ -43,9 +43,11 @@ func _play_started():
 	gameplay_start_time_ms = Time.get_ticks_msec()
 	kayak_sprite.playing = true
 	is_play = true
+	AudioController.start_music(gameplay_music, 0.5)
 
 
 func _play_finished():
+	AudioController.stop_music(0.5)
 	is_play = false
 
 

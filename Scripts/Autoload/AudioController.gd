@@ -7,6 +7,7 @@ var default_music_volume
 
 var stopping_music : bool = false
 var crossing_music : bool = false
+var crossing_phase : int = 0
 var stopped_music : bool = false
 var fade_start_time_ms : int = 0
 var fade_duration : float = 0
@@ -27,18 +28,18 @@ func _process(_delta):
 	if crossing_music:
 		var time = float(Time.get_ticks_msec() - fade_start_time_ms) / 1000
 		if time < fade_duration * 0.5:
-			var t = (time / fade_duration) * 2
+			var t = time / (fade_duration * 0.5)
 			var lerp_t = t * t
 			music_player.volume_db = lerp(default_music_volume,-24,lerp_t)
 		elif time < fade_duration:
-			if !stopped_music:
+			if crossing_phase == 0:
+				crossing_phase = 1
 				music_player.stop()
-				stopped_music = true
 				music_player.stream = next_music
 				music_player.volume_db = -24
 				music_player.play()
 			else:
-				var t = (fade_duration * 0.5) - (time / fade_duration) * 2
+				var t = (time - (fade_duration * 0.5)) / (fade_duration * 0.5)
 				var lerp_t = sin(t * PI * 0.5);
 				music_player.volume_db = lerp(-24,default_music_volume, lerp_t)
 		else:
@@ -68,6 +69,7 @@ func start_music(audio_stream : AudioStream, crossfade : float):
 		stopped_music = false
 	else:
 		crossing_music = true
+		crossing_phase = 0
 		fade_start_time_ms = Time.get_ticks_msec()
 		fade_duration = crossfade
 		next_music = audio_stream

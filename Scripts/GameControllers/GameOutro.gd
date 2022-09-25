@@ -46,7 +46,7 @@ func _process(_delta):
 
 	if !winner_shown && elapsed_time > 5:
 		# TODO: tell player to go to the center
-		var winner : PlayerInstance = PlayerController.get_winner()
+		var winner : PlayerInstance = PlayerController.get_current_winner()
 		player_label.text = winner.get_name() + "!"
 		winner_score_label.text = winner.current_points as String
 		winner.start_congratulations()
@@ -59,7 +59,7 @@ func _process(_delta):
 	elif elapsed_time > 10:
 		print("Finish outro & stop congrats")
 		# TODO: tell player to go back
-		var winner : PlayerInstance = PlayerController.get_winner()
+		var winner : PlayerInstance = PlayerController.get_current_winner()
 		winner.end_congratulations()
 		outro_finish()
 

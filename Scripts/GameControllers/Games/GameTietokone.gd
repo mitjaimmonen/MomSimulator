@@ -14,6 +14,7 @@ var is_guide : bool = false
 onready var tietokone_sprite : AnimatedSprite = get_node("Peli/GameVisuals/Tietokone") as AnimatedSprite
 var game_length : float = 10
 var is_play : bool = false
+onready var gameplay_music : AudioStream = load("res://Audio/game-play-sus-8bit.ogg")
 
 #outro
 onready var finish_label : Label = get_node("Outro/UI/Finish Label")
@@ -61,11 +62,12 @@ func _play_started():
 	state_start_time_ms = Time.get_ticks_msec()
 	tietokone_sprite.playing = true
 	is_play = true
+	AudioController.start_music(gameplay_music, 0.5)
 
 
 func _play_finished():
 	is_play = false
-
+	AudioController.stop_music(0.5)
 
 func _process(_delta):
 	var state_time = (Time.get_ticks_msec() - state_start_time_ms) / 1000

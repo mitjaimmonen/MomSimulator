@@ -1,4 +1,4 @@
-[gd_scene load_steps=323 format=2]
+[gd_scene load_steps=327 format=2]
 
 [ext_resource path="res://Scripts/SolutionControllers/LobbyController.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/SolutionControllers/SplashController.gd" type="Script" id=2]
@@ -309,6 +309,7 @@
 [ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0292.png" type="Texture" id=307]
 [ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0293.png" type="Texture" id=308]
 [ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0291.png" type="Texture" id=309]
+[ext_resource path="res://Scenes/PrefabScenes/PlayerVisuals/PlayerMuffin.tscn" type="PackedScene" id=310]
 
 [sub_resource type="Animation" id=4]
 resource_name = "SplashAnimation"
@@ -369,6 +370,18 @@ font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
 [sub_resource type="DynamicFont" id=14]
 size = 41
 font_data = SubResource( 13 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 100
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 85
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 100
+font_data = SubResource( 3 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 63
@@ -504,7 +517,6 @@ __meta__ = {
 }
 
 [node name="FINISH" type="Node2D" parent="SolutionStates"]
-visible = false
 script = ExtResource( 8 )
 
 [node name="UI" type="Control" parent="SolutionStates/FINISH"]
@@ -514,7 +526,12 @@ __meta__ = {
 "_editor_description_": "Overlaps Viewport (game scenes)"
 }
 
-[node name="Finish Label" type="Label" parent="SolutionStates/FINISH/UI"]
+[node name="End Card" type="Control" parent="SolutionStates/FINISH/UI"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Finish Label" type="Label" parent="SolutionStates/FINISH/UI/End Card"]
 margin_left = 40.0
 margin_top = 261.0
 margin_right = 984.0
@@ -522,15 +539,99 @@ margin_bottom = 535.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 theme = ExtResource( 3 )
-custom_fonts/font = SubResource( 8 )
-text = "Peli loppui :)"
+custom_fonts/font = SubResource( 15 )
+text = "Peli loppui"
 align = 1
+autowrap = true
+
+[node name="Winner Card" type="Control" parent="SolutionStates/FINISH/UI"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Winner" type="Label" parent="SolutionStates/FINISH/UI/Winner Card"]
+margin_left = 40.0
+margin_top = 43.0
+margin_right = 984.0
+margin_bottom = 146.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 16 )
+text = "Voittaja:"
+align = 1
+autowrap = true
+
+[node name="WinnerName" type="Label" parent="SolutionStates/FINISH/UI/Winner Card"]
+margin_left = 40.0
+margin_top = 146.0
+margin_right = 984.0
+margin_bottom = 267.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 17 )
+text = "[pelaaja]"
+align = 1
+autowrap = true
+
+[node name="Games Won" type="Label" parent="SolutionStates/FINISH/UI/Winner Card"]
+margin_left = 408.0
+margin_top = 561.0
+margin_right = 1026.0
+margin_bottom = 651.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 8 )
+text = "voitettua peliä"
+autowrap = true
+
+[node name="Points" type="Label" parent="SolutionStates/FINISH/UI/Winner Card"]
+margin_left = 408.0
+margin_top = 646.0
+margin_right = 1026.0
+margin_bottom = 736.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 8 )
+text = "Pistettä"
+autowrap = true
+
+[node name="WinnerWins" type="Label" parent="SolutionStates/FINISH/UI/Winner Card"]
+margin_left = 32.0
+margin_top = 561.0
+margin_right = 380.0
+margin_bottom = 651.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 8 )
+text = "99"
+align = 2
+autowrap = true
+
+[node name="WinnerPoints" type="Label" parent="SolutionStates/FINISH/UI/Winner Card"]
+margin_left = 23.0
+margin_top = 640.0
+margin_right = 380.0
+margin_bottom = 730.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 8 )
+text = "9999999"
+align = 2
 autowrap = true
 
 [node name="Players" type="Node2D" parent="."]
 __meta__ = {
 "_editor_description_": "Player Instances will be here"
 }
+
+[node name="PlayerVisual" parent="Players" instance=ExtResource( 310 )]
+position = Vector2( 368, 256 )
+scale = Vector2( 2, 2 )
 
 [node name="PauseMenu (not in use)" type="Node2D" parent="."]
 visible = false
