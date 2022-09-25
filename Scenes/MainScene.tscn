@@ -634,6 +634,7 @@ position = Vector2( 368, 256 )
 scale = Vector2( 2, 2 )
 
 [node name="PauseMenu (not in use)" type="Node2D" parent="."]
+pause_mode = 2
 visible = false
 script = ExtResource( 6 )
 
@@ -641,7 +642,7 @@ script = ExtResource( 6 )
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Button" type="Button" parent="PauseMenu (not in use)/Control"]
+[node name="ResumeButton" type="Button" parent="PauseMenu (not in use)/Control"]
 margin_left = 300.0
 margin_top = 208.0
 margin_right = 724.0
@@ -649,7 +650,7 @@ margin_bottom = 280.0
 custom_fonts/font = SubResource( 10 )
 text = "Jatka"
 
-[node name="Button2" type="Button" parent="PauseMenu (not in use)/Control"]
+[node name="ResetButton" type="Button" parent="PauseMenu (not in use)/Control"]
 margin_left = 300.0
 margin_top = 300.0
 margin_right = 724.0
@@ -657,7 +658,7 @@ margin_bottom = 372.0
 custom_fonts/font = SubResource( 10 )
 text = "Uusi Peli"
 
-[node name="Button3" type="Button" parent="PauseMenu (not in use)/Control"]
+[node name="QuitButton" type="Button" parent="PauseMenu (not in use)/Control"]
 margin_left = 300.0
 margin_top = 392.0
 margin_right = 724.0

@@ -10,18 +10,17 @@ var player_controller_ids = []
 
 
 func _ready():
-	set_process_input(false)	
-	GameManager.connect("reset", self, "_reset")
+	_reset()
+	var _er1 = GameManager.connect("reset", self, "_reset")
+	var _er2 = GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
 
 func _reset():
 	_populate_player_visuals()
-	var _solution_state_changed_er = GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
-	
+	set_process_input(false)
 	for p in players:
 		p.queue_free()
 	players.clear()
 	player_controller_ids.clear()
-	set_process_input(false)
 	var root = get_tree().root
 	scene_root = root.get_child(root.get_child_count() - 1)
 

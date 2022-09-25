@@ -79,9 +79,13 @@ func set_game(new_game):
 
 
 func reset_game():
+	get_tree().reload_current_scene()
 	randomize()
-	_solution_state = SolutionState.MENU
+	_solution_state = SolutionState.SPLASH
 	_game_state = GameState.NONE
 	_current_game = Game.MELONTA
 	emit_signal("reset")
 
+
+func quit_game():
+	get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
