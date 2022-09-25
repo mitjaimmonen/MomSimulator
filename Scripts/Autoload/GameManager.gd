@@ -57,6 +57,9 @@ func get_game() :
 func set_solution_state(new_state):
 	if new_state != _solution_state:
 		_solution_state = new_state
+		if _solution_state == SolutionState.MENU:
+			print("Resetting game")
+			reset_game()
 		print("Solution State: ", SolutionState.keys()[new_state])
 		emit_signal("solution_state_changed")
 
@@ -76,5 +79,9 @@ func set_game(new_game):
 
 
 func reset_game():
+	randomize()
+	_solution_state = SolutionState.MENU
+	_game_state = GameState.NONE
+	_current_game = Game.MELONTA
 	emit_signal("reset")
 

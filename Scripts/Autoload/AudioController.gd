@@ -15,6 +15,10 @@ var next_music : AudioStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameManager.connect("reset", self, "_reset")
+
+
+func _reset():
 	var root = get_tree().root
 	scene_root = root.get_child(root.get_child_count() - 1)
 	var audio_node = scene_root.get_node("Audio")

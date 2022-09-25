@@ -4,23 +4,31 @@ signal player_joined(player)
 
 var unused_player_visuals = []
 var used_player_visuals = {}
-
-export var margin_x : int = 20
-export var margin_y : int = 20
 var scene_root
 var players = []
 var player_controller_ids = []
-var initialized : bool = false
 
 
 func _ready():
-	set_process_input(false)
+	set_process_input(false)	
+	GameManager.connect("reset", self, "_reset")
+
+func _reset():
 	_populate_player_visuals()
 	var _solution_state_changed_er = GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
+	
+	for p in players:
+		p.queue_free()
+	players.clear()
+	player_controller_ids.clear()
+	set_process_input(false)
+	var root = get_tree().root
+	scene_root = root.get_child(root.get_child_count() - 1)
 
 
 func _populate_player_visuals():
 	unused_player_visuals.clear()
+	used_player_visuals.clear()
 	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerCakepiece.tscn"))
 	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerChocolate.tscn"))
 	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerCookie.tscn"))
@@ -32,12 +40,7 @@ func _populate_player_visuals():
 	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerMuffin.tscn"))
 
 
-func _on_solution_state_changed():
-	if !initialized:
-		var root = get_tree().root
-		scene_root = root.get_child(root.get_child_count() - 1)
-		initialized = true
-	
+func _on_solution_state_changed():	
 	if (GameManager.get_solution_state() == GameManager.SolutionState.LOBBY) :
 		set_process_input(true)
 	else :
@@ -126,12 +129,4 @@ func get_winner() -> PlayerInstance:
 			winner_id = p.id
 	
 	return players[winner_id]
-	
 
-func reset():
-	for p in players:
-		p.queue_free()
-	players.clear()
-	player_controller_ids.clear()
-	set_process_input(false)
-	initialized = false
