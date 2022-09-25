@@ -12,6 +12,7 @@ var controller_id : int
 var id : int
 var current_points : int
 var total_points : int
+var games_won : int
 
 var spawning : bool
 var spawn_time_ms : float
@@ -178,6 +179,9 @@ func _on_joy_connection_changed(device_id, is_connected):
 		else:
 			print ("shit you disconnected! ", device_id)
 
+
+func add_win():
+	games_won += 1
 
 func start_congratulations():
 	print("starting conngratulations")

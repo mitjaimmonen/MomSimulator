@@ -1,6 +1,6 @@
 extends Node2D
 
-var debug_skip_solution_intro : bool = false
+var debug_skip_solution_intro : bool = true
 var debug_skip_game_intro : bool = false
 
 enum SolutionState {
@@ -36,6 +36,7 @@ signal game_changed
 var _solution_state = SolutionState.SPLASH
 var _game_state = GameState.NONE
 var _current_game = Game.MELONTA
+var resetting : bool = false
 
 
 func _ready():
@@ -76,5 +77,21 @@ func set_game(new_game):
 
 
 func reset_game():
-	emit_signal("reset")
+	print("GameManager Reloading")
+	var _er = get_tree().reload_current_scene()
+	randomize()
+	_solution_state = SolutionState.SPLASH
+	_game_state = GameState.NONE
+	_current_game = Game.MELONTA
+	resetting = true
 
+
+func scene_loaded():
+	if resetting:
+		print("GameManager: scene loaded, sending reset signal")	
+		emit_signal("reset")
+		resetting = false
+
+
+func quit_game():
+	get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)

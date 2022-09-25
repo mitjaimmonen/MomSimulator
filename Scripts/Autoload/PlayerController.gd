@@ -4,23 +4,29 @@ signal player_joined(player)
 
 var unused_player_visuals = []
 var used_player_visuals = {}
-
-export var margin_x : int = 20
-export var margin_y : int = 20
 var scene_root
 var players = []
 var player_controller_ids = []
-var initialized : bool = false
 
 
 func _ready():
-	set_process_input(false)
+	_reset()
+	var _er1 = GameManager.connect("reset", self, "_reset")
+	var _er2 = GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
+
+func _reset():
+	print("PlayerController reset!")
 	_populate_player_visuals()
-	var _solution_state_changed_er = GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
+	set_process_input(false)
+	players.clear()
+	player_controller_ids.clear()
+	var root = get_tree().root
+	scene_root = root.get_child(root.get_child_count() - 1)
 
 
 func _populate_player_visuals():
 	unused_player_visuals.clear()
+	used_player_visuals.clear()
 	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerCakepiece.tscn"))
 	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerChocolate.tscn"))
 	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerCookie.tscn"))
@@ -32,12 +38,7 @@ func _populate_player_visuals():
 	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerMuffin.tscn"))
 
 
-func _on_solution_state_changed():
-	if !initialized:
-		var root = get_tree().root
-		scene_root = root.get_child(root.get_child_count() - 1)
-		initialized = true
-	
+func _on_solution_state_changed():	
 	if (GameManager.get_solution_state() == GameManager.SolutionState.LOBBY) :
 		set_process_input(true)
 	else :
@@ -110,7 +111,7 @@ func get_rank(id: int) -> int:
 	
 	return rank
 
-func get_winner() -> PlayerInstance:
+func get_current_winner() -> PlayerInstance:
 	var winner_id = -1
 	for p in players:
 		if winner_id == -1 or p.current_points > players[winner_id].current_points:
@@ -118,10 +119,27 @@ func get_winner() -> PlayerInstance:
 	
 	return players[winner_id]
 
-func reset():
+
+func get_winner() -> PlayerInstance:
+	var winner_ids = []
 	for p in players:
-		p.queue_free()
-	players.clear()
-	player_controller_ids.clear()
-	set_process_input(false)
-	initialized = false
+		if winner_ids.size() == 0:
+			winner_ids.append(p.id)
+		elif p.games_won > players[winner_ids[0]].games_won:
+			winner_ids.clear()
+			winner_ids.append(p.id)
+		elif p.games_won == players[winner_ids[0]].games_won:
+			winner_ids.append(p.id)
+	
+	if winner_ids.size() == 1:
+		return players[winner_ids[0]]
+	else:
+		var points_winner_id = -1
+		for id in winner_ids:
+			if points_winner_id < 0:
+				points_winner_id = id
+			elif players[id].total_points > players[points_winner_id].total_points:
+				points_winner_id = id
+		return players[points_winner_id]
+			
+

@@ -62,6 +62,8 @@ func _on_guide_finished():
 
 func _on_play_finished():
 	GameManager.set_game_state(GameManager.GameState.OUTRO)
+	var winner : PlayerInstance = PlayerController.get_current_winner()
+	winner.add_win()
 	_play_finished()
 
 

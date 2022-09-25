@@ -4,8 +4,9 @@ extends Node2D
 func _ready():
 	if GameManager.get_solution_state() == GameManager.SolutionState.SPLASH:
 		visible = true
-		get_node("AnimationPlayer").play("SplashAnimation")
 		print("Playing Splash")
+		var player = get_node("AnimationPlayer")
+		player.play("SplashAnimation")
 	else:
 		visible = false
 
