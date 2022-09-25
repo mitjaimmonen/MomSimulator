@@ -28,7 +28,7 @@ func play_intro_audio():
 
 
 func stop_intro_audio():
-	AudioController.stop_music(0.5)
+	AudioController.stop_music(1.0)
 
 
 func _on_animation_finished(_anim_name):
