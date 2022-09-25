@@ -184,15 +184,15 @@ func add_win():
 	games_won += 1
 
 func start_congratulations():
-	print("starting conngratulations")
+	print("starting congratulations")
 	enable_game_stats(false)
 	congratulating = true
 	congrats_lerp = true
 	congrats_time_ms = Time.get_ticks_msec()
-
+	congrats_vibe = 0
 
 func end_congratulations():
-	print("ending conngratulations")
+	print("ending congratulations")
 	congratulating = false
 	congrats_lerp = true
 	congrats_time_ms = Time.get_ticks_msec()
