@@ -11,5 +11,5 @@ dest_files=[ "res://.import/intro-combined.ogg-f3142daaf5906d44a10b837546986b36.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

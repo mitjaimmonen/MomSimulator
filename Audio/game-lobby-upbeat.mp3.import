@@ -11,5 +11,5 @@ dest_files=[ "res://.import/game-lobby-upbeat.mp3-0e87b2728d6fcfb3b6f57e56bd975f
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

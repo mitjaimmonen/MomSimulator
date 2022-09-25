@@ -11,5 +11,5 @@ dest_files=[ "res://.import/game-play-sus-8bit.ogg-7627239b620658d381477fcdca504
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

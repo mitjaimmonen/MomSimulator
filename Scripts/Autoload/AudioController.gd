@@ -1,10 +1,11 @@
 extends Node
 
-var sfx_player : AudioStreamPlayer
+var sfx_players = []
 var music_player : AudioStreamPlayer
 var scene_root
-var default_music_volume
 
+#music
+var default_music_volume : float = 0
 var stopping_music : bool = false
 var crossing_music : bool = false
 var crossing_phase : int = 0
@@ -12,6 +13,10 @@ var stopped_music : bool = false
 var fade_start_time_ms : int = 0
 var fade_duration : float = 0
 var next_music : AudioStream
+
+
+#sfx
+var sfx_index = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +28,9 @@ func _reset():
 	var root = get_tree().root
 	scene_root = root.get_child(root.get_child_count() - 1)
 	var audio_node = scene_root.get_node("Audio")
-	sfx_player = audio_node.get_node("SfxPlayer")
+	sfx_players.append(audio_node.get_node("SfxPlayer1"))
+	sfx_players.append(audio_node.get_node("SfxPlayer2"))
+	sfx_players.append(audio_node.get_node("SfxPlayer3"))
 	music_player = audio_node.get_node("MusicPlayer")
 	default_music_volume = music_player.volume_db 
 	set_process(true)
@@ -89,3 +96,12 @@ func stop_music(fade : float):
 		stopping_music = true
 		fade_start_time_ms = Time.get_ticks_msec()
 		fade_duration = fade
+
+func play_effect(audio_stream : AudioStream):
+	var player = sfx_players[sfx_index] as AudioStreamPlayer
+	player.stream = audio_stream
+	player.play()
+	
+	sfx_index += 1
+	if sfx_index >= sfx_players.size():
+		sfx_index = 0

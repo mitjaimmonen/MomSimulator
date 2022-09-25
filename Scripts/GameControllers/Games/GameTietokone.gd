@@ -12,9 +12,9 @@ var is_guide : bool = false
 
 #gameplay
 onready var tietokone_sprite : AnimatedSprite = get_node("Peli/GameVisuals/Tietokone") as AnimatedSprite
+onready var gameplay_music : AudioStream = load("res://Audio/game-play-sus-8bit.ogg")
 var game_length : float = 10
 var is_play : bool = false
-onready var gameplay_music : AudioStream = load("res://Audio/game-play-sus-8bit.ogg")
 
 #outro
 onready var finish_label : Label = get_node("Outro/UI/Finish Label")

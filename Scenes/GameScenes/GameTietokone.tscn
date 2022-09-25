@@ -112,6 +112,9 @@ font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
 
 [sub_resource type="DynamicFont" id=7]
 size = 122
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
 font_data = SubResource( 6 )
 
 [sub_resource type="DynamicFont" id=13]
@@ -253,7 +256,6 @@ anims/controller_anim_all = ExtResource( 3 )
 anims/controller_anim_rb_lb = ExtResource( 26 )
 
 [node name="Peli" type="Node2D" parent="."]
-visible = false
 script = ExtResource( 12 )
 
 [node name="GameVisuals" type="Node2D" parent="Peli"]
@@ -303,6 +305,7 @@ __meta__ = {
 }
 
 [node name="Outro" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 11 )
 
 [node name="GameVisuals3" type="Node2D" parent="Outro"]

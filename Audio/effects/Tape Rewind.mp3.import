@@ -2,14 +2,14 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Tape Rewind.mp3-f54348e363607222fffe0de55893022f.mp3str"
+path="res://.import/Tape Rewind.mp3-7a54b57e0afeddeb3acb1a3306c0e66b.mp3str"
 
 [deps]
 
-source_file="res://Audio/effects/Tape Rewind.mp3"
-dest_files=[ "res://.import/Tape Rewind.mp3-f54348e363607222fffe0de55893022f.mp3str" ]
+source_file="res://Audio/Effects/Tape Rewind.mp3"
+dest_files=[ "res://.import/Tape Rewind.mp3-7a54b57e0afeddeb3acb1a3306c0e66b.mp3str" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

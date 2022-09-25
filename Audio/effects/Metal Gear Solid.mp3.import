@@ -2,14 +2,14 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Metal Gear Solid.mp3-6555ccc496e2d5dfdc550a89bbc158f0.mp3str"
+path="res://.import/Metal Gear Solid.mp3-4ffa79f5c7a96786c8bac0533f3b64d7.mp3str"
 
 [deps]
 
-source_file="res://Audio/effects/Metal Gear Solid.mp3"
-dest_files=[ "res://.import/Metal Gear Solid.mp3-6555ccc496e2d5dfdc550a89bbc158f0.mp3str" ]
+source_file="res://Audio/Effects/Metal Gear Solid.mp3"
+dest_files=[ "res://.import/Metal Gear Solid.mp3-4ffa79f5c7a96786c8bac0533f3b64d7.mp3str" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

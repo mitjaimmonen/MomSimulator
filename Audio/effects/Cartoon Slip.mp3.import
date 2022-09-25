@@ -2,14 +2,14 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Cartoon Slip.mp3-e65bed4ed8a00f4b6733eb55d8924dec.mp3str"
+path="res://.import/Cartoon Slip.mp3-b0ec06e24ed5e9d63e5166df4a1b1f7a.mp3str"
 
 [deps]
 
-source_file="res://Audio/effects/Cartoon Slip.mp3"
-dest_files=[ "res://.import/Cartoon Slip.mp3-e65bed4ed8a00f4b6733eb55d8924dec.mp3str" ]
+source_file="res://Audio/Effects/Cartoon Slip.mp3"
+dest_files=[ "res://.import/Cartoon Slip.mp3-b0ec06e24ed5e9d63e5166df4a1b1f7a.mp3str" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

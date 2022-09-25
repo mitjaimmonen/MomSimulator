@@ -11,5 +11,5 @@ dest_files=[ "res://.import/game-intro-jazz.mp3-d8a61b7fd8c08674124ef98eda11cf89
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

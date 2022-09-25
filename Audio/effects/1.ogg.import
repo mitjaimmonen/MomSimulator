@@ -2,14 +2,14 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/1.ogg-afe0a49ad512a733938af822975d02a5.oggstr"
+path="res://.import/1.ogg-01b7c6b3d05f2baca8807cf1ddbb1621.oggstr"
 
 [deps]
 
-source_file="res://Audio/effects/1.ogg"
-dest_files=[ "res://.import/1.ogg-afe0a49ad512a733938af822975d02a5.oggstr" ]
+source_file="res://Audio/Effects/1.ogg"
+dest_files=[ "res://.import/1.ogg-01b7c6b3d05f2baca8807cf1ddbb1621.oggstr" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

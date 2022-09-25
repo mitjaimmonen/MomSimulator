@@ -12,8 +12,9 @@ var is_guide : bool = false
 
 #gameplay
 onready var nuotio_sprite : AnimatedSprite = get_node("Peli/GameVisuals/Nuotio") as AnimatedSprite
+onready var gameplay_music : AudioStream = load("res://Audio/game-play-action.mp3")
 var gameplay_start_time_ms : int = 0
-var game_length : float = 10
+var game_length : float = 18.5
 var is_play : bool = false
 
 #outro
@@ -28,6 +29,7 @@ var winner_shown : bool = false
 
 func _ready():
 	set_process(true)
+	game_node.play_finish_sounds = false 
 	nuotio_sprite.playing = false
 	var _er = GameManager.connect("game_state_changed", self, "_on_game_state_changed")
 	pass
@@ -61,10 +63,11 @@ func _play_started():
 	gameplay_start_time_ms = Time.get_ticks_msec()
 	nuotio_sprite.playing = true
 	is_play = true
-
+	AudioController.start_music(gameplay_music, 0)
 
 func _play_finished():
-	is_play = false
+	AudioController.stop_music(3)
+	is_play = false	
 
 
 func _process(_delta):

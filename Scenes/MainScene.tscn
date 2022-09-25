@@ -686,7 +686,11 @@ environment = SubResource( 7 )
 [node name="Audio" type="Node" parent="."]
 script = ExtResource( 201 )
 
-[node name="SfxPlayer" type="AudioStreamPlayer" parent="Audio"]
+[node name="SfxPlayer1" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="SfxPlayer2" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="SfxPlayer3" type="AudioStreamPlayer" parent="Audio"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="Audio"]
 

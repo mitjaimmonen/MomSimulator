@@ -2,14 +2,14 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/DJ Record Starch.mp3-fb5438325918c2d29e9e0d28e80091c2.mp3str"
+path="res://.import/DJ Record Starch.mp3-cc28d5f7b5f540e05d2bc90e862aabe8.mp3str"
 
 [deps]
 
-source_file="res://Audio/effects/DJ Record Starch.mp3"
-dest_files=[ "res://.import/DJ Record Starch.mp3-fb5438325918c2d29e9e0d28e80091c2.mp3str" ]
+source_file="res://Audio/Effects/DJ Record Starch.mp3"
+dest_files=[ "res://.import/DJ Record Starch.mp3-cc28d5f7b5f540e05d2bc90e862aabe8.mp3str" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
