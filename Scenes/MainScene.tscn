@@ -1,4 +1,4 @@
-[gd_scene load_steps=327 format=2]
+[gd_scene load_steps=328 format=2]
 
 [ext_resource path="res://Scripts/SolutionControllers/LobbyController.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/SolutionControllers/SplashController.gd" type="Script" id=2]
@@ -309,7 +309,22 @@
 [ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0292.png" type="Texture" id=307]
 [ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0293.png" type="Texture" id=308]
 [ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0291.png" type="Texture" id=309]
-[ext_resource path="res://Scenes/PrefabScenes/PlayerVisuals/PlayerMuffin.tscn" type="PackedScene" id=310]
+[ext_resource path="res://Scenes/MainScene.gd" type="Script" id=310]
+
+[sub_resource type="Animation" id=18]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/path = NodePath("PanelContainer/logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "SplashAnimation"
@@ -404,6 +419,7 @@ glow_blend_mode = 0
 adjustment_brightness = 1.38
 
 [node name="Root" type="Node"]
+script = ExtResource( 310 )
 
 [node name="SolutionStates" type="Node2D" parent="."]
 
@@ -417,6 +433,7 @@ margin_right = 1024.0
 margin_bottom = 768.0
 
 [node name="logo" type="TextureRect" parent="SolutionStates/SPLASH/PanelContainer"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1031.0
@@ -424,6 +441,7 @@ margin_bottom = 775.0
 texture = ExtResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SolutionStates/SPLASH"]
+anims/RESET = SubResource( 18 )
 anims/SplashAnimation = SubResource( 4 )
 
 [node name="MENU" type="Node2D" parent="SolutionStates"]
@@ -629,10 +647,6 @@ __meta__ = {
 "_editor_description_": "Player Instances will be here"
 }
 
-[node name="PlayerVisual" parent="Players" instance=ExtResource( 310 )]
-position = Vector2( 368, 256 )
-scale = Vector2( 2, 2 )
-
 [node name="PauseMenu (not in use)" type="Node2D" parent="."]
 pause_mode = 2
 visible = false
@@ -676,6 +690,7 @@ script = ExtResource( 201 )
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="Audio"]
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="animation_finished" from="SolutionStates/SPLASH/AnimationPlayer" to="SolutionStates/SPLASH" method="_on_animation_finished"]
 [connection signal="start_signal" from="SolutionStates/MENU" to="SolutionStates/SPLASH" method="_on_menu_start_signal"]
 [connection signal="animation_finished" from="SolutionStates/INTRO/AnimationPlayer" to="SolutionStates/INTRO" method="_on_animation_finished"]

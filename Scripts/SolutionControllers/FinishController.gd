@@ -41,8 +41,8 @@ func _process(_delta):
 		winner.start_congratulations()
 		
 		player_label.text = winner.get_name()
-		points_label.text = winner.total_points
-		wins_label.text = winner.games_won
+		points_label.text = winner.total_points as String
+		wins_label.text = winner.games_won as String
 
 	if finish_phase == 1 and time > 15:
 		GameManager.reset_game()

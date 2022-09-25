@@ -15,10 +15,9 @@ func _ready():
 	var _er2 = GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
 
 func _reset():
+	print("PlayerController reset!")
 	_populate_player_visuals()
 	set_process_input(false)
-	for p in players:
-		p.queue_free()
 	players.clear()
 	player_controller_ids.clear()
 	var root = get_tree().root
@@ -122,10 +121,25 @@ func get_current_winner() -> PlayerInstance:
 
 
 func get_winner() -> PlayerInstance:
-	var winner_id = -1
+	var winner_ids = []
 	for p in players:
-		if winner_id == -1 or p.games_won > players[winner_id].games_won:
-			winner_id = p.id
+		if winner_ids.size() == 0:
+			winner_ids.append(p.id)
+		elif p.games_won > players[winner_ids[0]].games_won:
+			winner_ids.clear()
+			winner_ids.append(p.id)
+		elif p.games_won == players[winner_ids[0]].games_won:
+			winner_ids.append(p.id)
 	
-	return players[winner_id]
+	if winner_ids.size() == 1:
+		return players[winner_ids[0]]
+	else:
+		var points_winner_id = -1
+		for id in winner_ids:
+			if points_winner_id < 0:
+				points_winner_id = id
+			elif players[id].total_points > players[points_winner_id].total_points:
+				points_winner_id = id
+		return players[points_winner_id]
+			
 

@@ -17,13 +17,17 @@ func _ready():
 	set_process(true)
 
 
-func _process(delta):
+func _process(_delta):
 	if !paused and pressing_start:
 		var t = float(Time.get_ticks_msec() - press_time_ms) / 1000
-		if t > 5 :
-			pause()
-	if paused and pressing_start:
-		resume()
+		if t > 2 :
+			if GameManager.get_solution_state() != GameManager.SolutionState.GAME:
+				pressing_start = false
+			elif GameManager.get_game_state() == GameManager.GameState.GUIDE:
+				pressing_start = false
+			else:
+				pause()
+
 
 
 func _input(event):
@@ -32,14 +36,17 @@ func _input(event):
 	if GameManager.get_game_state() == GameManager.GameState.GUIDE:
 		return
 	
-	if event.is_action_pressed("start"):
+	if !pressing_start and event.is_action_pressed("start"):
 		press_time_ms = Time.get_ticks_msec()
 		pressing_start = true
 		controller_id = event.device
+	if event.device == controller_id and event.is_action_released("start"):
+		pressing_start = false
 	
 	if paused and event.device == controller_id:
 		if event.is_action_pressed("south"):
 			var focus = pause_menu.get_focus_owner()
+			print("pause menu accept. focus: ", focus)
 			if focus == resume_button:
 				resume()
 			elif focus == reset_button:
@@ -47,6 +54,8 @@ func _input(event):
 			elif focus == quit_button:
 				quit()
 			pass
+		if event.is_action_pressed("start"):
+			resume()
 
 func pause():
 	get_tree().paused = true
@@ -64,10 +73,14 @@ func resume():
 
 
 func reset():
+	get_tree().paused = false
+	paused = false
 	GameManager.reset_game()
 
 
 func quit():
+	get_tree().paused = false
+	paused = false
 	GameManager.quit_game()
 
 

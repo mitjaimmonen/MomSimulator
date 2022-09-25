@@ -36,6 +36,7 @@ signal game_changed
 var _solution_state = SolutionState.SPLASH
 var _game_state = GameState.NONE
 var _current_game = Game.MELONTA
+var resetting : bool = false
 
 
 func _ready():
@@ -57,9 +58,6 @@ func get_game() :
 func set_solution_state(new_state):
 	if new_state != _solution_state:
 		_solution_state = new_state
-		if _solution_state == SolutionState.MENU:
-			print("Resetting game")
-			reset_game()
 		print("Solution State: ", SolutionState.keys()[new_state])
 		emit_signal("solution_state_changed")
 
@@ -79,12 +77,20 @@ func set_game(new_game):
 
 
 func reset_game():
-	get_tree().reload_current_scene()
+	print("GameManager Reloading")
+	var _er = get_tree().reload_current_scene()
 	randomize()
 	_solution_state = SolutionState.SPLASH
 	_game_state = GameState.NONE
 	_current_game = Game.MELONTA
-	emit_signal("reset")
+	resetting = true
+
+
+func scene_loaded():
+	if resetting:
+		print("GameManager: scene loaded, sending reset signal")	
+		emit_signal("reset")
+		resetting = false
 
 
 func quit_game():

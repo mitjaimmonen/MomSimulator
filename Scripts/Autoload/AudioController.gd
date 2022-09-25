@@ -15,7 +15,7 @@ var next_music : AudioStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GameManager.connect("reset", self, "_reset")
+	var _er = GameManager.connect("reset", self, "_reset")
 	_reset()
 
 
