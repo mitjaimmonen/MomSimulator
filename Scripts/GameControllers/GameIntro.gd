@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var audio_intro = load("res://Audio/game-intro-jazz.mp3")
+onready var audio_intro = load("res://Audio/game-intro-jazz.ogg")
 export var animation_name : String
 signal intro_finished
 

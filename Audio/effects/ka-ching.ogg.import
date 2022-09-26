@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ka-ching.ogg-f785d97247d88498066cb22e7bd39131.oggstr
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

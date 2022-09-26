@@ -31,6 +31,7 @@ func _reset():
 	var root = get_tree().root
 	scene_root = root.get_child(root.get_child_count() - 1)
 	var audio_node = scene_root.get_node("Audio")
+	sfx_players.clear()
 	for i in range(10):
 		var player = AudioStreamPlayer.new()
 		player.name = "Sfx" + i as String

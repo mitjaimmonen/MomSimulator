@@ -11,5 +11,5 @@ dest_files=[ "res://.import/clown-horn.ogg-0ad6d7ab5fe84cb135f8b7707b34730e.oggs
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

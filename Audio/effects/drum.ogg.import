@@ -11,5 +11,5 @@ dest_files=[ "res://.import/drum.ogg-0799ccb597df3c8f1a3de500cbeaa4ff.oggstr" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

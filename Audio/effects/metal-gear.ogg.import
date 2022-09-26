@@ -11,5 +11,5 @@ dest_files=[ "res://.import/metal-gear.ogg-8bcae2bec8baeb851328fec3d06b0018.oggs
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

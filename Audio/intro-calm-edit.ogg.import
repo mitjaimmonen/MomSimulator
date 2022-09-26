@@ -11,5 +11,5 @@ dest_files=[ "res://.import/intro-calm-edit.ogg-bd534f8ed456fae1b5aeaacd88e45f50
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
