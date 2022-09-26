@@ -1,6 +1,6 @@
 extends Node2D
 
-
+onready var anim_player : AnimationPlayer = get_node("AnimationPlayer")
 onready var lobby_music : AudioStream = load("res://Audio/intro-calm-edit.ogg")
 onready var join_node : Label = get_node("UI/Join Label")
 onready var welcome_node : Label = get_node("UI/Welcome Label")
@@ -23,6 +23,8 @@ func _ready():
 func _on_solution_state_changed():
 	if GameManager.get_solution_state() == GameManager.SolutionState.LOBBY:
 		print("Playing Lobby")
+		modulate = Color(0,0,0)
+		anim_player.play("lobby_anim")
 		AudioController.start_music(lobby_music, 2, true)
 		set_process_input(true)
 		set_process(true)
