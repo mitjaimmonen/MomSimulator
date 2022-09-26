@@ -1,8 +1,11 @@
 extends Node2D
 
+
+onready var lobby_music : AudioStream = load("res://Audio/game-lobby-upbeat.mp3")
 onready var join_node : Label = get_node("UI/Join Label")
 onready var welcome_node : Label = get_node("UI/Welcome Label")
 
+var is_lobby = false
 var join_timer : float = 0
 var ready_timer : float = 0
 var players_ready : bool = false
@@ -20,15 +23,19 @@ func _ready():
 func _on_solution_state_changed():
 	if GameManager.get_solution_state() == GameManager.SolutionState.LOBBY:
 		print("Playing Lobby")
+		AudioController.start_music(lobby_music, 2, true)
 		set_process_input(true)
 		set_process(true)
 		visible = true
 		join_node.visible = true
 		welcome_node.visible = false
-	else:
+		is_lobby = true
+	elif is_lobby:
+		is_lobby = false
 		visible = false
 		set_process(false)
 		set_process_input(false)
+		AudioController.stop_music(0.5)
 
 
 func _process(delta):

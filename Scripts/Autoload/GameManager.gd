@@ -20,9 +20,9 @@ enum GameState {
 	FINISH,
 }
 enum Game {
+	MELONTA,
 	NUOTIO,
 	TIETOKONE,
-	MELONTA,
 	SANOMALEHTI,
 	KEPPI,
 	MITJA_TALOSSA,

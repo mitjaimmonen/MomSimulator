@@ -2,6 +2,8 @@ extends Node2D
 
 signal guide_finished
 
+onready var audio_guide = load("res://Audio/game-lobby-upbeat.mp3")
+
 var players_ready : bool = false
 var players_ready_time : float = 0
 
@@ -15,6 +17,7 @@ func _on_game_state_changed():
 	if GameManager.get_game_state() == GameManager.GameState.GUIDE:
 		visible = true
 		set_process(true)
+		AudioController.start_music(audio_guide, 2, true)
 	else:
 		visible = false
 		set_process(false)
@@ -35,4 +38,5 @@ func _process(delta):
 
 func finish_state():
 	print("guide finished")
+	AudioController.stop_music(0.5)
 	emit_signal("guide_finished")

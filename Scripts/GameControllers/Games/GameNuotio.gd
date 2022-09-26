@@ -12,7 +12,7 @@ var is_guide : bool = false
 
 #gameplay
 onready var nuotio_sprite : AnimatedSprite = get_node("Peli/GameVisuals/Nuotio") as AnimatedSprite
-onready var gameplay_music : AudioStream = load("res://Audio/game-play-action.mp3")
+onready var gameplay_music : AudioStream = load("res://Audio/game-play-action.ogg")
 var gameplay_start_time_ms : int = 0
 var game_length : float = 18.5
 var is_play : bool = false

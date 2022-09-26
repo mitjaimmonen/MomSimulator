@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Rowing a Boat Sound Effect (HD) Free Download.mp3-27a9445f5e26ea4e1cf88fc8d95848ed.mp3str"
+
+[deps]
+
+source_file="res://ProjectFiles/audio/Rowing a Boat Sound Effect (HD) Free Download.mp3"
+dest_files=[ "res://.import/Rowing a Boat Sound Effect (HD) Free Download.mp3-27a9445f5e26ea4e1cf88fc8d95848ed.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

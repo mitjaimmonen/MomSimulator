@@ -72,6 +72,7 @@ func _process(delta):
 
 
 func play_finished():
+	AudioController.stop_effects()
 	if play_finish_sounds:
 		AudioController.play_effect(game_finish_sound)
 	emit_signal("play_finished")

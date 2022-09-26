@@ -246,10 +246,12 @@ centered = false
 
 [node name="Kayak" type="AnimatedSprite" parent="Peli/GameVisuals"]
 frames = SubResource( 12 )
+frame = 2
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Peli/GameVisuals"]
 root_node = NodePath("../../..")
+playback_speed = 2.0
 anims/melonta_anim = ExtResource( 1 )
 
 [node name="UI" type="Control" parent="Peli"]
