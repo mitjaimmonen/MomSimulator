@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ba-dun-tss.ogg-4956b2a3e7566337b852074d3fe8a9c9.oggstr"
+
+[deps]
+
+source_file="res://Audio/Effects/ba-dun-tss.ogg"
+dest_files=[ "res://.import/ba-dun-tss.ogg-4956b2a3e7566337b852074d3fe8a9c9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

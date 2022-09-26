@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/truut.ogg-f87281f01717ca7a861afa2fd50cee12.oggstr"
+
+[deps]
+
+source_file="res://Audio/Effects/truut.ogg"
+dest_files=[ "res://.import/truut.ogg-f87281f01717ca7a861afa2fd50cee12.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

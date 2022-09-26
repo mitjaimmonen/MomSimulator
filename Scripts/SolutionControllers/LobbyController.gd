@@ -1,7 +1,7 @@
 extends Node2D
 
 
-onready var lobby_music : AudioStream = load("res://Audio/game-lobby-upbeat.mp3")
+onready var lobby_music : AudioStream = load("res://Audio/intro-calm-edit.ogg")
 onready var join_node : Label = get_node("UI/Join Label")
 onready var welcome_node : Label = get_node("UI/Welcome Label")
 

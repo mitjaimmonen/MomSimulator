@@ -1,4 +1,4 @@
-[gd_scene load_steps=328 format=2]
+[gd_scene load_steps=342 format=2]
 
 [ext_resource path="res://Scripts/SolutionControllers/LobbyController.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/SolutionControllers/SplashController.gd" type="Script" id=2]
@@ -310,6 +310,18 @@
 [ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0293.png" type="Texture" id=308]
 [ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0291.png" type="Texture" id=309]
 [ext_resource path="res://Scenes/MainScene.gd" type="Script" id=310]
+[ext_resource path="res://Textures & Sprites/Lobby/lobby0012.png" type="Texture" id=311]
+[ext_resource path="res://Textures & Sprites/Lobby/lobby0004.png" type="Texture" id=312]
+[ext_resource path="res://Textures & Sprites/Lobby/lobby0008.png" type="Texture" id=313]
+[ext_resource path="res://Textures & Sprites/Lobby/lobby0003.png" type="Texture" id=314]
+[ext_resource path="res://Textures & Sprites/Lobby/lobby0010.png" type="Texture" id=315]
+[ext_resource path="res://Textures & Sprites/Lobby/lobby0001.png" type="Texture" id=316]
+[ext_resource path="res://Textures & Sprites/Lobby/lobby0009.png" type="Texture" id=317]
+[ext_resource path="res://Textures & Sprites/Lobby/lobby0007.png" type="Texture" id=318]
+[ext_resource path="res://Textures & Sprites/Lobby/lobby0011.png" type="Texture" id=319]
+[ext_resource path="res://Textures & Sprites/Lobby/lobby0006.png" type="Texture" id=320]
+[ext_resource path="res://Textures & Sprites/Lobby/lobby0005.png" type="Texture" id=321]
+[ext_resource path="res://Textures & Sprites/Lobby/lobby0002.png" type="Texture" id=322]
 
 [sub_resource type="Animation" id=18]
 resource_name = "RESET"
@@ -349,11 +361,29 @@ font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
 size = 50
 font_data = SubResource( 5 )
 
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ ExtResource( 316 ), ExtResource( 322 ), ExtResource( 314 ), ExtResource( 312 ), ExtResource( 321 ), ExtResource( 320 ), ExtResource( 318 ), ExtResource( 313 ), ExtResource( 317 ), ExtResource( 315 ), ExtResource( 319 ), ExtResource( 311 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
 [sub_resource type="DynamicFontData" id=3]
 font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
 
 [sub_resource type="DynamicFont" id=2]
-size = 63
+size = 54
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
 font_data = SubResource( 3 )
 
 [sub_resource type="Animation" id=12]
@@ -466,8 +496,13 @@ text = "Aloita Peli"
 align = 1
 
 [node name="LOBBY" type="Node2D" parent="SolutionStates"]
-visible = false
 script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="SolutionStates/LOBBY"]
+frames = SubResource( 19 )
+frame = 3
+playing = true
+centered = false
 
 [node name="UI" type="Control" parent="SolutionStates/LOBBY"]
 anchor_right = 1.0
@@ -477,33 +512,34 @@ __meta__ = {
 }
 
 [node name="Join Label" type="Label" parent="SolutionStates/LOBBY/UI"]
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 984.0
-margin_bottom = 314.0
+margin_left = 38.0
+margin_top = 52.0
+margin_right = 503.0
+margin_bottom = 326.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 2 )
 text = "Osallistu peliin painamalla ohjaimen nappia!"
-align = 1
 autowrap = true
 
 [node name="Welcome Label" type="Label" parent="SolutionStates/LOBBY/UI"]
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 984.0
-margin_bottom = 314.0
+visible = false
+margin_left = 209.0
+margin_top = 53.0
+margin_right = 809.0
+margin_bottom = 327.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 theme = ExtResource( 3 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 20 )
 text = "Tervetuloa
 [Pelaaja]!!!!"
 align = 1
 autowrap = true
 
 [node name="INTRO" type="Node2D" parent="SolutionStates"]
+visible = false
 script = ExtResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SolutionStates/INTRO"]
@@ -525,6 +561,7 @@ autowrap = true
 percent_visible = 0.833334
 
 [node name="GAME" type="Node2D" parent="SolutionStates"]
+visible = false
 script = ExtResource( 7 )
 
 [node name="GameViewport" type="ViewportContainer" parent="SolutionStates/GAME" groups=["GameContainer"]]
@@ -535,6 +572,7 @@ __meta__ = {
 }
 
 [node name="FINISH" type="Node2D" parent="SolutionStates"]
+visible = false
 script = ExtResource( 8 )
 
 [node name="UI" type="Control" parent="SolutionStates/FINISH"]

@@ -8,6 +8,9 @@ var scene_root
 var players = []
 var player_controller_ids = []
 
+var unused_player_audio = []
+var unused_player_win_audio = []
+
 
 func _ready():
 	_reset()
@@ -36,6 +39,11 @@ func _populate_player_visuals():
 	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerLollipop.tscn"))
 	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerMarshmallow.tscn"))
 	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerMuffin.tscn"))
+
+func _populate_player_audio():
+	unused_player_audio.clear()
+	unused_player_win_audio.clear()
+	
 
 
 func _on_solution_state_changed():	
