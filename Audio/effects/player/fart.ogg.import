@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/fart.ogg-c23853c685f4a6e1ff5d57a7e69a230d.oggstr"
+path="res://.import/fart.ogg-db08e119d73804cafcb93cb27871de64.oggstr"
 
 [deps]
 
-source_file="res://Audio/effects/player/fart.ogg"
-dest_files=[ "res://.import/fart.ogg-c23853c685f4a6e1ff5d57a7e69a230d.oggstr" ]
+source_file="res://Audio/Effects/player/fart.ogg"
+dest_files=[ "res://.import/fart.ogg-db08e119d73804cafcb93cb27871de64.oggstr" ]
 
 [params]
 

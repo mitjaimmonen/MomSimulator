@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/metal-gear.ogg-2c616dcd1c6cee08bce1bd351489e28b.oggstr"
+path="res://.import/metal-gear.ogg-8bcae2bec8baeb851328fec3d06b0018.oggstr"
 
 [deps]
 
-source_file="res://Audio/effects/metal-gear.ogg"
-dest_files=[ "res://.import/metal-gear.ogg-2c616dcd1c6cee08bce1bd351489e28b.oggstr" ]
+source_file="res://Audio/Effects/metal-gear.ogg"
+dest_files=[ "res://.import/metal-gear.ogg-8bcae2bec8baeb851328fec3d06b0018.oggstr" ]
 
 [params]
 

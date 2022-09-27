@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/splatter.ogg-a6b8a6604eace5fe1cd1ee404ddb08ff.oggstr"
+path="res://.import/splatter.ogg-b3a78410780196ef76af0f6bd6b576a2.oggstr"
 
 [deps]
 
-source_file="res://Audio/effects/splatter.ogg"
-dest_files=[ "res://.import/splatter.ogg-a6b8a6604eace5fe1cd1ee404ddb08ff.oggstr" ]
+source_file="res://Audio/Effects/splatter.ogg"
+dest_files=[ "res://.import/splatter.ogg-b3a78410780196ef76af0f6bd6b576a2.oggstr" ]
 
 [params]
 

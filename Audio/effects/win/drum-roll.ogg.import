@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/drum-roll.ogg-53ed9f6940e811f14333f1da1e5bcd9b.oggstr"
+path="res://.import/drum-roll.ogg-590029e8045c386658dcfbdf38a85f6c.oggstr"
 
 [deps]
 
-source_file="res://Audio/effects/win/drum-roll.ogg"
-dest_files=[ "res://.import/drum-roll.ogg-53ed9f6940e811f14333f1da1e5bcd9b.oggstr" ]
+source_file="res://Audio/Effects/win/drum-roll.ogg"
+dest_files=[ "res://.import/drum-roll.ogg-590029e8045c386658dcfbdf38a85f6c.oggstr" ]
 
 [params]
 

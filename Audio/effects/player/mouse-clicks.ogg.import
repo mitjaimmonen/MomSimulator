@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/mouse-clicks.ogg-b4bc9da92f31eebc3eac815a322977b3.oggstr"
+path="res://.import/mouse-clicks.ogg-af14a8dd74573b3ff6fb8f9bdbc9c074.oggstr"
 
 [deps]
 
-source_file="res://Audio/effects/player/mouse-clicks.ogg"
-dest_files=[ "res://.import/mouse-clicks.ogg-b4bc9da92f31eebc3eac815a322977b3.oggstr" ]
+source_file="res://Audio/Effects/player/mouse-clicks.ogg"
+dest_files=[ "res://.import/mouse-clicks.ogg-af14a8dd74573b3ff6fb8f9bdbc9c074.oggstr" ]
 
 [params]
 

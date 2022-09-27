@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/wow.ogg-8487093388a311b95255106030dc5623.oggstr"
+path="res://.import/wow.ogg-8242d7acec8e43a88cda74b4abceef71.oggstr"
 
 [deps]
 
-source_file="res://Audio/effects/win/wow.ogg"
-dest_files=[ "res://.import/wow.ogg-8487093388a311b95255106030dc5623.oggstr" ]
+source_file="res://Audio/Effects/win/wow.ogg"
+dest_files=[ "res://.import/wow.ogg-8242d7acec8e43a88cda74b4abceef71.oggstr" ]
 
 [params]
 

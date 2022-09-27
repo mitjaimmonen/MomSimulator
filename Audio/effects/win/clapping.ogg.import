@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/clapping.ogg-6cad9c66384ebe51200ef4b7c3deb928.oggstr"
+path="res://.import/clapping.ogg-05bd5d3fd213223f3f8361ad7c36ba10.oggstr"
 
 [deps]
 
-source_file="res://Audio/effects/win/clapping.ogg"
-dest_files=[ "res://.import/clapping.ogg-6cad9c66384ebe51200ef4b7c3deb928.oggstr" ]
+source_file="res://Audio/Effects/win/clapping.ogg"
+dest_files=[ "res://.import/clapping.ogg-05bd5d3fd213223f3f8361ad7c36ba10.oggstr" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/water-rowing-ambience.ogg-c7bdd9c1d69640ba292bee6fddada44b.oggstr"
+path="res://.import/water-rowing-ambience.ogg-e66128b169def41307e350c3bbe1336f.oggstr"
 
 [deps]
 
-source_file="res://Audio/effects/water-rowing-ambience.ogg"
-dest_files=[ "res://.import/water-rowing-ambience.ogg-c7bdd9c1d69640ba292bee6fddada44b.oggstr" ]
+source_file="res://Audio/Effects/water-rowing-ambience.ogg"
+dest_files=[ "res://.import/water-rowing-ambience.ogg-e66128b169def41307e350c3bbe1336f.oggstr" ]
 
 [params]
 
