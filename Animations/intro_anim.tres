@@ -74,7 +74,7 @@ tracks/3/keys = {
 "args": [ "drop" ],
 "method": "play_intro_sfx"
 }, {
-"args": [ "ligt-switch" ],
+"args": [ "light-switch" ],
 "method": "play_intro_sfx"
 }, {
 "args": [ "coffee-brew" ],
