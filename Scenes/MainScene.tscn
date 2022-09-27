@@ -648,7 +648,7 @@ anims/lobby_anim = SubResource( 23 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SolutionStates/LOBBY"]
 frames = SubResource( 19 )
-frame = 5
+frame = 7
 playing = true
 centered = false
 
@@ -687,7 +687,6 @@ align = 1
 autowrap = true
 
 [node name="INTRO" type="Node2D" parent="SolutionStates"]
-visible = false
 script = ExtResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SolutionStates/INTRO"]
@@ -696,6 +695,7 @@ anims/intro_anim = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SolutionStates/INTRO"]
 frames = SubResource( 11 )
+frame = 213
 centered = false
 
 [node name="AnimLabel" type="Label" parent="SolutionStates/INTRO"]
@@ -705,8 +705,8 @@ margin_top = 61.0
 margin_right = 691.944
 margin_bottom = 249.997
 custom_fonts/font = SubResource( 14 )
+text = "Ou shit!"
 autowrap = true
-percent_visible = 0.833334
 
 [node name="GAME" type="Node2D" parent="SolutionStates"]
 visible = false

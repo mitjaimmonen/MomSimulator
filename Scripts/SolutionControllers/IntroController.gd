@@ -31,5 +31,8 @@ func stop_intro_audio():
 	AudioController.stop_music(1.0)
 
 
+func play_intro_sfx(name : String):
+	AudioController.play_effect(load("res://Audio/Effects/intro/" + name + ".ogg"))
+
 func _on_animation_finished(_anim_name):
 	GameManager.set_solution_state(GameManager.SolutionState.GAME)

@@ -22,7 +22,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.3, 4.2, 5.7, 37.5, 40.4, 41.5, 44 ),
+"times": PoolRealArray( 0.3, 4.2, 5.7, 37.5, 39.7, 40.8, 44 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ "", "Hnnng pläääh....", "
@@ -35,10 +35,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 4.2, 5.7, 37.5, 40.5, 41.5 ),
+"times": PoolRealArray( 4.2, 5.7, 37.5, 39.8, 40.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 432, 206 ), Vector2( 432, 206 ), Vector2( 382, 69 ), Vector2( 382, 69 ), Vector2( 342, 57 ) ]
+"values": [ Vector2( 432, 206 ), Vector2( 432, 206 ), Vector2( 382, 69 ), Vector2( 382, 69 ), Vector2( 373, 594 ) ]
 }
 tracks/3/type = "method"
 tracks/3/path = NodePath(".")
@@ -47,11 +47,41 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.3, 57.9 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.3, 2.6, 6.2, 7.6, 9, 10.4, 11.8, 13, 16.6, 18.3, 46.1, 57.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "play_intro_audio"
+}, {
+"args": [ "alarm" ],
+"method": "play_intro_sfx"
+}, {
+"args": [ "slam-4" ],
+"method": "play_intro_sfx"
+}, {
+"args": [ "slam-1" ],
+"method": "play_intro_sfx"
+}, {
+"args": [ "slam-1" ],
+"method": "play_intro_sfx"
+}, {
+"args": [ "slam-2" ],
+"method": "play_intro_sfx"
+}, {
+"args": [ "slam-3" ],
+"method": "play_intro_sfx"
+}, {
+"args": [ "drop" ],
+"method": "play_intro_sfx"
+}, {
+"args": [ "ligt-switch" ],
+"method": "play_intro_sfx"
+}, {
+"args": [ "coffee-brew" ],
+"method": "play_intro_sfx"
+}, {
+"args": [ "car" ],
+"method": "play_intro_sfx"
 }, {
 "args": [  ],
 "method": "stop_intro_audio"
