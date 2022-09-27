@@ -26,7 +26,7 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ "", "Hnnng pläääh....", "
-", "Hmm, mitähän suunnitelmia tänään olikaan...", "", "Ou shit!", "" ]
+", "Hmm, mitähän suunnitelmia tänään olikaan...", "", "Kääk!", "" ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("AnimLabel:rect_position")
@@ -35,10 +35,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 4.2, 5.7, 37.5, 39.8, 40.8 ),
+"times": PoolRealArray( 4.2, 5.9, 37.5, 39.8, 40.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 432, 206 ), Vector2( 432, 206 ), Vector2( 382, 69 ), Vector2( 382, 69 ), Vector2( 373, 594 ) ]
+"values": [ Vector2( 85, 16 ), Vector2( 85, 16 ), Vector2( 443, 18 ), Vector2( 443, 18 ), Vector2( 460, 190 ) ]
 }
 tracks/3/type = "method"
 tracks/3/path = NodePath(".")
