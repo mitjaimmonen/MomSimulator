@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Batman Transition.mp3-7c9b3d45af400b5add223bf45ea6f331.mp3str"
+path="res://.import/Batman Transition.mp3-fdb195ce2e3585100d7b8b8eaf1e1750.mp3str"
 
 [deps]
 
-source_file="res://Audio/Effects/Batman Transition.mp3"
-dest_files=[ "res://.import/Batman Transition.mp3-7c9b3d45af400b5add223bf45ea6f331.mp3str" ]
+source_file="res://Audio/effects/Batman Transition.mp3"
+dest_files=[ "res://.import/Batman Transition.mp3-fdb195ce2e3585100d7b8b8eaf1e1750.mp3str" ]
 
 [params]
 

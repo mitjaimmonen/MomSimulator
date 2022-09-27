@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/splash-small.ogg-07087af404b23d37ed26cbcfa1168188.oggstr"
+path="res://.import/splash-small.ogg-bdddea4ac7b30b714e4b8ab1bc4a7737.oggstr"
 
 [deps]
 
-source_file="res://Audio/Effects/splash-small.ogg"
-dest_files=[ "res://.import/splash-small.ogg-07087af404b23d37ed26cbcfa1168188.oggstr" ]
+source_file="res://Audio/effects/splash-small.ogg"
+dest_files=[ "res://.import/splash-small.ogg-bdddea4ac7b30b714e4b8ab1bc4a7737.oggstr" ]
 
 [params]
 

@@ -48,7 +48,7 @@ func _process(_delta):
 		# TODO: tell player to go to the center
 		var winner : PlayerInstance = PlayerController.get_current_winner()
 		player_label.text = winner.get_name() + "!"
-		winner_score_label.text = winner.current_points as String
+		winner_score_label.text = winner.current_points as String + " pistettä"
 		winner.start_congratulations()
 		
 		winner_shown = true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/clapping.ogg-6cad9c66384ebe51200ef4b7c3deb928.oggstr"
+
+[deps]
+
+source_file="res://Audio/effects/win/clapping.ogg"
+dest_files=[ "res://.import/clapping.ogg-6cad9c66384ebe51200ef4b7c3deb928.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

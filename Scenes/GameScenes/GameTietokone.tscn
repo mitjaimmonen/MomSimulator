@@ -351,7 +351,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 7
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 2 )
-text = "Tuhdein tietsikka snäkki:!"
+text = "Tuhdein tietsikka snäkki:"
 align = 1
 autowrap = true
 

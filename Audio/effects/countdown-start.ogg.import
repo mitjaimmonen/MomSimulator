@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/countdown-start.ogg-f36fb5b1504cb07362c48e5669c0fcb1.oggstr"
+path="res://.import/countdown-start.ogg-a8d5b24ba742077671517f53198ee087.oggstr"
 
 [deps]
 
-source_file="res://Audio/Effects/countdown-start.ogg"
-dest_files=[ "res://.import/countdown-start.ogg-f36fb5b1504cb07362c48e5669c0fcb1.oggstr" ]
+source_file="res://Audio/effects/countdown-start.ogg"
+dest_files=[ "res://.import/countdown-start.ogg-a8d5b24ba742077671517f53198ee087.oggstr" ]
 
 [params]
 

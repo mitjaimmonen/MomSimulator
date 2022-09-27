@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/clown-horn.ogg-3f119970dd02429f31623df6adf5a5df.oggstr"
+
+[deps]
+
+source_file="res://Audio/effects/player/clown-horn.ogg"
+dest_files=[ "res://.import/clown-horn.ogg-3f119970dd02429f31623df6adf5a5df.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

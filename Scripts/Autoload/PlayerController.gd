@@ -20,6 +20,8 @@ func _ready():
 func _reset():
 	print("PlayerController reset!")
 	_populate_player_visuals()
+	_populate_player_audio()
+	_populate_player_win_audio()
 	set_process_input(false)
 	players.clear()
 	player_controller_ids.clear()
@@ -30,20 +32,49 @@ func _reset():
 func _populate_player_visuals():
 	unused_player_visuals.clear()
 	used_player_visuals.clear()
-	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerCakepiece.tscn"))
-	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerChocolate.tscn"))
-	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerCookie.tscn"))
-	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerCotton.tscn"))
-	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerDonut.tscn"))
-	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerIcecream.tscn"))
-	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerLollipop.tscn"))
-	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerMarshmallow.tscn"))
-	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerMuffin.tscn"))
+	
+	var path = "res://Scenes/PrefabScenes/PlayerVisuals/"
+	var files = get_files(path)
+
+	for filepath in files:
+		unused_player_visuals.append(load(path + filepath))
+
+
+func _populate_player_win_audio():
+	unused_player_win_audio.clear()
+	
+
+	var path = "res://Audio/Effects/win/"
+	var files = get_files(path)
+
+	for filepath in files:
+		unused_player_win_audio.append(load(path + filepath))
+
 
 func _populate_player_audio():
 	unused_player_audio.clear()
-	unused_player_win_audio.clear()
 	
+	var path = "res://Audio/Effects/player/"
+	var files = get_files(path)
+
+	for filepath in files:
+		unused_player_audio.append(load(path + filepath))
+
+
+func get_files(path : String) -> PoolStringArray :
+	var files = []
+	var dir = Directory.new()
+	dir.open(path)
+	dir.list_dir_begin()
+	
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		elif not file.begins_with(".") and not file.ends_with(".import"):
+			files.append(file)
+	
+	return files
 
 
 func _on_solution_state_changed():	
@@ -74,12 +105,27 @@ func _create_player(var controller_id : int):
 	player_instance.controller_id = controller_id
 	player_instance.id = players.size() - 1
 	
+	if unused_player_visuals.size() == 0:
+		_populate_player_visuals()
+	
 	var visual_index = int(rand_range(0, unused_player_visuals.size()))
 	var visual : Node2D = unused_player_visuals[visual_index].instance()
 	player_instance.add_child(visual)
 	player_instance.move_child(visual, 0)
 	used_player_visuals[player_instance.id] = unused_player_visuals[visual_index]
 	unused_player_visuals.remove(visual_index);
+	
+	if unused_player_audio.size() == 0:
+		_populate_player_audio()
+	if unused_player_win_audio.size() == 0:
+		_populate_player_win_audio()
+	
+	var audio_index = int(rand_range(0, unused_player_audio.size()))
+	var win_audio_index = int(rand_range(0, unused_player_win_audio.size()))
+	player_instance.audio = unused_player_audio[audio_index] as AudioStream
+	player_instance.win_audio = unused_player_win_audio[win_audio_index] as AudioStream
+	unused_player_audio.remove(audio_index)
+	unused_player_win_audio.remove(win_audio_index)
 	
 	player_instance.init()
 	

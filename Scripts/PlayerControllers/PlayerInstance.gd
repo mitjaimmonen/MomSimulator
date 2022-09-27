@@ -23,6 +23,9 @@ var congrats_lerp : bool = false
 var congrats_time_ms : int = 0
 var congrats_vibe : int = 0
 
+var audio : AudioStream
+var win_audio : AudioStream
+
 
 func init():
 	player_visual = get_node("PlayerVisual")
@@ -40,6 +43,7 @@ func init():
 
 
 func _start_spawn():
+	AudioController.play_effect(audio, 0.7)
 	player_visual.play_spawn_anim()
 	spawn_time_ms = Time.get_ticks_msec()
 	spawning = true
@@ -93,6 +97,7 @@ func _process(_delta):
 		else:
 			congrats_lerp = false
 			if congratulating:
+				AudioController.play_effect(win_audio)
 				position = center_position
 				scale = Vector2(2,2)
 			else:
@@ -131,6 +136,8 @@ func set_ready(var value : bool):
 		print("player ready ", value)
 		ready_label.visible = value
 		ready = value
+		if ready:
+			AudioController.play_effect(audio, 0.7)
 
 
 func set_current_points(var value : int):

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/dun dun dunn.ogg-2f665270426c56e028b7b1069b1e546b.oggstr"
+
+[deps]
+
+source_file="res://Audio/effects/win/dun dun dunn.ogg"
+dest_files=[ "res://.import/dun dun dunn.ogg-2f665270426c56e028b7b1069b1e546b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

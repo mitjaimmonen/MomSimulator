@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cartoon-slip.ogg-f92e2047bcaf094be801489d47cd7193.oggstr"
+
+[deps]
+
+source_file="res://Audio/effects/player/cartoon-slip.ogg"
+dest_files=[ "res://.import/cartoon-slip.ogg-f92e2047bcaf094be801489d47cd7193.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

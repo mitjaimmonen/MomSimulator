@@ -38,7 +38,7 @@ func _reset():
 		audio_node.add_child(player)
 		sfx_players.append(player)
 	music_player = audio_node.get_node("MusicPlayer")
-	music_player.connect("finished", self, "on_music_finished")
+	var _er = music_player.connect("finished", self, "on_music_finished")
 	default_music_volume = music_player.volume_db 
 	set_process(true)
 
