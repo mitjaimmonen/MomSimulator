@@ -11,6 +11,7 @@ onready var controller_guide_anim : AnimationPlayer = get_node("Ohjeistus/Contro
 var is_guide : bool = false
 
 #gameplay
+onready var gameplay_anim : AnimationPlayer = get_node("Peli/GameVisuals/AnimationPlayer") as AnimationPlayer
 onready var nuotio_sprite : AnimatedSprite = get_node("Peli/GameVisuals/Nuotio") as AnimatedSprite
 onready var gameplay_music : AudioStream = load("res://Audio/game-play-action.ogg")
 var gameplay_start_time_ms : int = 0
@@ -64,14 +65,16 @@ func _play_started():
 	nuotio_sprite.playing = true
 	is_play = true
 	AudioController.start_music(gameplay_music, 0)
+	gameplay_anim.play("nuotio_anim")
+
 
 func _play_finished():
+	gameplay_anim.stop()
 	AudioController.stop_music(3)
 	is_play = false	
 
 
 func _process(_delta):
-	
 	if is_play:
 		var elapsed_time_ms = Time.get_ticks_msec() - gameplay_start_time_ms
 		var elapsed_time = float(elapsed_time_ms) / 1000
