@@ -1,6 +1,6 @@
 [gd_scene load_steps=148 format=2]
 
-[ext_resource path="res://Animations/gameplay/melonta_anim.tres" type="Animation" id=1]
+[ext_resource path="res://Animations/gameplay/keppi_anim.tres" type="Animation" id=1]
 [ext_resource path="res://theme.tres" type="Theme" id=2]
 [ext_resource path="res://Animations/melonta_anim.tres" type="Animation" id=3]
 [ext_resource path="res://Textures & Sprites/Melonta/mom-sim-melonta0001.png" type="Texture" id=4]
@@ -229,11 +229,11 @@ script = ExtResource( 6 )
 __meta__ = {
 "_editor_description_": "Animaatio / alustus"
 }
-animation_name = "melonta_anim"
+animation_name = "melonta_intro"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Intro"]
 anims/RESET = SubResource( 14 )
-anims/melonta_anim = ExtResource( 3 )
+anims/melonta_intro = ExtResource( 3 )
 
 [node name="image1" type="Sprite" parent="Intro"]
 texture = ExtResource( 4 )
@@ -347,6 +347,7 @@ script = ExtResource( 12 )
 
 [node name="animframes" type="AnimatedSprite" parent="Peli/GameVisuals"]
 frames = SubResource( 12 )
+frame = 100
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Peli/GameVisuals"]

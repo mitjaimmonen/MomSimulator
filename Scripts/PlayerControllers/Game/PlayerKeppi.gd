@@ -18,7 +18,7 @@ func _play_started():
 	is_playing = true
 	player_instance.set_current_points(0)
 	player_instance.update_game_stats()
-	game_container.connect("stick_appeared", self, "on_stick_appeared")
+	game_container.get_child(0).connect("stick_appeared", self, "on_stick_appeared")
 
 func _play_finished():
 	print("PlayerKeppi: play finished")

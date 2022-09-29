@@ -1,8 +1,9 @@
 [gd_scene load_steps=74 format=2]
 
-[ext_resource path="res://Animations/gameplay/melonta_anim.tres" type="Animation" id=1]
+[ext_resource path="res://Animations/gameplay/keppi_anim.tres" type="Animation" id=1]
 [ext_resource path="res://theme.tres" type="Theme" id=2]
 [ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0001.png" type="Texture" id=3]
+[ext_resource path="res://Animations/keppi_anim.tres" type="Animation" id=4]
 [ext_resource path="res://Scripts/GameControllers/GameIntro.gd" type="Script" id=6]
 [ext_resource path="res://Textures & Sprites/controller_sprites/controller_2.png" type="Texture" id=7]
 [ext_resource path="res://Textures & Sprites/controller_sprites/controller_1.png" type="Texture" id=8]
@@ -72,34 +73,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=15]
-resource_name = "keppi_anim"
-length = 6.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("Label:percent_visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 2.6, 3.2, 4.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0, 1.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 4.7, 6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
 [sub_resource type="DynamicFontData" id=3]
@@ -181,15 +154,16 @@ font_data = SubResource( 1 )
 script = ExtResource( 160 )
 
 [node name="Intro" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 6 )
 __meta__ = {
 "_editor_description_": "Animaatio / alustus"
 }
-animation_name = "keppi_anim"
+animation_name = "keppi_intro"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Intro"]
 anims/RESET = SubResource( 14 )
-anims/keppi_anim = SubResource( 15 )
+anims/keppi_intro = ExtResource( 4 )
 
 [node name="image1" type="Sprite" parent="Intro"]
 texture = ExtResource( 3 )
@@ -202,8 +176,10 @@ margin_right = 945.0
 margin_bottom = 264.0
 custom_fonts/font = SubResource( 16 )
 text = "Jännittävää!"
+percent_visible = 0.0
 
 [node name="Ohjeistus" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 10 )
 __meta__ = {
 "_editor_description_": "Ohjeet kuinka peliä pelataan"
@@ -320,6 +296,7 @@ root_node = NodePath("../../..")
 anims/keppi_anim = ExtResource( 1 )
 
 [node name="UI" type="Control" parent="Peli"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 1024.0
