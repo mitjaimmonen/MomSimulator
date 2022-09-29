@@ -61,6 +61,8 @@ func _get_game_res() -> String:
 			return "res://Scenes/GameScenes/GameTietokone.tscn"
 		GameManager.Game.NUOTIO:
 			return "res://Scenes/GameScenes/GameNuotio.tscn"
+		GameManager.Game.KEPPI:
+			return "res://Scenes/GameScenes/GameKeppi.tscn"
 	
 	return ""
 

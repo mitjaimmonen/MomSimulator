@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/GameControllers/Games/GameBase.gd"
 }, {
+"base": "GameBase",
+"class": "GameKeppi",
+"language": "GDScript",
+"path": "res://Scripts/GameControllers/Games/GameKeppi.gd"
+}, {
 "base": "Node2D",
 "class": "PlayerGameBase",
 "language": "GDScript",
@@ -26,6 +31,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "GameBase": "",
+"GameKeppi": "",
 "PlayerGameBase": "",
 "PlayerInstance": ""
 }

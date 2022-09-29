@@ -10,10 +10,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 5, 10 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false, true, true ]
+"values": [ true, true ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Label:text")
@@ -22,10 +22,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 4.2, 5.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 3.5, 4, 7.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ "Huh! Ei jaksa meloa...", "", "Onneksi on eväät mukana!" ]
+"values": [ "O Ou...", "", "Nyt ei hyvältä näytä!", "" ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Label:percent_visible")
@@ -34,20 +34,20 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.6, 1.9, 4.2, 5.3, 6.5 ),
+"times": PoolRealArray( 0, 0.6, 1.9, 3.5, 4, 5.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 0.0, 1.0, 1.0, 0.0, 1.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("image0:visible")
+tracks/3/path = NodePath(".:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 5, 10 ),
+"times": PoolRealArray( 0, 9.2, 10 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, false ]
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
 }

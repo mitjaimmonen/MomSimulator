@@ -309,7 +309,7 @@
 [ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0292.png" type="Texture" id=307]
 [ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0293.png" type="Texture" id=308]
 [ext_resource path="res://Textures & Sprites/intro/mom-sim-intro0291.png" type="Texture" id=309]
-[ext_resource path="res://Scenes/MainScene.gd" type="Script" id=310]
+[ext_resource path="res://Scripts/SolutionControllers/MainScene.gd" type="Script" id=310]
 [ext_resource path="res://Textures & Sprites/Lobby/lobby0012.png" type="Texture" id=311]
 [ext_resource path="res://Textures & Sprites/Lobby/lobby0004.png" type="Texture" id=312]
 [ext_resource path="res://Textures & Sprites/Lobby/lobby0008.png" type="Texture" id=313]
@@ -663,7 +663,7 @@ anims/lobby_anim = SubResource( 23 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SolutionStates/LOBBY"]
 frames = SubResource( 19 )
-frame = 6
+frame = 4
 playing = true
 centered = false
 

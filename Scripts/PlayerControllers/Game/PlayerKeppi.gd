@@ -1,23 +1,74 @@
 extends PlayerGameBase
 
+# gameplay
+var stick_appear_time_ms : int = 0
+var button_press_time_ms : int = 0
+var reacted : bool = false
+var processed_points : bool = false
+var is_playing : bool = false
+var time_ms : int = 0
+
+
 func _ready():
 	game = GameManager.Game.KEPPI
 
-func _process(delta):
-	match GameManager.get_game_state():
-		GameManager.GameState.GUIDE:
-			_process_guide(delta)
-		GameManager.GameState.PLAY:
-			_process_gameplay(delta)
+
+func _play_started():
+	print("PlayerKeppi: play started")
+	is_playing = true
+	player_instance.set_current_points(0)
+	player_instance.update_game_stats()
+	game_container.connect("stick_appeared", self, "on_stick_appeared")
+
+func _play_finished():
+	print("PlayerKeppi: play finished")
+	is_playing = false
+	player_instance.count_total_points()
+	player_instance.update_game_stats()
+
+
+func _process_guide(_delta):
 	pass
 
-func _input(_event):
-	pass
+
+func _process_guide_input(event : InputEvent):
+	if event.device != player_instance.controller_id:
+		return
 	
-func _process_guide(_delta):
-	# check if player is ready
-	pass
+	if !player_instance.is_ready():
+		if event.is_pressed():
+			player_instance.set_ready(true)
+
 
 func _process_gameplay(_delta):
-	# check for game conditions and mechanics, points etc
-	pass
+	if !is_playing:
+		return
+	
+	if reacted and not processed_points:
+		var time = float(button_press_time_ms - stick_appear_time_ms) / 1000
+		var points = abs(5.0 - time) * (5.0 - time) * 100
+		player_instance.set_current_points(points)
+		player_instance.update_game_stats()
+		processed_points = true
+
+
+func _process_gameplay_input(event: InputEvent):
+	if !is_playing:
+		return
+		
+	if event.device != player_instance.controller_id:
+		return
+		
+	if stick_appear_time_ms != 0 and not reacted:
+		if event.is_pressed():
+			button_press_time_ms = Time.get_ticks_msec()
+			reacted = true
+
+
+func on_stick_appeared():
+	Input.start_joy_vibration(player_instance.controller_id, 1.0, 1.0, 0.1)
+	stick_appear_time_ms = Time.get_ticks_msec()
+
+
+
+

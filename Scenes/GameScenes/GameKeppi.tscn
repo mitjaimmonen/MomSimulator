@@ -1,0 +1,434 @@
+[gd_scene load_steps=74 format=2]
+
+[ext_resource path="res://Animations/gameplay/melonta_anim.tres" type="Animation" id=1]
+[ext_resource path="res://theme.tres" type="Theme" id=2]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0001.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/GameControllers/GameIntro.gd" type="Script" id=6]
+[ext_resource path="res://Textures & Sprites/controller_sprites/controller_2.png" type="Texture" id=7]
+[ext_resource path="res://Textures & Sprites/controller_sprites/controller_1.png" type="Texture" id=8]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0003.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/GameControllers/GameGuide.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/GameControllers/GameOutro.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/GameControllers/GamePlay.gd" type="Script" id=12]
+[ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_1.png" type="Texture" id=13]
+[ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_3.png" type="Texture" id=14]
+[ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_4.png" type="Texture" id=15]
+[ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_2.png" type="Texture" id=16]
+[ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_5.png" type="Texture" id=17]
+[ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_6.png" type="Texture" id=18]
+[ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_7.png" type="Texture" id=19]
+[ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_8.png" type="Texture" id=20]
+[ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_9.png" type="Texture" id=21]
+[ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_13.png" type="Texture" id=22]
+[ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_10.png" type="Texture" id=23]
+[ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_11.png" type="Texture" id=24]
+[ext_resource path="res://Textures & Sprites/controller_sprites/controller_buttons_12.png" type="Texture" id=25]
+[ext_resource path="res://Animations/controller_anim_rb_lb.tres" type="Animation" id=26]
+[ext_resource path="res://Textures & Sprites/controller_sprites/joycon_1.png" type="Texture" id=27]
+[ext_resource path="res://Textures & Sprites/controller_sprites/joycon_2.png" type="Texture" id=28]
+[ext_resource path="res://Textures & Sprites/controller_sprites/joycon_buttons_3.png" type="Texture" id=29]
+[ext_resource path="res://Textures & Sprites/controller_sprites/joycon_buttons_2.png" type="Texture" id=30]
+[ext_resource path="res://Textures & Sprites/controller_sprites/joycon_buttons_5.png" type="Texture" id=31]
+[ext_resource path="res://Textures & Sprites/controller_sprites/joycon_buttons_4.png" type="Texture" id=32]
+[ext_resource path="res://Textures & Sprites/controller_sprites/joycon_buttons_1.png" type="Texture" id=33]
+[ext_resource path="res://Textures & Sprites/controller_sprites/joycon_buttons_6.png" type="Texture" id=134]
+[ext_resource path="res://Animations/controller_anim_all.tres" type="Animation" id=135]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0004.png" type="Texture" id=136]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0006.png" type="Texture" id=137]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0007.png" type="Texture" id=138]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0002.png" type="Texture" id=139]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0005.png" type="Texture" id=140]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0008.png" type="Texture" id=141]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0010.png" type="Texture" id=142]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0011.png" type="Texture" id=143]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0009.png" type="Texture" id=144]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0012.png" type="Texture" id=145]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0013.png" type="Texture" id=146]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0019.png" type="Texture" id=147]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0018.png" type="Texture" id=148]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0021.png" type="Texture" id=149]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0025.png" type="Texture" id=150]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0022.png" type="Texture" id=151]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0026.png" type="Texture" id=152]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0016.png" type="Texture" id=153]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0017.png" type="Texture" id=154]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0020.png" type="Texture" id=155]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0015.png" type="Texture" id=156]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0023.png" type="Texture" id=157]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0014.png" type="Texture" id=158]
+[ext_resource path="res://Textures & Sprites/keppi/mom-sim-keppi0024.png" type="Texture" id=159]
+[ext_resource path="res://Scripts/GameControllers/Games/GameKeppi.gd" type="Script" id=160]
+
+[sub_resource type="Animation" id=14]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "keppi_anim"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2.6, 3.2, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.7, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
+
+[sub_resource type="DynamicFont" id=16]
+size = 61
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 63
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 35
+font_data = SubResource( 1 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "controller",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ null, ExtResource( 13 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "controller_buttons",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ ExtResource( 27 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "joycon",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 33 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 134 ) ],
+"loop": true,
+"name": "joycon_buttons",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 139 ), ExtResource( 9 ), ExtResource( 136 ), ExtResource( 140 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 141 ), ExtResource( 144 ), ExtResource( 142 ), ExtResource( 143 ), ExtResource( 145 ), ExtResource( 146 ), ExtResource( 158 ), ExtResource( 156 ), ExtResource( 153 ), ExtResource( 154 ), ExtResource( 148 ), ExtResource( 147 ), ExtResource( 155 ), ExtResource( 149 ), ExtResource( 151 ), ExtResource( 157 ), ExtResource( 159 ), ExtResource( 150 ), ExtResource( 152 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://Fonts/palamecia-titling/palamecia titling.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 122
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = SubResource( 6 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 129
+font_data = SubResource( 1 )
+
+[node name="Keppi" type="Node2D"]
+script = ExtResource( 160 )
+
+[node name="Intro" type="Node2D" parent="."]
+script = ExtResource( 6 )
+__meta__ = {
+"_editor_description_": "Animaatio / alustus"
+}
+animation_name = "keppi_anim"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Intro"]
+anims/RESET = SubResource( 14 )
+anims/keppi_anim = SubResource( 15 )
+
+[node name="image1" type="Sprite" parent="Intro"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Label" type="Label" parent="Intro"]
+margin_left = 560.0
+margin_top = 154.0
+margin_right = 945.0
+margin_bottom = 264.0
+custom_fonts/font = SubResource( 16 )
+text = "Jännittävää!"
+
+[node name="Ohjeistus" type="Node2D" parent="."]
+script = ExtResource( 10 )
+__meta__ = {
+"_editor_description_": "Ohjeet kuinka peliä pelataan"
+}
+
+[node name="GameVisuals2" type="Node2D" parent="Ohjeistus"]
+
+[node name="Background" type="Sprite" parent="Ohjeistus/GameVisuals2"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="UI2" type="Control" parent="Ohjeistus"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 768.0
+__meta__ = {
+"_editor_description_": "Overlaps Viewport (game scenes)"
+}
+
+[node name="Dim Panel2" type="Panel" parent="Ohjeistus/UI2"]
+modulate = Color( 0.137255, 0.137255, 0.137255, 0.827451 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Guide Label" type="Label" parent="Ohjeistus/UI2"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 984.0
+margin_bottom = 129.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "Keppi tulee nurkan takaa:"
+align = 1
+autowrap = true
+
+[node name="Guide Label3" type="Label" parent="Ohjeistus/UI2"]
+margin_left = 40.0
+margin_top = 137.0
+margin_right = 984.0
+margin_bottom = 374.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 5 )
+text = "Kun talon takaa ilmestyy keppi,
+Paina jotain nappia nopeasti!
+"
+align = 1
+autowrap = true
+
+[node name="Guide Label4" type="Label" parent="Ohjeistus/UI2/Guide Label3"]
+margin_top = 117.0
+margin_right = 944.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 5 )
+text = "Testaa nyt painaa nappulaa."
+align = 1
+autowrap = true
+
+[node name="ControllerVisual" type="Node2D" parent="Ohjeistus"]
+position = Vector2( 262, 236 )
+
+[node name="ControllerSprite" type="AnimatedSprite" parent="Ohjeistus/ControllerVisual"]
+position = Vector2( 49.4999, 189.375 )
+scale = Vector2( 0.368164, 0.368164 )
+frames = SubResource( 9 )
+animation = "controller"
+frame = 1
+
+[node name="ControllerButtonsSprite" type="AnimatedSprite" parent="Ohjeistus/ControllerVisual"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 49.4999, 189.375 )
+scale = Vector2( 0.368164, 0.368164 )
+frames = SubResource( 8 )
+animation = "controller_buttons"
+frame = 1
+
+[node name="JoyconSprite" type="AnimatedSprite" parent="Ohjeistus/ControllerVisual"]
+position = Vector2( 443.5, 189.375 )
+scale = Vector2( 0.368164, 0.368164 )
+frames = SubResource( 10 )
+animation = "joycon"
+frame = 1
+
+[node name="JoyconButtonSprite" type="AnimatedSprite" parent="Ohjeistus/ControllerVisual"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 443.5, 189.375 )
+scale = Vector2( 0.368164, 0.368164 )
+frames = SubResource( 11 )
+animation = "joycon_buttons"
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ohjeistus/ControllerVisual"]
+anims/controller_anim_all = ExtResource( 135 )
+anims/controller_anim_rb_lb = ExtResource( 26 )
+
+[node name="Peli" type="Node2D" parent="."]
+script = ExtResource( 12 )
+
+[node name="GameVisuals" type="Node2D" parent="Peli"]
+
+[node name="animframes" type="AnimatedSprite" parent="Peli/GameVisuals"]
+frames = SubResource( 17 )
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Peli/GameVisuals"]
+root_node = NodePath("../../..")
+anims/keppi_anim = ExtResource( 1 )
+
+[node name="UI" type="Control" parent="Peli"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 768.0
+__meta__ = {
+"_editor_description_": "Overlaps Viewport (game scenes)"
+}
+
+[node name="Dim Panel" type="Panel" parent="Peli/UI"]
+modulate = Color( 1, 1, 1, 0.627451 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Guide Label" type="Label" parent="Peli/UI"]
+anchor_right = 1.0
+margin_left = 48.0
+margin_top = 96.0
+margin_right = -48.0
+margin_bottom = 253.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "Paina nappulaa kun keppi tulee nurkan takaa!"
+align = 1
+autowrap = true
+
+[node name="Timer Label" type="Label" parent="Peli/UI"]
+anchor_top = 0.36
+anchor_right = 1.0
+anchor_bottom = 0.558594
+custom_fonts/font = SubResource( 7 )
+text = "3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Outro" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 11 )
+
+[node name="GameVisuals2" type="Node2D" parent="Outro"]
+
+[node name="Background" type="Sprite" parent="Outro/GameVisuals2"]
+texture = ExtResource( 152 )
+centered = false
+
+[node name="UI" type="Control" parent="Outro"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 768.0
+__meta__ = {
+"_editor_description_": "Overlaps Viewport (game scenes)"
+}
+
+[node name="Dim Panel" type="Panel" parent="Outro/UI"]
+modulate = Color( 1, 1, 1, 0.627451 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Finish Label" type="Label" parent="Outro/UI"]
+visible = false
+anchor_right = 1.0
+margin_top = 140.0
+margin_bottom = 455.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 13 )
+text = "Keppi bongattu!!"
+align = 1
+autowrap = true
+
+[node name="Winner Label" type="Label" parent="Outro/UI"]
+anchor_right = 1.0
+margin_top = 96.0
+margin_bottom = 179.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "Jännityksen helpotus:"
+align = 1
+autowrap = true
+
+[node name="Player Name Label" type="Label" parent="Outro/UI"]
+anchor_right = 1.0
+margin_top = 172.0
+margin_bottom = 257.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "Donitsi!"
+align = 1
+autowrap = true
+
+[node name="Winner Score Label" type="Label" parent="Outro/UI"]
+anchor_right = 1.0
+margin_top = 500.0
+margin_bottom = 629.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "9999 
+Pistettä"
+align = 1
+autowrap = true

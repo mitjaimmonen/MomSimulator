@@ -1,7 +1,7 @@
 [gd_scene load_steps=52 format=2]
 
+[ext_resource path="res://Animations/controller_anim_all.tres" type="Animation" id=1]
 [ext_resource path="res://theme.tres" type="Theme" id=2]
-[ext_resource path="res://Animations/GameScenescontroller_anim_all.tres" type="Animation" id=3]
 [ext_resource path="res://Textures & Sprites/Tietokone/tietokone-1.png" type="Texture" id=4]
 [ext_resource path="res://Textures & Sprites/Tietokone/tietokone-2.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/GameControllers/GameIntro.gd" type="Script" id=6]
@@ -165,7 +165,6 @@ autowrap = true
 percent_visible = 0.0
 
 [node name="Ohjeistus" type="Node2D" parent="."]
-visible = false
 script = ExtResource( 10 )
 __meta__ = {
 "_editor_description_": "Ohjeet kuinka peliä pelataan"
@@ -252,10 +251,11 @@ animation = "joycon_buttons"
 frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ohjeistus/ControllerVisual"]
-anims/controller_anim_all = ExtResource( 3 )
+anims/controller_anim_all = ExtResource( 1 )
 anims/controller_anim_rb_lb = ExtResource( 26 )
 
 [node name="Peli" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 12 )
 
 [node name="GameVisuals" type="Node2D" parent="Peli"]

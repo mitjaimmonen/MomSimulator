@@ -18,7 +18,7 @@ onready var audio_splash_small = load("res://Audio/Effects/splash-small.ogg")
 onready var gameplay_anim : AnimationPlayer = get_node("Peli/GameVisuals/AnimationPlayer") as AnimationPlayer
 onready var gameplay_music : AudioStream = load("res://Audio/game-play-fast-8bit.ogg")
 var gameplay_start_time_ms : int = 0
-var game_length : float = 10
+var game_length : float = 14
 var is_play : bool = false
 
 
