@@ -663,7 +663,7 @@ anims/lobby_anim = SubResource( 23 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SolutionStates/LOBBY"]
 frames = SubResource( 19 )
-frame = 11
+frame = 6
 playing = true
 centered = false
 
