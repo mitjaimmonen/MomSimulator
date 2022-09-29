@@ -663,7 +663,7 @@ anims/lobby_anim = SubResource( 23 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SolutionStates/LOBBY"]
 frames = SubResource( 19 )
-frame = 4
+frame = 9
 playing = true
 centered = false
 
@@ -860,6 +860,7 @@ margin_left = 300.0
 margin_top = 208.0
 margin_right = 724.0
 margin_bottom = 280.0
+theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 10 )
 text = "Jatka"
 

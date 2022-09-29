@@ -1,6 +1,7 @@
 extends Node2D
 
-var debug_skip_game_intro : bool = false
+var skip_intro : bool = false
+var skip_game_intro : bool = false
 
 enum SolutionState {
 	SPLASH,
@@ -19,9 +20,9 @@ enum GameState {
 	FINISH,
 }
 enum Game {
-	KEPPI,
 	MELONTA,
 	NUOTIO,
+	KEPPI,
 	TIETOKONE,
 	SANOMALEHTI,
 	MITJA_TALOSSA,
@@ -36,7 +37,6 @@ var _solution_state = SolutionState.SPLASH
 var _game_state = GameState.NONE
 var _current_game = Game.MELONTA
 var resetting : bool = false
-var skip_intro : bool = true
 
 
 func _ready():

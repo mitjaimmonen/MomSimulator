@@ -154,7 +154,6 @@ font_data = SubResource( 1 )
 script = ExtResource( 160 )
 
 [node name="Intro" type="Node2D" parent="."]
-visible = false
 script = ExtResource( 6 )
 __meta__ = {
 "_editor_description_": "Animaatio / alustus"
@@ -170,16 +169,15 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="Label" type="Label" parent="Intro"]
-margin_left = 560.0
+margin_left = 544.0
 margin_top = 154.0
-margin_right = 945.0
-margin_bottom = 264.0
+margin_right = 1026.0
+margin_bottom = 459.0
 custom_fonts/font = SubResource( 16 )
-text = "Jännittävää!"
-percent_visible = 0.0
+text = "Tuleekohan keppi kohta nurkan takaa"
+autowrap = true
 
 [node name="Ohjeistus" type="Node2D" parent="."]
-visible = false
 script = ExtResource( 10 )
 __meta__ = {
 "_editor_description_": "Ohjeet kuinka peliä pelataan"
@@ -283,6 +281,7 @@ anims/controller_anim_all = ExtResource( 135 )
 anims/controller_anim_rb_lb = ExtResource( 26 )
 
 [node name="Peli" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 12 )
 
 [node name="GameVisuals" type="Node2D" parent="Peli"]
@@ -292,11 +291,9 @@ frames = SubResource( 17 )
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Peli/GameVisuals"]
-root_node = NodePath("../../..")
 anims/keppi_anim = ExtResource( 1 )
 
 [node name="UI" type="Control" parent="Peli"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 1024.0

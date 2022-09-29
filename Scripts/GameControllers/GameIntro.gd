@@ -19,7 +19,7 @@ func _on_game_state_changed():
 		running = true
 		visible = true
 		
-		if GameManager.debug_skip_game_intro:
+		if GameManager.skip_game_intro:
 			print("GameIntro: skipping intro")
 			_on_animation_finished("")
 			return

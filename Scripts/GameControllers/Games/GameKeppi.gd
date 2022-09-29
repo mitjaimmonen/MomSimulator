@@ -25,7 +25,7 @@ var is_play : bool = false
 func _ready():
 	set_process(true)
 	var _er = GameManager.connect("game_state_changed", self, "_on_game_state_changed")
-	pass
+	game_node.play_finish_sounds = false
 
 
 func _on_game_state_changed():

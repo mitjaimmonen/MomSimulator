@@ -287,7 +287,6 @@ text = "Tulitikut jäi kotiin..."
 autowrap = true
 
 [node name="Ohjeistus" type="Node2D" parent="."]
-visible = false
 script = ExtResource( 10 )
 __meta__ = {
 "_editor_description_": "Ohjeet kuinka peliä pelataan"
