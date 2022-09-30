@@ -51,6 +51,7 @@ AudioController="*res://Scripts/Autoload/AudioController.gd"
 [display]
 
 window/size/height=768
+window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

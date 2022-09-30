@@ -116,7 +116,7 @@ func check_direction(dir_value: float, dir_action : String):
 		last_stick_max_val = dir_value
 		
 		if is_combo:
-			current_combo_points += last_stick_max_val + current_combo_points
+			current_combo_points += (last_stick_max_val * 10) + current_combo_points
 		else:
 			start_combo()
 

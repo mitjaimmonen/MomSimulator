@@ -112,6 +112,7 @@ func stop_music(fade : float):
 		fade_duration = fade
 
 func play_effect(audio_stream : AudioStream, volume: float = 1.0, pitch : float = 1.0):
+	print("Playing sound effect")
 	var player = get_available_sfx_player()
 	player.stream = audio_stream
 	player.pitch_scale = pitch

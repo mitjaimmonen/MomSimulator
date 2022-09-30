@@ -3,7 +3,6 @@ extends Node2D
 signal player_joined(player)
 
 var unused_player_visuals = []
-var used_player_visuals = {}
 var scene_root
 var players = []
 var player_controller_ids = []
@@ -16,6 +15,9 @@ func _ready():
 	_reset()
 	var _er1 = GameManager.connect("reset", self, "_reset")
 	var _er2 = GameManager.connect("solution_state_changed", self, "_on_solution_state_changed")
+
+
+
 
 func _reset():
 	print("PlayerController reset!")
@@ -31,34 +33,44 @@ func _reset():
 
 func _populate_player_visuals():
 	unused_player_visuals.clear()
-	used_player_visuals.clear()
-	
-	var path = "res://Scenes/PrefabScenes/PlayerVisuals/"
-	var files = get_files(path)
-
-	for filepath in files:
-		unused_player_visuals.append(load(path + filepath))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerCakepiece.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerChocolate.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerCookie.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerCotton.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerDonut.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerIcecream.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerLollipop.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerMarshmallow.tscn"))
+	unused_player_visuals.append(load("res://Scenes/PrefabScenes/PlayerVisuals/PlayerMuffin.tscn"))
 
 
 func _populate_player_win_audio():
 	unused_player_win_audio.clear()
-	
-
-	var path = "res://Audio/Effects/win/"
-	var files = get_files(path)
-
-	for filepath in files:
-		unused_player_win_audio.append(load(path + filepath))
+	unused_player_win_audio.append(load("res://Audio/Effects/win/ba-dun-tss.ogg"))
+	unused_player_win_audio.append(load("res://Audio/Effects/win/clapping.ogg"))
+	unused_player_win_audio.append(load("res://Audio/Effects/win/drum-roll.ogg"))
+	unused_player_win_audio.append(load("res://Audio/Effects/win/dun dun dunn.ogg"))
+	unused_player_win_audio.append(load("res://Audio/Effects/win/heaven.ogg"))
+	unused_player_win_audio.append(load("res://Audio/Effects/win/Kids Shouting.mp3"))
+	unused_player_win_audio.append(load("res://Audio/Effects/win/truut.ogg"))
+	unused_player_win_audio.append(load("res://Audio/Effects/win/wow.ogg"))
 
 
 func _populate_player_audio():
 	unused_player_audio.clear()
-	
-	var path = "res://Audio/Effects/player/"
-	var files = get_files(path)
-
-	for filepath in files:
-		unused_player_audio.append(load(path + filepath))
+	unused_player_audio.append(load("res://Audio/Effects/player/arrow-impact.ogg"))
+	unused_player_audio.append(load("res://Audio/Effects/player/bonk.ogg"))
+	unused_player_audio.append(load("res://Audio/Effects/player/cartoon-slip.ogg"))
+	unused_player_audio.append(load("res://Audio/Effects/player/clown-horn.ogg"))
+	unused_player_audio.append(load("res://Audio/Effects/player/drum.ogg"))
+	unused_player_audio.append(load("res://Audio/Effects/player/eat2.ogg"))
+	unused_player_audio.append(load("res://Audio/Effects/player/eat.ogg"))
+	unused_player_audio.append(load("res://Audio/Effects/player/fart.ogg"))
+	unused_player_audio.append(load("res://Audio/Effects/player/ka-ching.ogg"))
+	unused_player_audio.append(load("res://Audio/Effects/player/mouse-clicks.ogg"))
+	unused_player_audio.append(load("res://Audio/Effects/player/punch.ogg"))
+	unused_player_audio.append(load("res://Audio/Effects/player/record-scratch.ogg"))
+	unused_player_audio.append(load("res://Audio/Effects/player/woman.ogg"))
 
 
 func get_files(path : String) -> PoolStringArray :
@@ -112,7 +124,6 @@ func _create_player(var controller_id : int):
 	var visual : Node2D = unused_player_visuals[visual_index].instance()
 	player_instance.add_child(visual)
 	player_instance.move_child(visual, 0)
-	used_player_visuals[player_instance.id] = unused_player_visuals[visual_index]
 	unused_player_visuals.remove(visual_index);
 	
 	if unused_player_audio.size() == 0:

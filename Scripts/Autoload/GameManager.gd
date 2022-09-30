@@ -40,8 +40,12 @@ var resetting : bool = false
 
 
 func _ready():
+	set_process(true)
 	randomize()
 
+func _process(_delta):
+	if Input.is_key_pressed(KEY_ESCAPE):
+		quit_game()
 
 func get_solution_state() :
 	return _solution_state

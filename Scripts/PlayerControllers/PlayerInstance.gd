@@ -43,6 +43,7 @@ func init():
 
 
 func _start_spawn():
+	print("Player spawn")
 	AudioController.play_effect(audio, 0.7)
 	player_visual.play_spawn_anim()
 	spawn_time_ms = Time.get_ticks_msec()
@@ -50,8 +51,8 @@ func _start_spawn():
 	
 	scale = Vector2(2,2)
 	
-	var viewport_width = int(get_viewport_rect().size.x)
-	var viewport_height = int(get_viewport_rect().size.y)
+	var viewport_width = int(get_viewport().size.x)
+	var viewport_height = int(get_viewport().size.y)
 	center_position.x = (viewport_width / 2.0) - ((player_visual.width / 2.0) * scale.x)
 	center_position.y = (viewport_height / 2.0) - ((player_visual.height / 2.0) * scale.x)
 	
@@ -130,6 +131,7 @@ func _congrats_vibe():
 		elif congrats_vibe == 6 && time > 1.9:
 			Input.start_joy_vibration(controller_id, 1, 0, 0.1)
 			congrats_vibe += 1
+
 
 func set_ready(var value : bool):
 	if ready != value:

@@ -22,7 +22,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.3, 4.2, 5.7, 37.5, 39.7, 40.8, 44 ),
+"times": PoolRealArray( 0.3, 4.2, 5.7, 36.7, 39.7, 40.3, 44 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ "", "Hnnng pläääh....", "
@@ -35,7 +35,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 4.2, 5.9, 37.5, 39.8, 40.8 ),
+"times": PoolRealArray( 4.2, 5.9, 36.7, 39.7, 40.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 85, 16 ), Vector2( 85, 16 ), Vector2( 443, 18 ), Vector2( 443, 18 ), Vector2( 460, 190 ) ]
@@ -94,8 +94,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 4.2, 4.8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 4.2, 4.8, 5.9, 36.7, 38, 39.7, 40.3, 41 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 1.0 ]
+"values": [ 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0 ]
 }
