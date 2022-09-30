@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ka-ching.ogg-a7bda11cc37eda9cede99ec62a87f784.oggstr"
+
+[deps]
+
+source_file="res://Audio/Effects/player/ka-ching.ogg"
+dest_files=[ "res://.import/ka-ching.ogg-a7bda11cc37eda9cede99ec62a87f784.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

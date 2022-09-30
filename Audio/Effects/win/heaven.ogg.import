@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/heaven.ogg-8c7f7db8973bd8c0e576c9bf3b85bce8.oggstr"
+
+[deps]
+
+source_file="res://Audio/Effects/win/heaven.ogg"
+dest_files=[ "res://.import/heaven.ogg-8c7f7db8973bd8c0e576c9bf3b85bce8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
