@@ -281,7 +281,6 @@ anims/controller_anim_all = ExtResource( 135 )
 anims/controller_anim_rb_lb = ExtResource( 26 )
 
 [node name="Peli" type="Node2D" parent="."]
-visible = false
 script = ExtResource( 12 )
 
 [node name="GameVisuals" type="Node2D" parent="Peli"]
